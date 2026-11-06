@@ -1,0 +1,47 @@
+{
+  "inventory_timestamp": "2026-11-05T10:30:00",
+  "genuine_academic_datasets": [
+    {
+      "dataset_name": "RAP v2 (Richly Annotated Pedestrian)",
+      "acquisition_status": "IDENTIFIED_ACQUISITION_GUIDE_PROVIDED",
+      "license": "Academic Non-Commercial EULA",
+      "relevant_attribute": "AgeLess16 (Binary attribute 1)",
+      "samples_total": 84928,
+      "location": "data/child_dataset/genuine/rap_v2/"
+    },
+    {
+      "dataset_name": "PETA (PEdesTrian Attribute)",
+      "acquisition_status": "IDENTIFIED_ACQUISITION_GUIDE_PROVIDED",
+      "license": "Academic Non-Commercial (CUHK)",
+      "relevant_attribute": "personalLess15 (Binary attribute)",
+      "samples_total": 19000,
+      "location": "data/child_dataset/genuine/peta/"
+    }
+  ],
+  "authorized_residential_datasets": [
+    {
+      "deployment_type": "Gated Residential Community (COPPA/GDPR Opt-in)",
+      "consent_policy": "Explicit Parental Consent Required",
+      "status": "SPECIFICATION_DEFINED",
+      "location": "data/child_dataset/authorized_residential/"
+    }
+  ],
+  "reference_benchmark_fixtures": [
+    {
+      "fixture_name": "SafeKid AI Child/Adult Reference Fixture",
+      "status": "LOCAL_FIXTURE_GENERATED",
+      "total_samples": 200,
+      "classes": {
+        "CHILD": 80,
+        "ADULT": 80,
+        "AMBIGUOUS": 40
+      },
+      "splits": {
+        "train": 140,
+        "val": 30,
+        "test": 30
+      },
+      "annotations_path": "data/child_dataset/fixtures/annotations.json"
+    }
+  ]
+}

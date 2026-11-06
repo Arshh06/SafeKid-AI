@@ -1,0 +1,4 @@
+Ground_Truth,Pred_CHILD,Pred_ADULT,Pred_UNKNOWN,Total_GT
+CHILD,12,0,0,12
+ADULT,0,9,3,12
+AMBIGUOUS,1,1,6,8

@@ -1,0 +1,68 @@
+{
+  "community_id": "community_demo",
+  "camera_id": "camera_pool_demo",
+  "source_video": "data/demo/pool_safety_demo.mp4",
+  "description": "Manual ground-truth track classifications for controlled demonstration and validation of the generalized child-focused safety event layer. These labels are for testing and evaluation only, NOT for operational surveillance or autonomous demographic profiling.",
+  "provisional_ground_truth_notice": "Tracks 4 and 6 are manually designated as PROVISIONAL ground truth specifically for this synthetic evaluation experiment. Actual ground truth cannot be independently verified from demo video metadata, and visual appearance age inference is strictly not performed.",
+  "annotations": {
+    "1": {
+      "classification": "ADULT",
+      "notes": "Adult standing near east side of pool deck supervising",
+      "confidence": 1.0,
+      "status": "PROVISIONAL"
+    },
+    "2": {
+      "classification": "UNCLASSIFIED",
+      "notes": "Unclassified person near western deck boundary",
+      "confidence": 1.0,
+      "status": "PROVISIONAL"
+    },
+    "3": {
+      "classification": "ADULT",
+      "notes": "Adult seated by north pool deck",
+      "confidence": 1.0,
+      "status": "PROVISIONAL"
+    },
+    "4": {
+      "classification": "CHILD",
+      "notes": "Provisional ground truth: child jumping into pool water basin and climbing onto deck. Manually assigned for synthetic experiment validation; cannot be independently established from demo metadata.",
+      "confidence": 1.0,
+      "status": "PROVISIONAL"
+    },
+    "5": {
+      "classification": "UNCLASSIFIED",
+      "notes": "Unclassified person on southwest perimeter",
+      "confidence": 1.0,
+      "status": "PROVISIONAL"
+    },
+    "6": {
+      "classification": "CHILD",
+      "notes": "Provisional ground truth: child swimming in pool water basin and climbing onto deck. Manually assigned for synthetic experiment validation; cannot be independently established from demo metadata.",
+      "confidence": 1.0,
+      "status": "PROVISIONAL"
+    },
+    "7": {
+      "classification": "UNCLASSIFIED",
+      "notes": "Unclassified person walking on exterior grass perimeter",
+      "confidence": 1.0,
+      "status": "PROVISIONAL"
+    },
+    "8": {
+      "classification": "ADULT",
+      "notes": "Adult walking along southern deck pavement",
+      "confidence": 1.0,
+      "status": "PROVISIONAL"
+    },
+    "9": {
+      "classification": "UNCLASSIFIED",
+      "notes": "Unclassified person in background exterior grass",
+      "confidence": 1.0,
+      "status": "PROVISIONAL"
+    }
+  },
+  "discontinuity_policy": {
+    "handling": "Track IDs are ephemeral ByteTrack assignments and not permanent identities. Unannotated or reassigned IDs strictly default to UNCLASSIFIED with no automatic annotation inheritance.",
+    "known_discontinuities": []
+  }
+}
+

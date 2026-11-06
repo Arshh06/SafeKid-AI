@@ -1,0 +1,4 @@
+# VIRAT Release 2.0 Events Ground Truth
+# event_id event_type duration start_frame end_frame current_frame x y width height
+1 1 72 0 71 0 450 360 465 175
+2 1 72 0 71 0 1250 310 160 335

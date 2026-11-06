@@ -1,0 +1,145 @@
+{
+  "metadata": {
+    "timestamp": "2026-11-05 23:02:57",
+    "sequence_id": "VIRAT_S_000001_sample",
+    "evaluated_frames": 72,
+    "resolution": [
+      1920,
+      1080
+    ],
+    "input_resolution": [
+      640,
+      640
+    ],
+    "confidence_threshold": 0.35,
+    "iou_threshold": 0.45,
+    "device": "cpu",
+    "cpu_threads": 4,
+    "dataset_tier": "fixture",
+    "is_genuine_virat": false
+  },
+  "yolov8n_baseline": {
+    "model_name": "yolov8n",
+    "architecture": "CNN (CSPDarknet + C2f)",
+    "parameters": 3151904,
+    "model_size_mb": 6.23,
+    "latency": {
+      "mean_ms": 140.74,
+      "p50_ms": 118.95,
+      "p95_ms": 175.4,
+      "min_ms": 94.99,
+      "max_ms": 913.09,
+      "fps": 7.11
+    },
+    "detection": {
+      "evaluated_frames": 72,
+      "total_ground_truth_persons": 144,
+      "total_predicted_persons": 38,
+      "true_positives": 38,
+      "false_positives": 0,
+      "false_negatives": 106,
+      "precision": 1.0,
+      "recall": 0.2639,
+      "f1_score": 0.4176,
+      "ap_50": 0.2639,
+      "ap_50_95": 0.1921,
+      "mean_iou": 0.8533,
+      "mean_inference_latency_ms": 140.74,
+      "throughput_fps": 7.11
+    },
+    "tracking": {
+      "evaluated_frames": 72,
+      "total_gt_tracks": 2,
+      "total_predicted_tracks": 3,
+      "id_switches": 1,
+      "fragmentations": 5,
+      "mota": 0.1042,
+      "idf1": 0.1875,
+      "id_precision": 0.9375,
+      "id_recall": 0.1042,
+      "mean_track_continuity": 0.1111
+    },
+    "scale_breakdown": {
+      "small": {
+        "ground_truth": 0,
+        "true_positives": 0,
+        "false_negatives": 0,
+        "recall": 0.0
+      },
+      "medium": {
+        "ground_truth": 0,
+        "true_positives": 0,
+        "false_negatives": 0,
+        "recall": 0.0
+      },
+      "large": {
+        "ground_truth": 144,
+        "true_positives": 38,
+        "false_negatives": 106,
+        "recall": 0.2639
+      }
+    }
+  },
+  "rtdetrv2_candidate": {
+    "model_name": "rtdetr-l",
+    "architecture": "Transformer (HGNetv2 + Hybrid Encoder + Decoder)",
+    "parameters": 32970476,
+    "model_size_mb": 63.43,
+    "latency": {
+      "mean_ms": 1689.38,
+      "p50_ms": 1584.24,
+      "p95_ms": 2245.73,
+      "min_ms": 1339.77,
+      "max_ms": 4412.96,
+      "fps": 0.59
+    },
+    "detection": {
+      "evaluated_frames": 72,
+      "total_ground_truth_persons": 144,
+      "total_predicted_persons": 9,
+      "true_positives": 6,
+      "false_positives": 3,
+      "false_negatives": 138,
+      "precision": 0.6667,
+      "recall": 0.0417,
+      "f1_score": 0.0784,
+      "ap_50": 0.033,
+      "ap_50_95": 0.0165,
+      "mean_iou": 0.7269,
+      "mean_inference_latency_ms": 1689.38,
+      "throughput_fps": 0.59
+    },
+    "tracking": {
+      "evaluated_frames": 72,
+      "total_gt_tracks": 2,
+      "total_predicted_tracks": 0,
+      "id_switches": 0,
+      "fragmentations": 0,
+      "mota": 0.0,
+      "idf1": 0.0,
+      "id_precision": 0.0,
+      "id_recall": 0.0,
+      "mean_track_continuity": 0.0
+    },
+    "scale_breakdown": {
+      "small": {
+        "ground_truth": 0,
+        "true_positives": 0,
+        "false_negatives": 0,
+        "recall": 0.0
+      },
+      "medium": {
+        "ground_truth": 0,
+        "true_positives": 0,
+        "false_negatives": 0,
+        "recall": 0.0
+      },
+      "large": {
+        "ground_truth": 144,
+        "true_positives": 6,
+        "false_negatives": 138,
+        "recall": 0.0417
+      }
+    }
+  }
+}

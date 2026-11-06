@@ -1,0 +1,130 @@
+[
+  {
+    "scenario": "Swimming Pool",
+    "resolution": "848x480",
+    "baseline": {
+      "fps": 5.95,
+      "total_latency_mean_ms": 168.17,
+      "total_latency_median_ms": 156.33,
+      "total_latency_p95_ms": 220.26,
+      "yolo_latency_mean_ms": 137.0,
+      "vis_and_writing_mean_ms": 12.79,
+      "peak_memory_mb": 465.7
+    },
+    "optimized": {
+      "fps": 6.79,
+      "total_latency_mean_ms": 147.16,
+      "total_latency_median_ms": 132.78,
+      "total_latency_p95_ms": 193.17,
+      "yolo_latency_mean_ms": 122.89,
+      "vis_and_writing_mean_ms": 9.48,
+      "peak_memory_mb": 386.0
+    },
+    "improvements": {
+      "fps_gain": 0.84,
+      "fps_gain_pct": 14.1,
+      "total_latency_reduction_ms": 21.01,
+      "total_latency_reduction_pct": 12.5,
+      "yolo_latency_reduction_ms": 14.11,
+      "yolo_latency_reduction_pct": 10.3,
+      "vis_latency_reduction_ms": 3.31,
+      "vis_latency_reduction_pct": 25.9
+    }
+  },
+  {
+    "scenario": "Playground",
+    "resolution": "1280x720",
+    "baseline": {
+      "fps": 5.86,
+      "total_latency_mean_ms": 170.49,
+      "total_latency_median_ms": 167.4,
+      "total_latency_p95_ms": 200.61,
+      "yolo_latency_mean_ms": 137.61,
+      "vis_and_writing_mean_ms": 19.64,
+      "peak_memory_mb": 501.6
+    },
+    "optimized": {
+      "fps": 6.76,
+      "total_latency_mean_ms": 147.87,
+      "total_latency_median_ms": 131.81,
+      "total_latency_p95_ms": 221.51,
+      "yolo_latency_mean_ms": 125.12,
+      "vis_and_writing_mean_ms": 11.8,
+      "peak_memory_mb": 322.8
+    },
+    "improvements": {
+      "fps_gain": 0.9,
+      "fps_gain_pct": 15.4,
+      "total_latency_reduction_ms": 22.62,
+      "total_latency_reduction_pct": 13.3,
+      "yolo_latency_reduction_ms": 12.49,
+      "yolo_latency_reduction_pct": 9.1,
+      "vis_latency_reduction_ms": 7.84,
+      "vis_latency_reduction_pct": 39.9
+    }
+  },
+  {
+    "scenario": "Driveway",
+    "resolution": "1920x1080",
+    "baseline": {
+      "fps": 5.2,
+      "total_latency_mean_ms": 192.16,
+      "total_latency_median_ms": 189.38,
+      "total_latency_p95_ms": 216.29,
+      "yolo_latency_mean_ms": 128.59,
+      "vis_and_writing_mean_ms": 45.15,
+      "peak_memory_mb": 306.7
+    },
+    "optimized": {
+      "fps": 6.72,
+      "total_latency_mean_ms": 148.9,
+      "total_latency_median_ms": 138.13,
+      "total_latency_p95_ms": 204.38,
+      "yolo_latency_mean_ms": 111.27,
+      "vis_and_writing_mean_ms": 22.44,
+      "peak_memory_mb": 261.1
+    },
+    "improvements": {
+      "fps_gain": 1.52,
+      "fps_gain_pct": 29.2,
+      "total_latency_reduction_ms": 43.26,
+      "total_latency_reduction_pct": 22.5,
+      "yolo_latency_reduction_ms": 17.32,
+      "yolo_latency_reduction_pct": 13.5,
+      "vis_latency_reduction_ms": 22.71,
+      "vis_latency_reduction_pct": 50.3
+    }
+  },
+  {
+    "scenario": "Boom Barrier",
+    "resolution": "1920x1080",
+    "baseline": {
+      "fps": 5.07,
+      "total_latency_mean_ms": 197.09,
+      "total_latency_median_ms": 191.86,
+      "total_latency_p95_ms": 219.88,
+      "yolo_latency_mean_ms": 132.78,
+      "vis_and_writing_mean_ms": 45.41,
+      "peak_memory_mb": 268.6
+    },
+    "optimized": {
+      "fps": 6.75,
+      "total_latency_mean_ms": 148.12,
+      "total_latency_median_ms": 140.9,
+      "total_latency_p95_ms": 187.05,
+      "yolo_latency_mean_ms": 110.73,
+      "vis_and_writing_mean_ms": 21.6,
+      "peak_memory_mb": 283.2
+    },
+    "improvements": {
+      "fps_gain": 1.68,
+      "fps_gain_pct": 33.1,
+      "total_latency_reduction_ms": 48.97,
+      "total_latency_reduction_pct": 24.8,
+      "yolo_latency_reduction_ms": 22.04,
+      "yolo_latency_reduction_pct": 16.6,
+      "vis_latency_reduction_ms": 23.8,
+      "vis_latency_reduction_pct": 52.4
+    }
+  }
+]

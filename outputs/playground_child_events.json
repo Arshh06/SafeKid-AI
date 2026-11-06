@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "scenario_id": "scenario_a_playground",
+    "scenario_name": "Playground",
+    "community_id": "community_002",
+    "camera_id": "camera_playground_01",
+    "video_source": "playground_demo.mp4",
+    "frame_width": 1280,
+    "frame_height": 720,
+    "video_fps": 24.0,
+    "total_frames_processed": 240,
+    "execution_duration_seconds": 51.56,
+    "unique_persons_tracked": 2
+  },
+  "summary": {
+    "total_child_events": 1,
+    "child_zone_entries": 0,
+    "child_dwell_alerts": 1,
+    "child_zone_exits": 0,
+    "active_child_track_ids": [
+      1
+    ],
+    "total_excluded_events": 1,
+    "excluded_adult_events": 1,
+    "excluded_unclassified_events": 0,
+    "excluded_adult_track_ids": [
+      2
+    ],
+    "excluded_unclassified_track_ids": [],
+    "total_discontinuities_recorded": 0
+  },
+  "child_events": [
+    {
+      "event_id": "cevt_c9a5fa231b",
+      "event_type": "CHILD_DWELL_TIME_EXCEEDED",
+      "timestamp_ms": 6458.33,
+      "timestamp_seconds": 6.458,
+      "frame_id": 155,
+      "community_id": "community_002",
+      "camera_id": "camera_playground_01",
+      "track_id": 1,
+      "classification": "CHILD",
+      "roi_id": "perimeter_hedge_boundary",
+      "zone_name": "North Perimeter Fence & Dense Hedge",
+      "zone_type": "PERIMETER_FENCE",
+      "severity": "HIGH",
+      "bottom_center": [
+        950.06,
+        162.28
+      ],
+      "bbox_xyxy": [
+        927.18,
+        31.15,
+        972.94,
+        162.28
+      ],
+      "dwell_time_seconds": 4.0,
+      "message": "CHILD DWELL ALERT: Child (Track ID 1) remained in danger zone 'North Perimeter Fence & Dense Hedge' beyond configured threshold (4.0s) [Severity: HIGH]",
+      "underlying_event_id": "evt_ac43298638",
+      "is_loss_of_tracking": false
+    }
+  ],
+  "excluded_events": [
+    {
+      "event_id": "evt_2080061a57",
+      "track_id": 2,
+      "classification": "ADULT",
+      "event_type": "ZONE_ENTRY",
+      "zone_name": "Toddler Sandbox & Swings Area",
+      "zone_type": "PLAYGROUND",
+      "timestamp_ms": 0.0,
+      "frame_id": 0,
+      "reason": "Track ID 2 is verified as ADULT: excluded from child-specific safety alerts."
+    }
+  ],
+  "discontinuities": [],
+  "annotations_used": {
+    "1": {
+      "track_id": 1,
+      "classification": "CHILD",
+      "notes": "Provisional ground truth: child playing in sandbox, moving to perimeter boundary, and dwelling in fence/hedge hazard zone beyond dwell threshold. Manually assigned for synthetic experiment validation; cannot be independently established from demo metadata.",
+      "confidence": 1.0
+    },
+    "2": {
+      "track_id": 2,
+      "classification": "ADULT",
+      "notes": "Adult supervisor seated near toddler sandbox bench. Strictly excluded from child alerts.",
+      "confidence": 1.0
+    }
+  }
+}

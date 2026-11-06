@@ -1,0 +1,11 @@
+Dataset_Tier,Metric,Sample_Count,Point_Estimate,Confidence_Interval_95,Unit
+TIER_1_FIXTURE,Child_Precision,13,92.31%,"[66.7%, 98.6%]",percent
+TIER_1_FIXTURE,Child_Recall,12,100.00%,"[75.8%, 100.0%]",percent
+TIER_1_FIXTURE,Child_F1,12,96.00%,N/A,percent
+TIER_1_FIXTURE,Adult_Precision,10,90.00%,"[59.6%, 98.2%]",percent
+TIER_1_FIXTURE,Adult_Recall,12,75.00%,"[46.8%, 91.1%]",percent
+TIER_1_FIXTURE,Adult_F1,12,81.82%,N/A,percent
+TIER_1_FIXTURE,Unknown_Abstention_Rate,32,28.12%,"[15.6%, 45.4%]",percent
+TIER_1_FIXTURE,False_Child_Per_Adult,12,0.00%,N/A,percent
+TIER_2_REAL_WORLD,Status,0,BLOCKED,Awaiting Academic EULA,status
+TIER_3_RESIDENTIAL,Status,0,AWAITING_PILOT,Awaiting Parental Opt-In,status

@@ -1,0 +1,77 @@
+{
+  "community_id": "community_demo",
+  "camera_id": "camera_pool_demo",
+  "frame_width": 848,
+  "frame_height": 480,
+  "version": "1.1",
+  "calibration_notes": "Calibrated for demo elevated pool camera (848x480) overlooking residential swimming pool at community_demo. Normalized coordinates calibrated to water basin boundary and surrounding composite paved deck with water strictly excluded.",
+  "zones": [
+    {
+      "roi_id": "pool_water_boundary",
+      "name": "Swimming Pool Water Basin",
+      "zone_type": "SWIMMING_POOL_BOUNDARY",
+      "polygon": [
+        [0.5354, 0.3938],
+        [0.8420, 0.5062],
+        [0.6863, 0.8062],
+        [0.2040, 0.5438]
+      ],
+      "severity": "CRITICAL",
+      "enabled": true,
+      "dwell_time_seconds": 0.0,
+      "policy": {
+        "zone_role": "DANGER",
+        "entry_alert": true,
+        "exit_alert": true,
+        "dwell_alert": false,
+        "severity": "CRITICAL"
+      },
+      "description": "Immediate water perimeter of the swimming pool. Critical hazard zone; triggers immediate safety alert upon ground-contact entry.",
+      "is_normalized": true
+    },
+    {
+      "roi_id": "pool_deck_enclosure",
+      "name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "polygons": [
+        [
+          [0.3774, 0.2500],
+          [0.9906, 0.4167],
+          [0.8420, 0.5062],
+          [0.5354, 0.3938]
+        ],
+        [
+          [0.9906, 0.4167],
+          [0.7783, 0.9792],
+          [0.6863, 0.8062],
+          [0.8420, 0.5062]
+        ],
+        [
+          [0.6863, 0.8062],
+          [0.7783, 0.9792],
+          [0.0708, 0.6458],
+          [0.2040, 0.5438]
+        ],
+        [
+          [0.0708, 0.6458],
+          [0.3774, 0.2500],
+          [0.5354, 0.3938],
+          [0.2040, 0.5438]
+        ]
+      ],
+      "severity": "HIGH",
+      "enabled": true,
+      "dwell_time_seconds": 3.0,
+      "policy": {
+        "zone_role": "MONITORED",
+        "entry_alert": false,
+        "exit_alert": false,
+        "dwell_alert": true,
+        "dwell_threshold_seconds": 3.0,
+        "severity": "HIGH"
+      },
+      "description": "Paved concrete deck and poolside walkway surrounding the swimming pool (composite multi-polygon excluding the interior water basin). High caution zone; triggers dwell alert if lingering exceeds 3.0 seconds.",
+      "is_normalized": true
+    }
+  ]
+}

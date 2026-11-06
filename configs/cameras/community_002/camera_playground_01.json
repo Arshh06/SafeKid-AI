@@ -1,0 +1,56 @@
+{
+  "community_id": "community_002",
+  "camera_id": "camera_playground_01",
+  "frame_width": 1280,
+  "frame_height": 720,
+  "version": "1.0",
+  "calibration_notes": "Calibrated for Palm Grove Villa Enclave Central Playground monitoring swings and north boundary.",
+  "zones": [
+    {
+      "roi_id": "toddler_play_sandbox",
+      "name": "Toddler Sandbox & Swings Area",
+      "zone_type": "PLAYGROUND",
+      "polygon": [
+        [150.0, 180.0],
+        [680.0, 190.0],
+        [650.0, 580.0],
+        [120.0, 560.0]
+      ],
+      "severity": "LOW",
+      "enabled": true,
+      "dwell_time_seconds": null,
+      "policy": {
+        "zone_role": "SAFE",
+        "entry_alert": false,
+        "exit_alert": false,
+        "dwell_alert": false,
+        "severity": "LOW"
+      },
+      "description": "Safe designated play area with rubber safety mats for toddlers and young children."
+    },
+    {
+      "roi_id": "perimeter_hedge_boundary",
+      "name": "North Perimeter Fence & Dense Hedge",
+      "zone_type": "PERIMETER_FENCE",
+      "polygon": [
+        [750.0, 60.0],
+        [1240.0, 60.0],
+        [1250.0, 260.0],
+        [740.0, 240.0]
+      ],
+      "severity": "HIGH",
+      "enabled": true,
+      "dwell_time_seconds": 4.0,
+      "policy": {
+        "zone_role": "DANGER",
+        "entry_alert": false,
+        "exit_alert": false,
+        "dwell_alert": true,
+        "dwell_threshold_seconds": 4.0,
+        "severity": "HIGH"
+      },
+      "description": "Outer boundary bordering unpaved external terrain and stormwater canal. Alert if person stays > 4s."
+    }
+  ]
+}
+

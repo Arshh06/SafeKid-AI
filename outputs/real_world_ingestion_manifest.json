@@ -1,0 +1,29 @@
+{
+  "audit_timestamp": "2026-11-05T11:30:00",
+  "ingestion_status": "READY_FOR_EULA_DEPOSIT",
+  "scanned_directories": {
+    "rap_v2": {
+      "path": "data/child_dataset/genuine/rap_v2",
+      "exists": false,
+      "sample_count": 0,
+      "status": "BLOCKED_AWAITING_ACADEMIC_EULA",
+      "instructions": "Execute EULA with CASIA/CUHK and deposit verified archives into this directory."
+    },
+    "peta": {
+      "path": "data/child_dataset/genuine/peta",
+      "exists": false,
+      "sample_count": 0,
+      "status": "BLOCKED_AWAITING_ACADEMIC_EULA",
+      "instructions": "Agree to CUHK non-commercial terms and deposit PETA images."
+    },
+    "authorized_residential": {
+      "path": "data/child_dataset/authorized_residential",
+      "exists": true,
+      "sample_count": 0,
+      "status": "AWAITING_ON_SITE_PILOT_ENROLLMENT",
+      "instructions": "Acquire parental opt-in consent forms and deposit community CCTV clips."
+    }
+  },
+  "ingested_real_world_samples_total": 0,
+  "isolation_guarantee": "Real-world data is isolated under data/child_dataset/real_world/ and never mixed with synthetic fixtures."
+}

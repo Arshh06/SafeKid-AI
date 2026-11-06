@@ -1,0 +1,469 @@
+{
+  "metadata": {
+    "community_id": "community_demo",
+    "camera_id": "camera_pool_demo",
+    "video_source": "pool_safety_demo.mp4",
+    "frame_width": 848,
+    "frame_height": 480,
+    "video_fps": 24.0,
+    "total_frames_processed": 240,
+    "execution_duration_seconds": 42.09,
+    "unique_persons_tracked": 9
+  },
+  "summary": {
+    "total_child_events": 6,
+    "child_zone_entries": 2,
+    "child_dwell_alerts": 2,
+    "child_zone_exits": 2,
+    "active_child_track_ids": [
+      4,
+      6
+    ],
+    "total_excluded_events": 18,
+    "excluded_adult_events": 10,
+    "excluded_unclassified_events": 8,
+    "excluded_adult_track_ids": [
+      1,
+      3,
+      8
+    ],
+    "excluded_unclassified_track_ids": [
+      2,
+      5
+    ],
+    "total_discontinuities_recorded": 0
+  },
+  "child_events": [
+    {
+      "event_id": "cevt_8d04571580",
+      "event_type": "CHILD_ZONE_ENTRY",
+      "timestamp_ms": 416.67,
+      "timestamp_seconds": 0.417,
+      "frame_id": 10,
+      "community_id": "community_demo",
+      "camera_id": "camera_pool_demo",
+      "track_id": 4,
+      "classification": "CHILD",
+      "roi_id": "pool_water_boundary",
+      "zone_name": "Swimming Pool Water Basin",
+      "zone_type": "SWIMMING_POOL_BOUNDARY",
+      "severity": "CRITICAL",
+      "bottom_center": [
+        473.55,
+        200.81
+      ],
+      "bbox_xyxy": [
+        463.94,
+        143.96,
+        483.17,
+        200.81
+      ],
+      "dwell_time_seconds": 0.0,
+      "message": "CHILD SAFETY ALERT: Child (Track ID 4) entered configured danger zone 'Swimming Pool Water Basin' (SWIMMING_POOL_BOUNDARY) [Severity: CRITICAL]",
+      "underlying_event_id": "evt_8b306b084d",
+      "is_loss_of_tracking": false
+    },
+    {
+      "event_id": "cevt_3f4a2cee9b",
+      "event_type": "CHILD_ZONE_ENTRY",
+      "timestamp_ms": 916.67,
+      "timestamp_seconds": 0.917,
+      "frame_id": 22,
+      "community_id": "community_demo",
+      "camera_id": "camera_pool_demo",
+      "track_id": 6,
+      "classification": "CHILD",
+      "roi_id": "pool_water_boundary",
+      "zone_name": "Swimming Pool Water Basin",
+      "zone_type": "SWIMMING_POOL_BOUNDARY",
+      "severity": "CRITICAL",
+      "bottom_center": [
+        465.41,
+        202.75
+      ],
+      "bbox_xyxy": [
+        455.09,
+        160.5,
+        475.72,
+        202.75
+      ],
+      "dwell_time_seconds": 0.0,
+      "message": "CHILD SAFETY ALERT: Child (Track ID 6) entered configured danger zone 'Swimming Pool Water Basin' (SWIMMING_POOL_BOUNDARY) [Severity: CRITICAL]",
+      "underlying_event_id": "evt_577b82f6ae",
+      "is_loss_of_tracking": false
+    },
+    {
+      "event_id": "cevt_b563880f7e",
+      "event_type": "CHILD_ZONE_EXIT",
+      "timestamp_ms": 2625.0,
+      "timestamp_seconds": 2.625,
+      "frame_id": 63,
+      "community_id": "community_demo",
+      "camera_id": "camera_pool_demo",
+      "track_id": 4,
+      "classification": "CHILD",
+      "roi_id": "pool_water_boundary",
+      "zone_name": "Swimming Pool Water Basin",
+      "zone_type": "SWIMMING_POOL_BOUNDARY",
+      "severity": "CRITICAL",
+      "bottom_center": [
+        525.62,
+        203.87
+      ],
+      "bbox_xyxy": [
+        515.29,
+        148.44,
+        535.96,
+        203.87
+      ],
+      "dwell_time_seconds": 2.21,
+      "message": "Child (Track ID 4) exited configured danger zone 'Swimming Pool Water Basin' after 2.2s",
+      "underlying_event_id": "evt_9adbcdbfe4",
+      "is_loss_of_tracking": false
+    },
+    {
+      "event_id": "cevt_2d0fdcaf0b",
+      "event_type": "CHILD_ZONE_EXIT",
+      "timestamp_ms": 5041.67,
+      "timestamp_seconds": 5.042,
+      "frame_id": 121,
+      "community_id": "community_demo",
+      "camera_id": "camera_pool_demo",
+      "track_id": 6,
+      "classification": "CHILD",
+      "roi_id": "pool_water_boundary",
+      "zone_name": "Swimming Pool Water Basin",
+      "zone_type": "SWIMMING_POOL_BOUNDARY",
+      "severity": "CRITICAL",
+      "bottom_center": [
+        558.24,
+        210.2
+      ],
+      "bbox_xyxy": [
+        550.54,
+        172.04,
+        565.95,
+        210.2
+      ],
+      "dwell_time_seconds": 4.12,
+      "message": "Child (Track ID 6) exited configured danger zone 'Swimming Pool Water Basin' after 4.1s",
+      "underlying_event_id": "evt_8ee809206f",
+      "is_loss_of_tracking": false
+    },
+    {
+      "event_id": "cevt_394ab2f1c6",
+      "event_type": "CHILD_DWELL_TIME_EXCEEDED",
+      "timestamp_ms": 5625.0,
+      "timestamp_seconds": 5.625,
+      "frame_id": 135,
+      "community_id": "community_demo",
+      "camera_id": "camera_pool_demo",
+      "track_id": 4,
+      "classification": "CHILD",
+      "roi_id": "pool_deck_enclosure",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "severity": "HIGH",
+      "bottom_center": [
+        594.57,
+        211.85
+      ],
+      "bbox_xyxy": [
+        583.23,
+        153.06,
+        605.91,
+        211.85
+      ],
+      "dwell_time_seconds": 3.0,
+      "message": "CHILD DWELL ALERT: Child (Track ID 4) remained in monitored area 'Pool Deck & Surrounding Pavement' beyond configured threshold (3.0s) [Severity: HIGH]",
+      "underlying_event_id": "evt_b0365e0419",
+      "is_loss_of_tracking": false
+    },
+    {
+      "event_id": "cevt_3cf3d884a5",
+      "event_type": "CHILD_DWELL_TIME_EXCEEDED",
+      "timestamp_ms": 8041.67,
+      "timestamp_seconds": 8.042,
+      "frame_id": 193,
+      "community_id": "community_demo",
+      "camera_id": "camera_pool_demo",
+      "track_id": 6,
+      "classification": "CHILD",
+      "roi_id": "pool_deck_enclosure",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "severity": "HIGH",
+      "bottom_center": [
+        614.76,
+        216.85
+      ],
+      "bbox_xyxy": [
+        605.55,
+        170.57,
+        623.97,
+        216.85
+      ],
+      "dwell_time_seconds": 3.0,
+      "message": "CHILD DWELL ALERT: Child (Track ID 6) remained in monitored area 'Pool Deck & Surrounding Pavement' beyond configured threshold (3.0s) [Severity: HIGH]",
+      "underlying_event_id": "evt_853d61e1a3",
+      "is_loss_of_tracking": false
+    }
+  ],
+  "excluded_events": [
+    {
+      "event_id": "evt_e79d967f76",
+      "track_id": 1,
+      "classification": "ADULT",
+      "event_type": "ZONE_ENTRY",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "timestamp_ms": 0.0,
+      "frame_id": 0,
+      "reason": "Track ID 1 is verified as ADULT: excluded from child-specific safety alerts."
+    },
+    {
+      "event_id": "evt_da7f162529",
+      "track_id": 3,
+      "classification": "ADULT",
+      "event_type": "ZONE_ENTRY",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "timestamp_ms": 0.0,
+      "frame_id": 0,
+      "reason": "Track ID 3 is verified as ADULT: excluded from child-specific safety alerts."
+    },
+    {
+      "event_id": "evt_49947eb66c",
+      "track_id": 2,
+      "classification": "UNCLASSIFIED",
+      "event_type": "ZONE_ENTRY",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "timestamp_ms": 2541.67,
+      "frame_id": 61,
+      "reason": "Track ID 2 is UNCLASSIFIED: excluded from child-specific safety alerts."
+    },
+    {
+      "event_id": "evt_60ffd86c74",
+      "track_id": 2,
+      "classification": "UNCLASSIFIED",
+      "event_type": "ZONE_EXIT",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "timestamp_ms": 2666.67,
+      "frame_id": 64,
+      "reason": "Track ID 2 is UNCLASSIFIED: excluded from child-specific safety alerts."
+    },
+    {
+      "event_id": "evt_8461b598a5",
+      "track_id": 1,
+      "classification": "ADULT",
+      "event_type": "DWELL_TIME_EXCEEDED",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "timestamp_ms": 3000.0,
+      "frame_id": 72,
+      "reason": "Track ID 1 is verified as ADULT: excluded from child-specific safety alerts."
+    },
+    {
+      "event_id": "evt_2f52937e7e",
+      "track_id": 3,
+      "classification": "ADULT",
+      "event_type": "DWELL_TIME_EXCEEDED",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "timestamp_ms": 3000.0,
+      "frame_id": 72,
+      "reason": "Track ID 3 is verified as ADULT: excluded from child-specific safety alerts."
+    },
+    {
+      "event_id": "evt_544fa7bf09",
+      "track_id": 5,
+      "classification": "UNCLASSIFIED",
+      "event_type": "ZONE_ENTRY",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "timestamp_ms": 3625.0,
+      "frame_id": 87,
+      "reason": "Track ID 5 is UNCLASSIFIED: excluded from child-specific safety alerts."
+    },
+    {
+      "event_id": "evt_2f4e9cf31a",
+      "track_id": 5,
+      "classification": "UNCLASSIFIED",
+      "event_type": "ZONE_EXIT",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "timestamp_ms": 3750.0,
+      "frame_id": 90,
+      "reason": "Track ID 5 is UNCLASSIFIED: excluded from child-specific safety alerts."
+    },
+    {
+      "event_id": "evt_b2bf95c376",
+      "track_id": 8,
+      "classification": "ADULT",
+      "event_type": "ZONE_ENTRY",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "timestamp_ms": 4833.33,
+      "frame_id": 116,
+      "reason": "Track ID 8 is verified as ADULT: excluded from child-specific safety alerts."
+    },
+    {
+      "event_id": "evt_31a7c95380",
+      "track_id": 2,
+      "classification": "UNCLASSIFIED",
+      "event_type": "ZONE_ENTRY",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "timestamp_ms": 5041.67,
+      "frame_id": 121,
+      "reason": "Track ID 2 is UNCLASSIFIED: excluded from child-specific safety alerts."
+    },
+    {
+      "event_id": "evt_6c22f21e73",
+      "track_id": 3,
+      "classification": "ADULT",
+      "event_type": "ZONE_EXIT",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "timestamp_ms": 5208.33,
+      "frame_id": 125,
+      "reason": "Track ID 3 is verified as ADULT: excluded from child-specific safety alerts."
+    },
+    {
+      "event_id": "evt_3a4985f716",
+      "track_id": 2,
+      "classification": "UNCLASSIFIED",
+      "event_type": "ZONE_EXIT",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "timestamp_ms": 5166.67,
+      "frame_id": 124,
+      "reason": "Track ID 2 is UNCLASSIFIED: excluded from child-specific safety alerts."
+    },
+    {
+      "event_id": "evt_07d88ae766",
+      "track_id": 2,
+      "classification": "UNCLASSIFIED",
+      "event_type": "ZONE_ENTRY",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "timestamp_ms": 6458.33,
+      "frame_id": 155,
+      "reason": "Track ID 2 is UNCLASSIFIED: excluded from child-specific safety alerts."
+    },
+    {
+      "event_id": "evt_2081781c72",
+      "track_id": 2,
+      "classification": "UNCLASSIFIED",
+      "event_type": "ZONE_EXIT",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "timestamp_ms": 6625.0,
+      "frame_id": 159,
+      "reason": "Track ID 2 is UNCLASSIFIED: excluded from child-specific safety alerts."
+    },
+    {
+      "event_id": "evt_8e2c4a0fe8",
+      "track_id": 1,
+      "classification": "ADULT",
+      "event_type": "ZONE_EXIT",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "timestamp_ms": 7333.33,
+      "frame_id": 176,
+      "reason": "Track ID 1 is verified as ADULT: excluded from child-specific safety alerts."
+    },
+    {
+      "event_id": "evt_200489d13d",
+      "track_id": 8,
+      "classification": "ADULT",
+      "event_type": "DWELL_TIME_EXCEEDED",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "timestamp_ms": 7833.33,
+      "frame_id": 188,
+      "reason": "Track ID 8 is verified as ADULT: excluded from child-specific safety alerts."
+    },
+    {
+      "event_id": "evt_10164f280c",
+      "track_id": 1,
+      "classification": "ADULT",
+      "event_type": "ZONE_ENTRY",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "timestamp_ms": 9375.0,
+      "frame_id": 225,
+      "reason": "Track ID 1 is verified as ADULT: excluded from child-specific safety alerts."
+    },
+    {
+      "event_id": "evt_a7992b2e4c",
+      "track_id": 8,
+      "classification": "ADULT",
+      "event_type": "ZONE_EXIT",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "timestamp_ms": 9416.67,
+      "frame_id": 226,
+      "reason": "Track ID 8 is verified as ADULT: excluded from child-specific safety alerts."
+    }
+  ],
+  "discontinuities": [],
+  "annotations_used": {
+    "1": {
+      "track_id": 1,
+      "classification": "ADULT",
+      "notes": "Adult standing near east side of pool deck supervising",
+      "confidence": 1.0
+    },
+    "2": {
+      "track_id": 2,
+      "classification": "UNCLASSIFIED",
+      "notes": "Unclassified person near western deck boundary",
+      "confidence": 1.0
+    },
+    "3": {
+      "track_id": 3,
+      "classification": "ADULT",
+      "notes": "Adult seated by north pool deck",
+      "confidence": 1.0
+    },
+    "4": {
+      "track_id": 4,
+      "classification": "CHILD",
+      "notes": "Provisional ground truth: child jumping into pool water basin and climbing onto deck. Manually assigned for synthetic experiment validation; cannot be independently established from demo metadata.",
+      "confidence": 1.0
+    },
+    "5": {
+      "track_id": 5,
+      "classification": "UNCLASSIFIED",
+      "notes": "Unclassified person on southwest perimeter",
+      "confidence": 1.0
+    },
+    "6": {
+      "track_id": 6,
+      "classification": "CHILD",
+      "notes": "Provisional ground truth: child swimming in pool water basin and climbing onto deck. Manually assigned for synthetic experiment validation; cannot be independently established from demo metadata.",
+      "confidence": 1.0
+    },
+    "7": {
+      "track_id": 7,
+      "classification": "UNCLASSIFIED",
+      "notes": "Unclassified person walking on exterior grass perimeter",
+      "confidence": 1.0
+    },
+    "8": {
+      "track_id": 8,
+      "classification": "ADULT",
+      "notes": "Adult walking along southern deck pavement",
+      "confidence": 1.0
+    },
+    "9": {
+      "track_id": 9,
+      "classification": "UNCLASSIFIED",
+      "notes": "Unclassified person in background exterior grass",
+      "confidence": 1.0
+    }
+  }
+}

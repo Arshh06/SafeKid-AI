@@ -1,0 +1,149 @@
+{
+  "metadata": {
+    "scenario_id": "scenario_c_boom_barrier",
+    "scenario_name": "Boom Barrier",
+    "community_id": "community_001",
+    "camera_id": "camera_gate_north",
+    "video_source": "boom_barrier_demo.mp4",
+    "frame_width": 1920,
+    "frame_height": 1080,
+    "video_fps": 24.0,
+    "total_frames_processed": 144,
+    "execution_duration_seconds": 22.76,
+    "unique_persons_tracked": 2
+  },
+  "summary": {
+    "total_child_events": 3,
+    "child_zone_entries": 2,
+    "child_dwell_alerts": 1,
+    "child_zone_exits": 0,
+    "active_child_track_ids": [
+      2
+    ],
+    "total_excluded_events": 1,
+    "excluded_adult_events": 1,
+    "excluded_unclassified_events": 0,
+    "excluded_adult_track_ids": [
+      1
+    ],
+    "excluded_unclassified_track_ids": [],
+    "total_discontinuities_recorded": 0
+  },
+  "child_events": [
+    {
+      "event_id": "cevt_dc37706d1d",
+      "event_type": "CHILD_ZONE_ENTRY",
+      "timestamp_ms": 791.67,
+      "timestamp_seconds": 0.792,
+      "frame_id": 19,
+      "community_id": "community_001",
+      "camera_id": "camera_gate_north",
+      "track_id": 2,
+      "classification": "CHILD",
+      "roi_id": "vehicle_driveway_lane",
+      "zone_name": "Main Vehicular Driveway",
+      "zone_type": "VEHICULAR_GATEWAY",
+      "severity": "HIGH",
+      "bottom_center": [
+        901.42,
+        405.16
+      ],
+      "bbox_xyxy": [
+        878.0,
+        278.27,
+        924.84,
+        405.16
+      ],
+      "dwell_time_seconds": 0.0,
+      "message": "CHILD SAFETY ALERT: Child (Track ID 2) entered configured danger zone 'Main Vehicular Driveway' (VEHICULAR_GATEWAY) [Severity: HIGH]",
+      "underlying_event_id": "evt_8410dda518",
+      "is_loss_of_tracking": false
+    },
+    {
+      "event_id": "cevt_b82f8c7dd3",
+      "event_type": "CHILD_ZONE_ENTRY",
+      "timestamp_ms": 1166.67,
+      "timestamp_seconds": 1.167,
+      "frame_id": 28,
+      "community_id": "community_001",
+      "camera_id": "camera_gate_north",
+      "track_id": 2,
+      "classification": "CHILD",
+      "roi_id": "boom_barrier_danger_zone",
+      "zone_name": "Boom Barrier Mechanical Zone",
+      "zone_type": "RESTRICTED_INFRASTRUCTURE",
+      "severity": "CRITICAL",
+      "bottom_center": [
+        901.59,
+        481.99
+      ],
+      "bbox_xyxy": [
+        877.58,
+        354.59,
+        925.59,
+        481.99
+      ],
+      "dwell_time_seconds": 0.0,
+      "message": "CHILD SAFETY ALERT: Child (Track ID 2) entered configured danger zone 'Boom Barrier Mechanical Zone' (RESTRICTED_INFRASTRUCTURE) [Severity: CRITICAL]",
+      "underlying_event_id": "evt_341eff1791",
+      "is_loss_of_tracking": false
+    },
+    {
+      "event_id": "cevt_d0b158d66b",
+      "event_type": "CHILD_DWELL_TIME_EXCEEDED",
+      "timestamp_ms": 2791.67,
+      "timestamp_seconds": 2.792,
+      "frame_id": 67,
+      "community_id": "community_001",
+      "camera_id": "camera_gate_north",
+      "track_id": 2,
+      "classification": "CHILD",
+      "roi_id": "vehicle_driveway_lane",
+      "zone_name": "Main Vehicular Driveway",
+      "zone_type": "VEHICULAR_GATEWAY",
+      "severity": "HIGH",
+      "bottom_center": [
+        898.54,
+        546.44
+      ],
+      "bbox_xyxy": [
+        875.23,
+        425.48,
+        921.85,
+        546.44
+      ],
+      "dwell_time_seconds": 2.0,
+      "message": "CHILD DWELL ALERT: Child (Track ID 2) remained in danger zone 'Main Vehicular Driveway' beyond configured threshold (2.0s) [Severity: HIGH]",
+      "underlying_event_id": "evt_ae1b0e5e9e",
+      "is_loss_of_tracking": false
+    }
+  ],
+  "excluded_events": [
+    {
+      "event_id": "evt_74f11a1db0",
+      "track_id": 1,
+      "classification": "ADULT",
+      "event_type": "ZONE_ENTRY",
+      "zone_name": "Dedicated Pedestrian Sidewalk",
+      "zone_type": "GENERAL_COMMON_AREA",
+      "timestamp_ms": 0.0,
+      "frame_id": 0,
+      "reason": "Track ID 1 is verified as ADULT: excluded from child-specific safety alerts."
+    }
+  ],
+  "discontinuities": [],
+  "annotations_used": {
+    "1": {
+      "track_id": 1,
+      "classification": "ADULT",
+      "notes": "Adult guard / pedestrian standing on sidewalk. Strictly excluded from child alerts.",
+      "confidence": 1.0
+    },
+    "2": {
+      "track_id": 2,
+      "classification": "CHILD",
+      "notes": "Provisional ground truth: child approaching automated vehicular gate from north, stepping into mechanical boom barrier danger zone, and exiting. Manually assigned for synthetic experiment validation; cannot be independently established from demo metadata.",
+      "confidence": 1.0
+    }
+  }
+}

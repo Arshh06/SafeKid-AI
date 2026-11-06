@@ -1,0 +1,1035 @@
+{
+  "backup_archive": "outputs/cleanup_pre_deletion_backup.zip",
+  "total_deleted": 147,
+  "manifest": [
+    {
+      "path": "data/viratzipped.zip",
+      "size": 153240,
+      "sha256": "6d88171f5188077d5974cb5115f4d2fdc250a620dc8f0e0c6e24f6fb10731af8",
+      "category": "REDUNDANT",
+      "action": "DELETE"
+    },
+    {
+      "path": "scratch\\extract_track_crops.py",
+      "size": 1582,
+      "sha256": "b55fca2f6e0d60d0741f720314746aef485c533500e112aed8c788b24f0628b4",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "scratch\\inspect_demo_tracks.py",
+      "size": 679,
+      "sha256": "807f3426658ba8441ed0b7b463a2f9e6741598eb17adfa41c3b7bf3500064fe1",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "scratch\\test_optimizations.py",
+      "size": 3124,
+      "sha256": "1e91c7071ad8a0fcf8c1000fb789ac62d71d829cb26ebcf78e918f4463368ec9",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "scratch\\test_vis_optimization.py",
+      "size": 2068,
+      "sha256": "c61624be7cd83333773092bdf327ea05141b1428f455d09456f85008712966d9",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "scratch\\crops\\track_1_f0.jpg",
+      "size": 3547,
+      "sha256": "2f6fcc141a4a2c18ae812c3a5928dd7a9de6840408c4f77bcc6840623a334e7e",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "scratch\\crops\\track_2_f0.jpg",
+      "size": 2809,
+      "sha256": "4ff1eceba66e353f361496c6a853a2c2f8fd15cecbaf9a2edb40151fdc717771",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "scratch\\crops\\track_3_f0.jpg",
+      "size": 1760,
+      "sha256": "439d9564230966bacac069e907c14990c6e613aea2099cb81ea0fdedf76cabf9",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "scratch\\crops\\track_4_f10.jpg",
+      "size": 1547,
+      "sha256": "f83338cb60e3fc96e747e844509246b565356837dd2f18c3daedf2e5e3af1dcd",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "scratch\\crops\\track_5_f12.jpg",
+      "size": 4270,
+      "sha256": "733db0f863d798d74b8340b6dd38deb1832a412cf14190eb236247affc75891a",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "scratch\\crops\\track_6_f22.jpg",
+      "size": 1375,
+      "sha256": "28d5d6a177e8afdfac65f97233b005ab8f888954f30960b6074bd9c3f70b179f",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "scratch\\crops\\track_7_f74.jpg",
+      "size": 4951,
+      "sha256": "428131dec836241c493e88f156c83de0ffd34ccc105ce6edce368bdec2b2ac4b",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "scratch\\crops\\track_8_f89.jpg",
+      "size": 2847,
+      "sha256": "ca1bd9fb95ee7a537ac4541eb85eda2e5fbab7d623ba13c2a4bcdc9ce91109fd",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "scratch\\crops\\track_9_f163.jpg",
+      "size": 1688,
+      "sha256": "d204d7710a55716e501e87b28a539fc31bc80f98be9950b4e0a9218f4fbdde4d",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\core\\__pycache__\\workspace.cpython-311.pyc",
+      "size": 8032,
+      "sha256": "04d7da5027fa943160cd8cdc69147cbca3f3850b3cd7cef64f1db5ac7e9e3233",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\core\\__pycache__\\yaml_config.cpython-311.pyc",
+      "size": 12719,
+      "sha256": "db0aaf44e1bf2c66fbec34af6632240c8406f1f60433b0a4ca256159c150baa7",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\core\\__pycache__\\yaml_utils.cpython-311.pyc",
+      "size": 5740,
+      "sha256": "9db1d76ffc42a67836af5cadb6e2fb9cdf52f193e3e5adb469687e3594358fce",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\core\\__pycache__\\_config.cpython-311.pyc",
+      "size": 15341,
+      "sha256": "19df2ba7e2134541b03248329c4e2f37634d9538b29be9e3aeaee92334802b4a",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\core\\__pycache__\\__init__.cpython-311.pyc",
+      "size": 561,
+      "sha256": "f31aa94845fd519d4049457e6d4ac189041955d325eb5bf498977c777e2a0456",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\data\\dataset\\__pycache__\\cifar_dataset.cpython-311.pyc",
+      "size": 1442,
+      "sha256": "536e5938f122d859267267e02632a29706b3f315b4061b4f038f986777a449a7",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\data\\dataset\\__pycache__\\coco_dataset.cpython-311.pyc",
+      "size": 15094,
+      "sha256": "5bb7766289907457ab5f747c542f7d6e38394b9f3bd0fb784ad4f4571e127806",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\data\\dataset\\__pycache__\\coco_eval.cpython-311.pyc",
+      "size": 1111,
+      "sha256": "97e110cee83d788a3cdd2bc3dd4861cc2af4d36f95a9d781fbb59632a9bd6317",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\data\\dataset\\__pycache__\\coco_utils.cpython-311.pyc",
+      "size": 12819,
+      "sha256": "820d6834301db5521489affd8ff5fe393a50b5f3fb0430900e7677112889a904",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\data\\dataset\\__pycache__\\voc_detection.cpython-311.pyc",
+      "size": 7447,
+      "sha256": "b1fbf71643af93262b4f45332a46171da1d5de687780bd9866bec1c071cf942a",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\data\\dataset\\__pycache__\\voc_eval.cpython-311.pyc",
+      "size": 766,
+      "sha256": "c913d2061cf5e1aa4203ecacadfadf5aa064765d179f953d9228cf5359a477fd",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\data\\dataset\\__pycache__\\_dataset.cpython-311.pyc",
+      "size": 1746,
+      "sha256": "68f6668f84099c2a9add12d5dcd54431070ab4ac47e8191a8f814bed3ee0debe",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\data\\dataset\\__pycache__\\__init__.cpython-311.pyc",
+      "size": 833,
+      "sha256": "e77329c1fe584875cf9b1c8afaa0e6579bece9dd14c14e195a69651b05adbeb3",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\data\\transforms\\__pycache__\\container.cpython-311.pyc",
+      "size": 4767,
+      "sha256": "681e29021aa675b5e990aed305c90a90aad9eb9cebd690e229f705a1bb31aa8f",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\data\\transforms\\__pycache__\\mosaic.cpython-311.pyc",
+      "size": 4786,
+      "sha256": "24d7cd9ccb039e76ef77b9c99597013f0a7e12c483f293459c2963de32a0f8f1",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\data\\transforms\\__pycache__\\_transforms.cpython-311.pyc",
+      "size": 10141,
+      "sha256": "c64df17aa5cb0ae832b83e9ae95ab64761f73789558c96e7f298d4bfc2996d51",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\data\\transforms\\__pycache__\\__init__.cpython-311.pyc",
+      "size": 875,
+      "sha256": "6b343e5ad053cf16f9fcabdd5f64b5560201ea0e61236494e29947a6c83a90ad",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\data\\__pycache__\\dataloader.cpython-311.pyc",
+      "size": 7740,
+      "sha256": "4bb67a43e964ad58841ee9b89f7c2fbc0505167be7561278b7525d1701962abb",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\data\\__pycache__\\_misc.cpython-311.pyc",
+      "size": 2644,
+      "sha256": "e87b9b849e0e22d3efcf8ba52ac134b24efc5d89e8a1a2b4d7ba49a823fd536c",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\data\\__pycache__\\__init__.cpython-311.pyc",
+      "size": 457,
+      "sha256": "2119bbced67c8cc1b34ef70e931d834992b17baddf237cd51ddae5e371924cc6",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\misc\\__pycache__\\box_ops.cpython-311.pyc",
+      "size": 5928,
+      "sha256": "b91b5ac968c98623e93a8f6a6f9e48da5c7720e5f78a224985f915314ed99d6d",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\misc\\__pycache__\\dist_utils.cpython-311.pyc",
+      "size": 12113,
+      "sha256": "c0ae47a4acd743bb98027619082e281b626c3900094566254f65d6af77a6f683",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\misc\\__pycache__\\logger.cpython-311.pyc",
+      "size": 14502,
+      "sha256": "cd17381264d4382475feca45ee3738884b4dfa6e25a0d172a2237bebde1eb7c8",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\misc\\__pycache__\\profiler_utils.cpython-311.pyc",
+      "size": 1597,
+      "sha256": "b4ca45f24fcb8ee412d73b30183a5f71984ef5236b8c7dcc5a0f38e1e31f0a9a",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\misc\\__pycache__\\visualizer.cpython-311.pyc",
+      "size": 6818,
+      "sha256": "ecab97bff00603404683f0eedda2b3568c1d5e9d12483e6bd829f3947f20f5e4",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\misc\\__pycache__\\__init__.cpython-311.pyc",
+      "size": 507,
+      "sha256": "e8645064f3db3cddb0fd917a827b9cdd6c5462012539dedc8c6ae00315d1961b",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\nn\\arch\\__pycache__\\classification.cpython-311.pyc",
+      "size": 2803,
+      "sha256": "6a80bdd0ff68b1b301947d979ad7591b05e70ecfaf5bd726eaaacfc3e14ec48a",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\nn\\arch\\__pycache__\\yolo.cpython-311.pyc",
+      "size": 1942,
+      "sha256": "cdac0334bda55f55ea9eae85a0950f8f74558d702bf95421457da30198ba76a1",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\nn\\arch\\__pycache__\\__init__.cpython-311.pyc",
+      "size": 440,
+      "sha256": "701421d4ac4b0196992e1ecb15eabc26df8ca483549a0c145faee85aeda07eeb",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\nn\\backbone\\__pycache__\\common.cpython-311.pyc",
+      "size": 6525,
+      "sha256": "91683c260f4e1c70f2bb1f295f715e6a7bd40a043a014cdd0d0bc4cda24a08d3",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\nn\\backbone\\__pycache__\\csp_darknet.cpython-311.pyc",
+      "size": 16244,
+      "sha256": "5b33eb2c092fcd829b94518868635a6fadda04e30c31b33c2820a1e9e2070f69",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\nn\\backbone\\__pycache__\\csp_resnet.cpython-311.pyc",
+      "size": 16268,
+      "sha256": "c664c1f4ea52ce20f15f27b4f1ab6a2948ae02f2a49b333461781ae03b2ffe06",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\nn\\backbone\\__pycache__\\hgnetv2.cpython-311.pyc",
+      "size": 22054,
+      "sha256": "cd5e69eadad52c8fe6774195e161a43fec6cc1b32c7a09e82ca966ae42bb29ad",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\nn\\backbone\\__pycache__\\presnet.cpython-311.pyc",
+      "size": 13274,
+      "sha256": "c8082e7f1ca6483bf83a8bec83d6a7d7b48f675293f6099b5e039daca2f5815d",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\nn\\backbone\\__pycache__\\test_resnet.cpython-311-pytest-9.2.0.pyc",
+      "size": 6231,
+      "sha256": "a50d535a4572f7ea236d078380961968790febd4bb28b76df9bad33585d64c3e",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\nn\\backbone\\__pycache__\\test_resnet.cpython-311.pyc",
+      "size": 6095,
+      "sha256": "f6cc8ed8d4d3ed21246ca2a592335ac7b769544a3a8f823d5ee5c9a9053ca84f",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\nn\\backbone\\__pycache__\\timm_model.cpython-311.pyc",
+      "size": 3701,
+      "sha256": "9a89c0ba0bdbbd650f5cfadae7f4f17a96edbb2733fbc382c34fa5093e7e8eff",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\nn\\backbone\\__pycache__\\torchvision_model.cpython-311.pyc",
+      "size": 1919,
+      "sha256": "6925cbdad4860df24e93015249db805d689ae8ffd9f116e9ce5b237272b278d4",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\nn\\backbone\\__pycache__\\utils.cpython-311.pyc",
+      "size": 3597,
+      "sha256": "027fb55add7deb5d7b53b7126382a0952a2c1b1e98d917b234378eff137ba565",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\nn\\backbone\\__pycache__\\__init__.cpython-311.pyc",
+      "size": 899,
+      "sha256": "61bb91407c971717f47e7ddb300f4e84b664f715234a2b090323f111036472e1",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\nn\\criterion\\__pycache__\\det_criterion.cpython-311.pyc",
+      "size": 13438,
+      "sha256": "fdc5f7d0b167207e22b14333627205e91370f0ecd88dc2fa3a37e057a28828ff",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\nn\\criterion\\__pycache__\\__init__.cpython-311.pyc",
+      "size": 565,
+      "sha256": "ef90da6f83922a14532f6ffc976e375bd920f2bc6d1e2eecd6e3b8a78af17f85",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\nn\\postprocessor\\__pycache__\\nms_postprocessor.cpython-311.pyc",
+      "size": 3864,
+      "sha256": "e57c090684bbcfac9c52233a68ac3e84a5e188388dd7849468d9390d86ec9d40",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\nn\\postprocessor\\__pycache__\\__init__.cpython-311.pyc",
+      "size": 382,
+      "sha256": "4d01da60da41ef478c009e386fb35b9d452c9eb269d8d94c1d838210a11dec16",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\nn\\__pycache__\\__init__.cpython-311.pyc",
+      "size": 565,
+      "sha256": "e23d26bc780e475d363188a34846750b8ea31964511a7db38349956193c7c4cc",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\optim\\__pycache__\\amp.cpython-311.pyc",
+      "size": 553,
+      "sha256": "d2247b3107b4b738736022c7e6d781ac59eb1d383278edabf41b7edba00ad5aa",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\optim\\__pycache__\\ema.cpython-311.pyc",
+      "size": 7255,
+      "sha256": "ef6c9de20417346abdf0c9febf121f6a5149321f1518e005998322ffb7582525",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\optim\\__pycache__\\optim.cpython-311.pyc",
+      "size": 1125,
+      "sha256": "81f108d193066329d147db79487c6a700516fe33d6dc974ef95eec6728c9f4ad",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\optim\\__pycache__\\warmup.cpython-311.pyc",
+      "size": 3990,
+      "sha256": "c557edb0f218aef601d96ddfb17b3d4f04c44bc7cbc0bc04ad4fda0ac11e6816",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\optim\\__pycache__\\__init__.cpython-311.pyc",
+      "size": 404,
+      "sha256": "f5a45b553adaec270918e458050e2c2efcb5b68e13480683e11f31c5bf4c20db",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\zoo\\dfine\\__pycache__\\box_ops.cpython-311.pyc",
+      "size": 5783,
+      "sha256": "bec8d0f275aead6f4bff3fca81ea6be2d677793c4561633205c1cc2a50ba5eab",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\zoo\\dfine\\__pycache__\\denoising.cpython-311.pyc",
+      "size": 5549,
+      "sha256": "91035fc35d77e66adb88d0dfe2c25e6915e1ccd6827d877ed6b716a361ed94ec",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\zoo\\dfine\\__pycache__\\dfine.cpython-311.pyc",
+      "size": 1987,
+      "sha256": "d936065516bbcfd632eaf98c5292e62f122a8381f0898a4692fb5b3ee8d32d56",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\zoo\\dfine\\__pycache__\\dfine_criterion.cpython-311.pyc",
+      "size": 34701,
+      "sha256": "5c111ff9901d33d829df1ea7c71769d70de6d1e0b9e67ec19babd4f5777f2f51",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\zoo\\dfine\\__pycache__\\dfine_decoder.cpython-311.pyc",
+      "size": 49833,
+      "sha256": "3dbe5af47191290c66538a7e1d612876d486a63aa4a5410a24274c355006ddd2",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\zoo\\dfine\\__pycache__\\dfine_utils.cpython-311.pyc",
+      "size": 9561,
+      "sha256": "43ac0c291e84b84bf398a24709852bba47613131adf27294947b87877d948f4d",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\zoo\\dfine\\__pycache__\\hybrid_encoder.cpython-311.pyc",
+      "size": 30620,
+      "sha256": "1016258e3f3abd761e2f457f546c07c14e4695c464f329a9b1f1fb17aedbfb41",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\zoo\\dfine\\__pycache__\\matcher.cpython-311.pyc",
+      "size": 10457,
+      "sha256": "91c0b41c2d233aa9505adb5fa0a65d5975f69506b53f9e6c8c2956c138225f09",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\zoo\\dfine\\__pycache__\\postprocessor.cpython-311.pyc",
+      "size": 5266,
+      "sha256": "00870b37be46c11289cf97e00e27c587f5769afaa55191a4a3ed63175f549540",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\zoo\\dfine\\__pycache__\\utils.cpython-311.pyc",
+      "size": 8807,
+      "sha256": "faa3209eaf24e628699ac6aab48a4145a430e49be7dbe7396a99612000949425",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\zoo\\dfine\\__pycache__\\__init__.cpython-311.pyc",
+      "size": 693,
+      "sha256": "0ae828af6a5a17c99add43a6387a4fe68c07917c9814314e0765f7bf0dcfa63b",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\zoo\\__pycache__\\__init__.cpython-311.pyc",
+      "size": 338,
+      "sha256": "540ab9f741b912b1da7faaa06bac78da247e9817335a256a2fdc7b4f0082c549",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "dfine_repo\\src\\__pycache__\\__init__.cpython-311.pyc",
+      "size": 347,
+      "sha256": "ad87cb5e3518c769c3073cae6a3aedda6dc797e549371d137bfc3b009687d482",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "scripts\\__pycache__\\generate_child_dataset_fixture.cpython-311.pyc",
+      "size": 15151,
+      "sha256": "10c229d10c981af9c4b62e7c330cee840c801ff8333484a2f6d412bcd84871d0",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "scripts\\__pycache__\\generate_synthetic_environment_videos.cpython-311.pyc",
+      "size": 15345,
+      "sha256": "aed993bfda7c652b11126dbc17ac124f9cb2e98936f129979bbb872d283ef01f",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "scripts\\__pycache__\\run_pool_safety_demo.cpython-311.pyc",
+      "size": 35078,
+      "sha256": "0f5d4855a13d79850133a9200c0aaaf6ea948ff8831151377eea3dc580ad8860",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "scripts\\__pycache__\\run_prompt_22_evaluation.cpython-311.pyc",
+      "size": 15682,
+      "sha256": "53cc7e2f894f1854e7885a2cacb0d26a09140290b3d83f290ee172c194261335",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "scripts\\__pycache__\\run_virat_benchmark.cpython-311.pyc",
+      "size": 50506,
+      "sha256": "c98ad6961148e89491080751ff4e81fc776ff73c9a0d00ada8f087a706f8ee0d",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\benchmarking\\__pycache__\\benchmark.cpython-311.pyc",
+      "size": 13510,
+      "sha256": "84b4aaa7d7d45f811ab06622cc96a6c6ed86cad330d3e9d6b6368475a676888a",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\benchmarking\\__pycache__\\metrics.cpython-311.pyc",
+      "size": 10386,
+      "sha256": "26de70d5440e0f9fcee9249efb2178c40fcc93e6f72fabf1e9541a1671be4269",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\benchmarking\\__pycache__\\plots.cpython-311.pyc",
+      "size": 8012,
+      "sha256": "a3f2827c5f521aad17f7926e728bb1ed89291eb4406c2682f79f483ce74e5c88",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\benchmarking\\__pycache__\\__init__.cpython-311.pyc",
+      "size": 942,
+      "sha256": "38e10e3c4025f2578bafceef2d3125c51996c52d96904d09cd0ddcf38cd4a39e",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\child_detection\\__pycache__\\classifier_net.cpython-311.pyc",
+      "size": 5908,
+      "sha256": "d10ad8fedd0c02492ce9109d1dce670fb8fc4e5c002fe35cb9f7cb1371524302",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\child_detection\\__pycache__\\config.cpython-311.pyc",
+      "size": 1875,
+      "sha256": "956f92e623910dbdda76d5bf0e6d70e290c7598a2dca8040a49b70aebf526055",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\child_detection\\__pycache__\\dataset_ingestion.cpython-311.pyc",
+      "size": 16162,
+      "sha256": "0d776f4206b4e52baa501c8894755e5064adece98f07e74c5abf383dbca352ea",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\child_detection\\__pycache__\\detector.cpython-311.pyc",
+      "size": 12811,
+      "sha256": "3e3481854162c4412a6dd2c6d2030298afb659134a042ca6ae2389bd269c8a6d",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\child_detection\\__pycache__\\models.cpython-311.pyc",
+      "size": 5350,
+      "sha256": "6db7e79bd9ab3034c034212a2b61f0ffa9f30dfe207d7886fc4ca000ed4b2c99",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\child_detection\\__pycache__\\provider.cpython-311.pyc",
+      "size": 11174,
+      "sha256": "f475648fdd91bb8fb6bffcada96996a738f806bc8c32c4625c3fe907d310f845",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\child_detection\\__pycache__\\tracker_integration.cpython-311.pyc",
+      "size": 11769,
+      "sha256": "819e3654a29b5c7ec3de4a355aa1936e3aec1cc8177ae30c89aada7eac591816",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\child_detection\\__pycache__\\__init__.cpython-311.pyc",
+      "size": 1192,
+      "sha256": "1ec6caa8ef1cdf9ad2e49c70d4543218ee277d60595bf216f62f58065bb069c3",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\datasets\\__pycache__\\virat_annotations.cpython-311.pyc",
+      "size": 18471,
+      "sha256": "8223bf9fbfe1eb68f0171c90674c77146620552eab263df53a874a17a9399b42",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\datasets\\__pycache__\\virat_evaluator.cpython-311.pyc",
+      "size": 25072,
+      "sha256": "e78a9538a470ce47dc1edb9a39a9dad0fe73fb2655b7ef6f97c6ef2e6a8c42b1",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\datasets\\__pycache__\\virat_loader.cpython-311.pyc",
+      "size": 21605,
+      "sha256": "3daabccb807206c00ed34e6d88cdb457d41f134634381f2bbe326182db7f493d",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\datasets\\__pycache__\\virat_validator.cpython-311.pyc",
+      "size": 20139,
+      "sha256": "d0c64ba523b959ffa32406da63bddc2de7061f5d4d05b507fe01ebcb4c428b63",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\datasets\\__pycache__\\__init__.cpython-311.pyc",
+      "size": 1222,
+      "sha256": "8f3385b1784f9b76d8f08aa4dcf66667d186722f36c4f90fe123570e777db11a",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\detectors\\__pycache__\\base.cpython-311.pyc",
+      "size": 3357,
+      "sha256": "222b4de8e22bbfee6807e1cb45b7da6a44325d8c992842e609285774f8cfb925",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\detectors\\__pycache__\\dfine_detector.cpython-311.pyc",
+      "size": 21669,
+      "sha256": "647905d1fade9805cb0c54e855fd6bdc73cb6bd3737f3c4bb13a93276a6c9cc5",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\detectors\\__pycache__\\rtdetrv2_detector.cpython-311.pyc",
+      "size": 14139,
+      "sha256": "a681e659debbfb1ffb99d42136a3ef21a0489c475b6aef32fa501e941d16a9a2",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\detectors\\__pycache__\\yolov8_detector.cpython-311.pyc",
+      "size": 5014,
+      "sha256": "225289a440c9bf57659ead997203ef9356e5de46ac3e70689c2550e471d61eba",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\detectors\\__pycache__\\__init__.cpython-311.pyc",
+      "size": 3547,
+      "sha256": "11325c9348c6b61616cb78ee1a1ca9552828142d30ae5ee1861401bde403c758",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\roi\\__pycache__\\engine.cpython-311.pyc",
+      "size": 13609,
+      "sha256": "6494831d4719d272452194d26d87096a48a43d87ca02f8c6c5a364c5d756134f",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\roi\\__pycache__\\loader.cpython-311.pyc",
+      "size": 17483,
+      "sha256": "307ce1393a362f5d4bbbe1c5dde51814c6f12424ee0762ca910a97cd60f69460",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\roi\\__pycache__\\models.cpython-311.pyc",
+      "size": 35879,
+      "sha256": "ed9f44fdaf9f8b946e845dabc50c5cd3fa58b00dec9ed132d44fab733e5e9ae6",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\roi\\__pycache__\\__init__.cpython-311.pyc",
+      "size": 930,
+      "sha256": "2c7c93b135da175b02daae98eb2a072074a3b12fa31f478940b412f171fb33e6",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\utils\\__pycache__\\logger.cpython-311.pyc",
+      "size": 1516,
+      "sha256": "ea8d96aa00a36234f4241e684cc6525595a64cd15c09659fe2552f5db250f119",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\utils\\__pycache__\\__init__.cpython-311.pyc",
+      "size": 295,
+      "sha256": "54e16198ea8e2c0fcb85ec2b38b65a98584cdd6d3222afb2088a001a6ae47851",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\__pycache__\\age_estimator.cpython-311.pyc",
+      "size": 12111,
+      "sha256": "98bcd9899a18f43894d50a38e01f2ae5e6100dea09f383c90c211fa140d91e67",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\__pycache__\\child_safety.cpython-311.pyc",
+      "size": 38919,
+      "sha256": "737019a8d9375e3b054f66317539d0cfb308ba8066a6911dfbd881b4741d5b08",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\__pycache__\\config.cpython-311.pyc",
+      "size": 7194,
+      "sha256": "2318eb811b6736ddfe0e8c680bd934ce787548edf5372da7c8fd972ae38006cd",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\__pycache__\\detector.cpython-311.pyc",
+      "size": 19774,
+      "sha256": "9e159927f268835e6e3f1183863d0dc9b65dc0da39543c23166870457758c31d",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\__pycache__\\events.cpython-311.pyc",
+      "size": 27179,
+      "sha256": "586300d477382dc2eeea47dc51a7cff7c417e5a194656a48a5290808d3f00b25",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\__pycache__\\incidents.cpython-311.pyc",
+      "size": 36377,
+      "sha256": "b08d617aba7c103043e0cc0ec5aaac005766e9694a66069a81e513926b00b21d",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\__pycache__\\pipeline.cpython-311.pyc",
+      "size": 22526,
+      "sha256": "729f3d51c1fb2a55b738b91b95b9f436289e91b8548369c558231ea48b8e0dfa",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\__pycache__\\tracker.cpython-311.pyc",
+      "size": 8569,
+      "sha256": "a799f6924944ef63e9182dabe039d41d443b782dd1c95b655e50b8e4c6ced89a",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\__pycache__\\video_input.cpython-311.pyc",
+      "size": 13060,
+      "sha256": "232d9030aa0c25d13f9b761e0c53746bb33dd8977dd1d66ad28e25fc535c5b82",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\__pycache__\\visualization.cpython-311.pyc",
+      "size": 41096,
+      "sha256": "0cfea662d9469e57ec585f4180f12caedeca4fd93276b9b86f142fc4dfc11dd6",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "src\\safekid_ai\\__pycache__\\__init__.cpython-311.pyc",
+      "size": 2815,
+      "sha256": "a81e0697f9a152039f95edaf68c918ca7c76d3a0ea89af258ae01a1a2f494b6b",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "tests\\__pycache__\\test_age_estimator.cpython-311-pytest-9.2.0.pyc",
+      "size": 22972,
+      "sha256": "08a562ce64c84ddb6db449811a730d840ebd3cf2e22c35e4838ef78a3354cc7b",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "tests\\__pycache__\\test_alert_lifecycle.cpython-311-pytest-9.2.0.pyc",
+      "size": 76294,
+      "sha256": "25b52308dfa3c9d2de576e2e50d1a5328b31f269f4ba5426f6146146044a25b3",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "tests\\__pycache__\\test_benchmarking.cpython-311-pytest-9.2.0.pyc",
+      "size": 30612,
+      "sha256": "0cfa595c51bb0c80ee80c4054d9285fd6158ee3e9255a6a0a719eafec49c660d",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "tests\\__pycache__\\test_child_detection_real_world.cpython-311-pytest-9.2.0.pyc",
+      "size": 44681,
+      "sha256": "a0cd3a103b270fcd55211474df070c32c1f96b296dedc0a2f9402e0d544ee237",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "tests\\__pycache__\\test_child_detector.cpython-311-pytest-9.2.0.pyc",
+      "size": 68683,
+      "sha256": "a05fe4dffd09e87d4733e0e83c0a3609d1de77bdb68b2d6512cfff366fbc7c57",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "tests\\__pycache__\\test_child_safety.cpython-311-pytest-9.2.0.pyc",
+      "size": 105480,
+      "sha256": "c7296ec110922241d5614f7f0cd73ba7c465f3056effd27e6fc56ab3f24c7d44",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "tests\\__pycache__\\test_detector.cpython-311-pytest-9.2.0.pyc",
+      "size": 10039,
+      "sha256": "8b68dcd2e7a6937392e7abe62308f900cf522dabffde6d3b8e09be51cf8b4be8",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "tests\\__pycache__\\test_dfine_detector.cpython-311-pytest-9.2.0.pyc",
+      "size": 34718,
+      "sha256": "8c9cc9a732b8db2d25a0c2c088f2d4e2dc7aabb9970f234250f8dfd60ef324a1",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "tests\\__pycache__\\test_failure_injection.cpython-311-pytest-9.2.0.pyc",
+      "size": 93760,
+      "sha256": "c6ce0d72050be979ab001b4d7017bd53df5b1e102c56d29cb2d0f24cbaf0d5a8",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "tests\\__pycache__\\test_multi_environment_pipeline.cpython-311-pytest-9.2.0.pyc",
+      "size": 37127,
+      "sha256": "c709babe0d9a367faa4c8bb88c6a79f85b781b7475bfedb8179b18d30b778daf",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "tests\\__pycache__\\test_multi_environment_policies.cpython-311-pytest-9.2.0.pyc",
+      "size": 98970,
+      "sha256": "8895ee89b7248a56d5215e6ea5c0f56cbc00da36919a6a6447d7016056cb1078",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "tests\\__pycache__\\test_pipeline.cpython-311-pytest-9.2.0.pyc",
+      "size": 11419,
+      "sha256": "648df1d13cef0f6720464197054e271c94b85492d7ad869b161c6b6beebf6165",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "tests\\__pycache__\\test_reliability.cpython-311-pytest-9.2.0.pyc",
+      "size": 50796,
+      "sha256": "ead846e3c722021c4a582ecc95b66ff74eb4ebc93f04bbc14c9636b00b763fa4",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "tests\\__pycache__\\test_roi_engine.cpython-311-pytest-9.2.0.pyc",
+      "size": 64307,
+      "sha256": "cfcd74ae0c3a01e27ecf0a47cbc2528ed6f56420ef972332fc81e4d004c51747",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "tests\\__pycache__\\test_rtdetrv2_detector.cpython-311-pytest-9.2.0.pyc",
+      "size": 33698,
+      "sha256": "94e6dde214e02a80a7da8275cef8c1ce11ccff383fc0ab1723eabb01be8089a2",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "tests\\__pycache__\\test_safety_events.cpython-311-pytest-9.2.0.pyc",
+      "size": 126483,
+      "sha256": "589619c3852e1e3e4e7b0c2634678a41f8728d13c31618ff2693dfcff22e8e95",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "tests\\__pycache__\\test_tracker.cpython-311-pytest-9.2.0.pyc",
+      "size": 11053,
+      "sha256": "cbd31970b7939c0a9af5a419393047853d545640cec309b517bcafbd6e849a7f",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "tests\\__pycache__\\test_tracking_optimization.cpython-311-pytest-9.2.0.pyc",
+      "size": 35838,
+      "sha256": "e403eaf915131d822672dac7fa32f7a4ec3cfc0e582e3982b9c08a8fd844abab",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "tests\\__pycache__\\test_video_input.cpython-311-pytest-9.2.0.pyc",
+      "size": 16372,
+      "sha256": "b35fe95b0e76e0d8605df1ce4814bffb841830fe85612f2f3033518896266bd0",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "tests\\__pycache__\\test_virat_dataset.cpython-311-pytest-9.2.0.pyc",
+      "size": 60731,
+      "sha256": "58cb062226fec5bc83f0292fee941f56793a945b1d7163974b7233dc003b3f2b",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": "tests\\__pycache__\\test_virat_validation.cpython-311-pytest-9.2.0.pyc",
+      "size": 41446,
+      "sha256": "2337365917cca04d9995d6a5161209bd861780e0b2da046899a3a2138f33c32b",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": ".pytest_cache\\.gitignore",
+      "size": 37,
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": ".pytest_cache\\CACHEDIR.TAG",
+      "size": 191,
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": ".pytest_cache\\README.md",
+      "size": 302,
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": ".pytest_cache\\v\\cache\\lastfailed",
+      "size": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    },
+    {
+      "path": ".pytest_cache\\v\\cache\\nodeids",
+      "size": 18481,
+      "sha256": "ff3d561307742a79fe612b17bfea396c583ac4178e091166a19526775cbdef77",
+      "category": "TEMPORARY",
+      "action": "DELETE"
+    }
+  ]
+}

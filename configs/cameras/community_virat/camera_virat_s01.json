@@ -1,0 +1,52 @@
+{
+  "community_id": "community_virat",
+  "camera_id": "camera_virat_s01",
+  "frame_width": 1920,
+  "frame_height": 1080,
+  "version": "1.0",
+  "calibration_notes": "Calibrated for VIRAT surveillance footage evaluating outdoor walkways and transit lanes.",
+  "zones": [
+    {
+      "roi_id": "virat_monitored_walkway",
+      "name": "Surveillance Walkway & Loading Bay",
+      "zone_type": "GENERAL_COMMON_AREA",
+      "severity": "LOW",
+      "enabled": true,
+      "policy": {
+        "zone_role": "MONITORED",
+        "entry_alert": false,
+        "exit_alert": false,
+        "dwell_alert": true,
+        "dwell_threshold_seconds": 3.0,
+        "severity": "LOW"
+      },
+      "polygon": [
+        [400.0, 250.0],
+        [1000.0, 250.0],
+        [1000.0, 600.0],
+        [400.0, 600.0]
+      ]
+    },
+    {
+      "roi_id": "virat_restricted_driveway",
+      "name": "Vehicular Transit Lane",
+      "zone_type": "VEHICULAR_GATEWAY",
+      "severity": "HIGH",
+      "enabled": true,
+      "policy": {
+        "zone_role": "DANGER",
+        "entry_alert": true,
+        "exit_alert": false,
+        "dwell_alert": true,
+        "dwell_threshold_seconds": 2.0,
+        "severity": "HIGH"
+      },
+      "polygon": [
+        [1150.0, 300.0],
+        [1600.0, 300.0],
+        [1600.0, 750.0],
+        [1150.0, 750.0]
+      ]
+    }
+  ]
+}

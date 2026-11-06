@@ -1,0 +1,19 @@
+{
+  "sequence_id": "VIRAT_S_000001_sample",
+  "dataset_tier": "FIXTURE",
+  "is_genuine": false,
+  "evaluated_frames": 72,
+  "ground_truth_persons": 144,
+  "predicted_persons": 56,
+  "true_positives": 56,
+  "false_positives": 0,
+  "false_negatives": 88,
+  "precision": 1.0,
+  "recall": 0.3889,
+  "f1_score": 0.56,
+  "map_50": 0.3889,
+  "map_50_95": 0.2735,
+  "mean_iou": 0.8411,
+  "mean_inference_latency_ms": 200.61,
+  "throughput_fps": 4.98
+}

@@ -1,0 +1,56 @@
+{
+  "community_id": "community_001",
+  "camera_id": "camera_pool_01",
+  "frame_width": 1920,
+  "frame_height": 1080,
+  "version": "1.0",
+  "calibration_notes": "Calibrated for Axis P3245 fixed overhead surveillance camera at Greenfield Community Central Pool.",
+  "zones": [
+    {
+      "roi_id": "pool_deep_end_01",
+      "name": "Pool Deep End Water Edge",
+      "zone_type": "SWIMMING_POOL_BOUNDARY",
+      "polygon": [
+        [1100.0, 320.0],
+        [1680.0, 340.0],
+        [1750.0, 780.0],
+        [1120.0, 760.0]
+      ],
+      "severity": "CRITICAL",
+      "enabled": true,
+      "dwell_time_seconds": 0.0,
+      "policy": {
+        "zone_role": "DANGER",
+        "entry_alert": true,
+        "exit_alert": true,
+        "dwell_alert": false,
+        "severity": "CRITICAL"
+      },
+      "description": "Immediate water perimeter of the 6-foot deep pool section. Instant alert on ground-contact entry."
+    },
+    {
+      "roi_id": "pool_deck_enclosure_01",
+      "name": "Pool Deck Enclosure & Gate",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "polygon": [
+        [950.0, 200.0],
+        [1850.0, 220.0],
+        [1890.0, 950.0],
+        [980.0, 920.0]
+      ],
+      "severity": "HIGH",
+      "enabled": true,
+      "dwell_time_seconds": 3.0,
+      "policy": {
+        "zone_role": "MONITORED",
+        "entry_alert": false,
+        "exit_alert": false,
+        "dwell_alert": true,
+        "dwell_threshold_seconds": 3.0,
+        "severity": "HIGH"
+      },
+      "description": "Fenced deck area leading to swimming pool gate. Dwell alert triggers if a person stays > 3 seconds."
+    }
+  ]
+}
+

@@ -1,0 +1,88 @@
+{
+  "metadata": {
+    "scenario_id": "scenario_b_driveway",
+    "scenario_name": "Residential Driveway",
+    "community_id": "community_001",
+    "camera_id": "camera_gate_north",
+    "video_source": "driveway_demo.mp4",
+    "frame_width": 1920,
+    "frame_height": 1080,
+    "video_fps": 24.0,
+    "total_frames_processed": 192,
+    "execution_duration_seconds": 36.89,
+    "unique_persons_tracked": 2
+  },
+  "total_incidents_count": 1,
+  "open_incidents_count": 0,
+  "incidents": [
+    {
+      "incident_id": "INC-001",
+      "community_id": "community_001",
+      "camera_id": "camera_gate_north",
+      "track_id": 2,
+      "classification": "CHILD",
+      "primary_zone_id": "vehicle_driveway_lane",
+      "primary_zone_name": "Main Vehicular Driveway",
+      "zone_type": "VEHICULAR_GATEWAY",
+      "current_zone_ids": [],
+      "severity": "HIGH",
+      "state": "RESOLVED",
+      "observation_status": "OBSERVING",
+      "created_at_ms": 1458.33,
+      "created_at_frame": 35,
+      "updated_at_ms": 6416.67,
+      "updated_at_frame": 154,
+      "last_observed_at_ms": 6416.67,
+      "last_observed_at_frame": 154,
+      "missing_frames_count": 0,
+      "resolved_at_ms": 6416.67,
+      "resolved_at_frame": 154,
+      "acknowledged_at_ms": null,
+      "acknowledged_by": null,
+      "expired_at_ms": null,
+      "summary_message": "[HIGH] Main Vehicular Driveway: Dwell 2.0s",
+      "event_ids": [
+        "cevt_d3c5ca2646",
+        "cevt_693f6003f0",
+        "evt_b7bf167eb3"
+      ],
+      "lifecycle_history": [
+        {
+          "transition": "CREATED",
+          "from_state": null,
+          "to_state": "ACTIVE",
+          "frame_id": 35,
+          "timestamp_ms": 1458.33,
+          "severity": "HIGH",
+          "zone_id": "vehicle_driveway_lane",
+          "zone_name": "Main Vehicular Driveway",
+          "event_id": "cevt_d3c5ca2646",
+          "reason": "CHILD SAFETY ALERT: Child (Track ID 2) entered configured danger zone 'Main Vehicular Driveway' (VEHICULAR_GATEWAY) [Severity: HIGH]"
+        },
+        {
+          "transition": "DWELL_UPDATE",
+          "from_state": "ACTIVE",
+          "to_state": "ACTIVE",
+          "frame_id": 81,
+          "timestamp_ms": 3375.0,
+          "dwell_seconds": 2.0,
+          "zone_id": "vehicle_driveway_lane",
+          "zone_name": "Main Vehicular Driveway",
+          "event_id": "cevt_693f6003f0",
+          "reason": "Dwell threshold exceeded in Main Vehicular Driveway"
+        },
+        {
+          "transition": "RESOLVED",
+          "from_state": "ACTIVE",
+          "to_state": "RESOLVED",
+          "frame_id": 154,
+          "timestamp_ms": 6416.67,
+          "exited_zone_id": "vehicle_driveway_lane",
+          "exited_zone_name": "Main Vehicular Driveway",
+          "event_id": "evt_b7bf167eb3",
+          "reason": "Child fully exited hazard zone 'Main Vehicular Driveway'"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+# VIRAT Release 2.0 Event-Object Mapping
+1 1 1
+2 1 3

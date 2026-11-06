@@ -1,0 +1,32 @@
+# SafeKid AI Detector Configuration - RT-DETRv2 Candidate
+detector:
+  backend: rtdetrv2
+  model_name_or_path: rtdetr-l.pt
+  architecture_type: Transformer
+  backbone: HGNetv2 / Hybrid Encoder (AIFI + CCFM)
+  head: Transformer Decoder with multi-scale cross-attention queries
+  confidence_threshold: 0.35
+  iou_threshold: 0.45
+  imgsz: 640
+  device: cpu
+  person_class_id: 0
+  num_threads: 4
+  fuse_model: false
+
+tracker:
+  tracker_type: bytetrack
+  tracker_config_path: bytetrack.yaml
+  persist: true
+  imgsz: 640
+  confidence_threshold: 0.35
+  track_high_thresh: 0.30
+  track_low_thresh: 0.10
+  new_track_thresh: 0.35
+  track_buffer: 60
+  match_thresh: 0.75
+
+evaluation:
+  target_hardware: CPU (Intel Core i3-1215U / 6 cores)
+  input_resolution: [640, 640]
+  fair_comparison: true
+

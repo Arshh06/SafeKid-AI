@@ -1,0 +1,20 @@
+{
+  "sequence_id": "VIRAT_S_000001_sample",
+  "dataset_tier": "FIXTURE",
+  "is_genuine": false,
+  "evaluated_frames": 72,
+  "ground_truth_tracks": 2,
+  "predicted_tracks": 3,
+  "mota": 0.3264,
+  "idf1": 0.4271,
+  "id_precision": 0.8542,
+  "id_recall": 0.2847,
+  "id_switches": 1,
+  "fragmentations": 12,
+  "mean_track_continuity": 0.3333,
+  "hardware_utilization": {
+    "process_rss_mb": 337.25,
+    "system_memory_percent": 89.3,
+    "cpu_percent": 219.5
+  }
+}

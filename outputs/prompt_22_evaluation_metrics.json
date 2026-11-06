@@ -1,0 +1,102 @@
+{
+  "evaluation_protocol_version": "2.0_rigorous",
+  "evaluation_timestamp": "2026-11-05T11:35:00",
+  "tiers": {
+    "tier_1_synthetic_fixtures": {
+      "status": "EVALUATED_PRELIMINARY_FIXTURE_SET",
+      "sample_count": 32,
+      "notes": "Preliminary reference fixture test set. Reflects in-distribution template accuracy, not real-world CCTV generalization.",
+      "metrics": {
+        "child_precision": 0.9231,
+        "child_precision_95ci": [
+          0.6669,
+          0.9863
+        ],
+        "child_recall": 1.0,
+        "child_recall_95ci": [
+          0.7575,
+          1.0
+        ],
+        "child_f1": 0.96,
+        "adult_precision": 0.9,
+        "adult_precision_95ci": [
+          0.5959,
+          0.9821
+        ],
+        "adult_recall": 0.75,
+        "adult_recall_95ci": [
+          0.4677,
+          0.9111
+        ],
+        "adult_f1": 0.8182,
+        "unknown_rate": 0.2812,
+        "unknown_rate_95ci": [
+          0.1556,
+          0.4537
+        ],
+        "false_child_predictions_per_adult": 0.0,
+        "latency_mean_ms": 5.98,
+        "latency_p95_ms": 6.69
+      },
+      "confusion_matrix": {
+        "CHILD": {
+          "CHILD": 12,
+          "ADULT": 0,
+          "UNKNOWN": 0
+        },
+        "ADULT": {
+          "CHILD": 0,
+          "ADULT": 9,
+          "UNKNOWN": 3
+        },
+        "AMBIGUOUS": {
+          "CHILD": 1,
+          "ADULT": 1,
+          "UNKNOWN": 6
+        }
+      },
+      "subgroup_stress_analysis": {
+        "distant_figures": {
+          "total": 3,
+          "abstained_unknown": 3,
+          "predicted_child": 0,
+          "predicted_adult": 0
+        },
+        "occluded_figures": {
+          "total": 3,
+          "abstained_unknown": 3,
+          "predicted_child": 0,
+          "predicted_adult": 0
+        },
+        "borderline_figures": {
+          "total": 2,
+          "abstained_unknown": 0,
+          "predicted_child": 1,
+          "predicted_adult": 1
+        },
+        "standard_figures": {
+          "total": 24,
+          "correct": 21,
+          "abstained": 3,
+          "misclassified": 0
+        }
+      }
+    },
+    "tier_2_real_world_academic_cctv": {
+      "status": "BLOCKED_AWAITING_ACADEMIC_EULA",
+      "sample_count": 0,
+      "target_datasets": [
+        "RAP v2 (CASIA/CUHK)",
+        "PETA (CUHK)"
+      ],
+      "blocking_rationale": "Sandbox network isolation and required signed institutional academic EULA agreement.",
+      "metrics": null
+    },
+    "tier_3_consented_residential_cctv": {
+      "status": "AWAITING_ON_SITE_PILOT_ENROLLMENT",
+      "sample_count": 0,
+      "blocking_rationale": "Requires parental opt-in enrollment (COPPA/GDPR Art. 8) and camera signage in a live gated community.",
+      "metrics": null
+    }
+  }
+}

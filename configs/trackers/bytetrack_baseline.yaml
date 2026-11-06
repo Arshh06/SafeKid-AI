@@ -1,0 +1,9 @@
+# SafeKid AI — Baseline ByteTrack Configuration (Default Ultralytics Settings)
+
+tracker_type: bytetrack
+track_high_thresh: 0.5  # threshold for the first association
+track_low_thresh: 0.1   # threshold for the second association
+new_track_thresh: 0.6   # threshold for init new track if detection does not match any tracks
+track_buffer: 30        # buffer frames to retain lost tracks
+match_thresh: 0.8       # threshold for matching tracks
+

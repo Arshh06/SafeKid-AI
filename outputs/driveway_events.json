@@ -1,0 +1,283 @@
+{
+  "metadata": {
+    "scenario_id": "scenario_b_driveway",
+    "scenario_name": "Residential Driveway",
+    "community_id": "community_001",
+    "camera_id": "camera_gate_north",
+    "video_source": "driveway_demo.mp4",
+    "frame_width": 1920,
+    "frame_height": 1080,
+    "video_fps": 24.0,
+    "total_frames_processed": 192,
+    "execution_duration_seconds": 36.89,
+    "overall_processing_fps": 5.2,
+    "unique_persons_tracked": 2,
+    "total_raw_events_count": 7
+  },
+  "configured_zones": [
+    {
+      "roi_id": "boom_barrier_danger_zone",
+      "name": "Boom Barrier Mechanical Zone",
+      "zone_type": "RESTRICTED_INFRASTRUCTURE",
+      "severity": "CRITICAL",
+      "dwell_time_seconds": 0.0
+    },
+    {
+      "roi_id": "vehicle_driveway_lane",
+      "name": "Main Vehicular Driveway",
+      "zone_type": "VEHICULAR_GATEWAY",
+      "severity": "HIGH",
+      "dwell_time_seconds": 2.0
+    },
+    {
+      "roi_id": "pedestrian_safety_sidewalk",
+      "name": "Dedicated Pedestrian Sidewalk",
+      "zone_type": "GENERAL_COMMON_AREA",
+      "severity": "LOW",
+      "dwell_time_seconds": null
+    }
+  ],
+  "events": [
+    {
+      "event_id": "evt_cd478b672c",
+      "event_type": "ZONE_ENTRY",
+      "timestamp_ms": 0.0,
+      "frame_id": 0,
+      "community_id": "community_001",
+      "camera_id": "camera_gate_north",
+      "track_id": 1,
+      "roi_id": "pedestrian_safety_sidewalk",
+      "zone_name": "Dedicated Pedestrian Sidewalk",
+      "zone_type": "GENERAL_COMMON_AREA",
+      "severity": "LOW",
+      "bottom_center": [
+        220.41,
+        599.76
+      ],
+      "bbox_xyxy": [
+        196.55,
+        472.42,
+        244.27,
+        599.76
+      ],
+      "dwell_time_seconds": 0.0,
+      "message": "Track ID 1 entered Dedicated Pedestrian Sidewalk (GENERAL_COMMON_AREA; presence observed at clip start)",
+      "is_loss_of_tracking": false,
+      "policy": {
+        "zone_role": "SAFE",
+        "entry_alert": false,
+        "exit_alert": false,
+        "dwell_alert": false,
+        "severity": "LOW"
+      },
+      "timestamp_seconds": 0.0
+    },
+    {
+      "event_id": "evt_3ae8deca77",
+      "event_type": "ZONE_ENTRY",
+      "timestamp_ms": 0.0,
+      "frame_id": 0,
+      "community_id": "community_001",
+      "camera_id": "camera_gate_north",
+      "track_id": 2,
+      "roi_id": "pedestrian_safety_sidewalk",
+      "zone_name": "Dedicated Pedestrian Sidewalk",
+      "zone_type": "GENERAL_COMMON_AREA",
+      "severity": "LOW",
+      "bottom_center": [
+        320.31,
+        847.9
+      ],
+      "bbox_xyxy": [
+        297.24,
+        723.09,
+        343.37,
+        847.9
+      ],
+      "dwell_time_seconds": 0.0,
+      "message": "Track ID 2 entered Dedicated Pedestrian Sidewalk (GENERAL_COMMON_AREA; presence observed at clip start)",
+      "is_loss_of_tracking": false,
+      "policy": {
+        "zone_role": "SAFE",
+        "entry_alert": false,
+        "exit_alert": false,
+        "dwell_alert": false,
+        "severity": "LOW"
+      },
+      "timestamp_seconds": 0.0
+    },
+    {
+      "event_id": "evt_52e55d5648",
+      "event_type": "ZONE_EXIT",
+      "timestamp_ms": 1250.0,
+      "frame_id": 30,
+      "community_id": "community_001",
+      "camera_id": "camera_gate_north",
+      "track_id": 2,
+      "roi_id": "pedestrian_safety_sidewalk",
+      "zone_name": "Dedicated Pedestrian Sidewalk",
+      "zone_type": "GENERAL_COMMON_AREA",
+      "severity": "LOW",
+      "bottom_center": [
+        385.7,
+        849.13
+      ],
+      "bbox_xyxy": [
+        360.21,
+        706.99,
+        411.2,
+        849.13
+      ],
+      "dwell_time_seconds": 1.25,
+      "message": "Track ID 2 exited Dedicated Pedestrian Sidewalk after 1.2s",
+      "is_loss_of_tracking": false,
+      "policy": {
+        "zone_role": "SAFE",
+        "entry_alert": false,
+        "exit_alert": false,
+        "dwell_alert": false,
+        "severity": "LOW"
+      },
+      "timestamp_seconds": 1.25
+    },
+    {
+      "event_id": "evt_5df78fc154",
+      "event_type": "ZONE_ENTRY",
+      "timestamp_ms": 1375.0,
+      "frame_id": 33,
+      "community_id": "community_001",
+      "camera_id": "camera_gate_north",
+      "track_id": 2,
+      "roi_id": "vehicle_driveway_lane",
+      "zone_name": "Main Vehicular Driveway",
+      "zone_type": "VEHICULAR_GATEWAY",
+      "severity": "HIGH",
+      "bottom_center": [
+        423.76,
+        847.94
+      ],
+      "bbox_xyxy": [
+        401.85,
+        726.29,
+        445.66,
+        847.94
+      ],
+      "dwell_time_seconds": 0.0,
+      "message": "Track ID 2 entered Main Vehicular Driveway (VEHICULAR_GATEWAY)",
+      "is_loss_of_tracking": false,
+      "policy": {
+        "zone_role": "DANGER",
+        "entry_alert": true,
+        "exit_alert": false,
+        "dwell_alert": true,
+        "severity": "HIGH",
+        "dwell_threshold_seconds": 2.0
+      },
+      "timestamp_seconds": 1.375
+    },
+    {
+      "event_id": "evt_5fbdfd24c3",
+      "event_type": "DWELL_TIME_EXCEEDED",
+      "timestamp_ms": 3375.0,
+      "frame_id": 81,
+      "community_id": "community_001",
+      "camera_id": "camera_gate_north",
+      "track_id": 2,
+      "roi_id": "vehicle_driveway_lane",
+      "zone_name": "Main Vehicular Driveway",
+      "zone_type": "VEHICULAR_GATEWAY",
+      "severity": "HIGH",
+      "bottom_center": [
+        600.03,
+        846.79
+      ],
+      "bbox_xyxy": [
+        577.84,
+        723.19,
+        622.22,
+        846.79
+      ],
+      "dwell_time_seconds": 2.0,
+      "message": "Track ID 2 dwell time (2.0s) exceeded threshold (2.0s) in Main Vehicular Driveway",
+      "is_loss_of_tracking": false,
+      "policy": {
+        "zone_role": "DANGER",
+        "entry_alert": true,
+        "exit_alert": false,
+        "dwell_alert": true,
+        "severity": "HIGH",
+        "dwell_threshold_seconds": 2.0
+      },
+      "timestamp_seconds": 3.375
+    },
+    {
+      "event_id": "evt_b7bf167eb3",
+      "event_type": "ZONE_EXIT",
+      "timestamp_ms": 6333.33,
+      "frame_id": 152,
+      "community_id": "community_001",
+      "camera_id": "camera_gate_north",
+      "track_id": 2,
+      "roi_id": "vehicle_driveway_lane",
+      "zone_name": "Main Vehicular Driveway",
+      "zone_type": "VEHICULAR_GATEWAY",
+      "severity": "HIGH",
+      "bottom_center": [
+        414.86,
+        847.03
+      ],
+      "bbox_xyxy": [
+        392.74,
+        726.32,
+        436.99,
+        847.03
+      ],
+      "dwell_time_seconds": 4.96,
+      "message": "Track ID 2 exited Main Vehicular Driveway after 5.0s",
+      "is_loss_of_tracking": false,
+      "policy": {
+        "zone_role": "DANGER",
+        "entry_alert": true,
+        "exit_alert": false,
+        "dwell_alert": true,
+        "severity": "HIGH",
+        "dwell_threshold_seconds": 2.0
+      },
+      "timestamp_seconds": 6.333
+    },
+    {
+      "event_id": "evt_f58b80db68",
+      "event_type": "ZONE_ENTRY",
+      "timestamp_ms": 6583.33,
+      "frame_id": 158,
+      "community_id": "community_001",
+      "camera_id": "camera_gate_north",
+      "track_id": 2,
+      "roi_id": "pedestrian_safety_sidewalk",
+      "zone_name": "Dedicated Pedestrian Sidewalk",
+      "zone_type": "GENERAL_COMMON_AREA",
+      "severity": "LOW",
+      "bottom_center": [
+        377.68,
+        849.07
+      ],
+      "bbox_xyxy": [
+        354.99,
+        721.85,
+        400.36,
+        849.07
+      ],
+      "dwell_time_seconds": 0.0,
+      "message": "Track ID 2 entered Dedicated Pedestrian Sidewalk (GENERAL_COMMON_AREA)",
+      "is_loss_of_tracking": false,
+      "policy": {
+        "zone_role": "SAFE",
+        "entry_alert": false,
+        "exit_alert": false,
+        "dwell_alert": false,
+        "severity": "LOW"
+      },
+      "timestamp_seconds": 6.583
+    }
+  ]
+}

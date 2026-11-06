@@ -1,0 +1,52 @@
+{
+  "dataset": "VIRAT Video Dataset Release 2.0",
+  "dataset_type": "Synthetic standard-compliant fixture (Reference schema testbed)",
+  "sequence_id": "VIRAT_S_000001_sample",
+  "mode": "baseline",
+  "video_resolution": "1920x1080",
+  "video_fps": 24.0,
+  "parameters": {
+    "confidence_threshold": 0.35,
+    "imgsz": 640,
+    "tracker_config": "C:\\projs\\SafeKid AI\\configs\\trackers\\bytetrack_baseline.yaml"
+  },
+  "wall_duration_seconds": 10.5,
+  "detection_metrics": {
+    "evaluated_frames": 72,
+    "total_ground_truth_persons": 144,
+    "total_predicted_persons": 38,
+    "true_positives": 38,
+    "false_positives": 0,
+    "false_negatives": 106,
+    "precision": 1.0,
+    "recall": 0.2639,
+    "f1_score": 0.4176,
+    "ap_50": 0.2639,
+    "ap_50_95": 0.1921,
+    "mean_iou": 0.8533,
+    "mean_inference_latency_ms": 118.13,
+    "throughput_fps": 8.47
+  },
+  "tracking_metrics": {
+    "evaluated_frames": 72,
+    "total_gt_tracks": 2,
+    "total_predicted_tracks": 3,
+    "id_switches": 1,
+    "fragmentations": 5,
+    "mota": 0.1042,
+    "idf1": 0.1875,
+    "id_precision": 0.9375,
+    "id_recall": 0.1042,
+    "mean_track_continuity": 0.1111
+  },
+  "safety_policy_audit": {
+    "all_tracks_unclassified": true,
+    "child_alerts_generated": 0,
+    "child_alert_suppression_verified": true,
+    "raw_safety_events_generated": 24,
+    "age_estimation_blocked": true
+  },
+  "artifacts": {
+    "annotated_video": "C:\\projs\\SafeKid AI\\outputs\\virat_VIRAT_S_000001_sample_baseline_annotated.mp4"
+  }
+}

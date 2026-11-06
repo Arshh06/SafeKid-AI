@@ -1,0 +1,78 @@
+{
+  "community_id": "community_001",
+  "camera_id": "camera_gate_north",
+  "frame_width": 1920,
+  "frame_height": 1080,
+  "version": "1.0",
+  "calibration_notes": "Calibrated for North Main Gate driveway overlooking boom barriers and pedestrian sidewalk.",
+  "zones": [
+    {
+      "roi_id": "boom_barrier_danger_zone",
+      "name": "Boom Barrier Mechanical Zone",
+      "zone_type": "RESTRICTED_INFRASTRUCTURE",
+      "polygon": [
+        [720.0, 480.0],
+        [1080.0, 480.0],
+        [1100.0, 620.0],
+        [700.0, 620.0]
+      ],
+      "severity": "CRITICAL",
+      "enabled": true,
+      "dwell_time_seconds": 0.0,
+      "policy": {
+        "zone_role": "DANGER",
+        "entry_alert": true,
+        "exit_alert": false,
+        "dwell_alert": false,
+        "severity": "CRITICAL"
+      },
+      "description": "Hazardous mechanical swing/drop area of the vehicular automated boom barrier."
+    },
+    {
+      "roi_id": "vehicle_driveway_lane",
+      "name": "Main Vehicular Driveway",
+      "zone_type": "VEHICULAR_GATEWAY",
+      "polygon": [
+        [500.0, 400.0],
+        [1350.0, 410.0],
+        [1500.0, 1050.0],
+        [380.0, 1050.0]
+      ],
+      "severity": "HIGH",
+      "enabled": true,
+      "dwell_time_seconds": 2.0,
+      "policy": {
+        "zone_role": "DANGER",
+        "entry_alert": true,
+        "exit_alert": false,
+        "dwell_alert": true,
+        "dwell_threshold_seconds": 2.0,
+        "severity": "HIGH"
+      },
+      "description": "Two-lane incoming/outgoing vehicle thoroughfare. Generates alert if a pedestrian dwells > 2 seconds."
+    },
+    {
+      "roi_id": "pedestrian_safety_sidewalk",
+      "name": "Dedicated Pedestrian Sidewalk",
+      "zone_type": "GENERAL_COMMON_AREA",
+      "polygon": [
+        [80.0, 450.0],
+        [420.0, 450.0],
+        [360.0, 1050.0],
+        [50.0, 1050.0]
+      ],
+      "severity": "LOW",
+      "enabled": true,
+      "dwell_time_seconds": null,
+      "policy": {
+        "zone_role": "SAFE",
+        "entry_alert": false,
+        "exit_alert": false,
+        "dwell_alert": false,
+        "severity": "LOW"
+      },
+      "description": "Safe designated sidewalk with physical bollards separating residents from vehicle roadway."
+    }
+  ]
+}
+

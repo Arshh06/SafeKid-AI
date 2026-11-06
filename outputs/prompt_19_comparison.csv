@@ -1,0 +1,22 @@
+Category,Metric_Name,Baseline_Value,Optimized_Value,Absolute_Delta,Relative_Change_Percent
+Detection,Evaluated_Frames,72,72,0,0.0%
+Detection,Ground_Truth_Persons,144,144,0,0.0%
+Detection,Predicted_Persons,38,56,18,+47.4%
+Detection,True_Positives (TP),38,56,18,+47.4%
+Detection,False_Positives (FP),0,0,0,0.0%
+Detection,False_Negatives (FN),106,88,-18,-17.0%
+Detection,Precision,100.00%,100.00%,+0.00%,0.0%
+Detection,Recall,26.39%,38.89%,+12.50%,+47.4%
+Detection,F1_Score,41.76%,56.00%,+14.24%,+34.1%
+Detection,mAP@0.50,26.39%,38.89%,+12.50%,+47.4%
+Detection,mAP@0.50:0.95,19.21%,27.35%,+8.14%,+42.4%
+Detection,Mean_IoU,0.8533,0.8411,-0.0122,-1.4%
+Detection,Inference_Latency_ms,118.13 ms,123.30 ms,+5.17 ms,+4.4%
+Detection,Throughput_FPS,8.47 FPS,8.11 FPS,-0.36 FPS,-4.3%
+Tracking,MOTA,10.42%,32.64%,+22.22%,+213.2%
+Tracking,IDF1,18.75%,42.71%,+23.96%,+127.8%
+Tracking,ID_Switches,1,1,0,0.0%
+Tracking,Fragmentations,5,12,7,+140.0%
+Tracking,Mean_Track_Continuity,11.11%,33.33%,+22.22%,+200.0%
+Safety_Policy,Child_Alerts_Triggered,0,0,0,0.0%
+Safety_Policy,Raw_Zone_Events,24,13,0,0.0%

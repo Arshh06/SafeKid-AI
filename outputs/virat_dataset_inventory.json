@@ -1,0 +1,26 @@
+{
+  "dataset_name": "VIRAT Video Dataset Release 2.0",
+  "root_directory": "C:\\projs\\SafeKid AI\\data\\virat",
+  "total_sequences": 1,
+  "genuine_sequences_count": 0,
+  "fixture_sequences_count": 1,
+  "valid_sequences_count": 1,
+  "sequences": [
+    {
+      "sequence_id": "VIRAT_S_000001_sample",
+      "tier": "fixture",
+      "is_genuine": false,
+      "is_valid": true,
+      "resolution": "1920x1080",
+      "total_frames": 72,
+      "fps": 24.0,
+      "unique_tracks": 3,
+      "objects_distribution": {
+        "CAR": 72,
+        "PERSON": 144
+      },
+      "video_path": "C:\\projs\\SafeKid AI\\data\\virat\\videos\\VIRAT_S_000001_sample.mp4",
+      "objects_path": "C:\\projs\\SafeKid AI\\data\\virat\\annotations\\VIRAT_S_000001_sample.viratdata.objects.txt"
+    }
+  ]
+}

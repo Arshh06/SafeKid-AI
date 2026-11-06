@@ -1,0 +1,54 @@
+{
+  "evaluation_timestamp": "2026-11-05T10:35:00",
+  "checkpoint_evaluated": "models/child_classifier_v1.pt",
+  "total_test_samples": 32,
+  "sample_counts": {
+    "ground_truth_child": 12,
+    "ground_truth_adult": 12,
+    "ground_truth_ambiguous": 8
+  },
+  "child_metrics": {
+    "true_positives": 12,
+    "false_positives": 1,
+    "false_negatives": 0,
+    "precision": 0.9231,
+    "recall": 1.0,
+    "f1_score": 0.96
+  },
+  "adult_metrics": {
+    "true_positives": 9,
+    "false_positives": 1,
+    "false_negatives": 3,
+    "precision": 0.9,
+    "recall": 0.75,
+    "f1_score": 0.8182
+  },
+  "abstention_metrics": {
+    "unknown_rate": 0.2812,
+    "ambiguous_abstention_rate": 0.75,
+    "ambiguous_correctly_abstained": 6,
+    "ambiguous_total": 8
+  },
+  "latency_metrics": {
+    "mean_latency_ms": 7.51,
+    "p95_latency_ms": 6.98,
+    "unit": "ms_per_crop_cpu"
+  },
+  "confusion_matrix": {
+    "CHILD": {
+      "CHILD": 12,
+      "ADULT": 0,
+      "UNKNOWN": 0
+    },
+    "ADULT": {
+      "CHILD": 0,
+      "ADULT": 9,
+      "UNKNOWN": 3
+    },
+    "AMBIGUOUS": {
+      "CHILD": 1,
+      "ADULT": 1,
+      "UNKNOWN": 6
+    }
+  }
+}

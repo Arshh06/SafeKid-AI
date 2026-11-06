@@ -1,0 +1,25 @@
+Evaluation_Tier,Metric_Domain,Metric_Name,Value,Unit
+FIXTURE,Metadata,Sequence_ID,VIRAT_S_000001_sample,string
+FIXTURE,Metadata,Is_Genuine,False,bool
+FIXTURE,Detection,Evaluated_Frames,72,count
+FIXTURE,Detection,Ground_Truth_Persons,144,count
+FIXTURE,Detection,Predicted_Persons,56,count
+FIXTURE,Detection,True_Positives (TP),56,count
+FIXTURE,Detection,False_Positives (FP),0,count
+FIXTURE,Detection,False_Negatives (FN),88,count
+FIXTURE,Detection,Precision,100.00%,percent
+FIXTURE,Detection,Recall,38.89%,percent
+FIXTURE,Detection,F1_Score,56.00%,percent
+FIXTURE,Detection,mAP@0.50,38.89%,percent
+FIXTURE,Detection,mAP@0.50:0.95,27.35%,percent
+FIXTURE,Detection,Mean_IoU,0.8411,ratio
+FIXTURE,Detection,Inference_Latency,200.61 ms,ms
+FIXTURE,Detection,Throughput_FPS,4.98 FPS,fps
+FIXTURE,Tracking,MOTA,32.64%,percent
+FIXTURE,Tracking,IDF1,42.71%,percent
+FIXTURE,Tracking,ID_Switches,1,count
+FIXTURE,Tracking,Fragmentations,12,count
+FIXTURE,Tracking,Mean_Track_Continuity,33.33%,percent
+FIXTURE,Hardware,Process_Memory_RSS_MB,337.25,MB
+FIXTURE,Hardware,System_Memory_Percent,89.3%,percent
+FIXTURE,Safety_Policy,Child_Alerts_Triggered,0,count (expected 0)

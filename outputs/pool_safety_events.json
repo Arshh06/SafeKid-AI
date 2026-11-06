@@ -1,0 +1,943 @@
+{
+  "metadata": {
+    "community_id": "community_demo",
+    "camera_id": "camera_pool_demo",
+    "video_source": "pool_safety_demo.mp4",
+    "frame_width": 848,
+    "frame_height": 480,
+    "video_fps": 24.0,
+    "total_frames_processed": 240,
+    "execution_duration_seconds": 42.09,
+    "overall_processing_fps": 5.7,
+    "unique_persons_tracked": 9,
+    "total_events_count": 26
+  },
+  "configured_zones": [
+    {
+      "roi_id": "pool_water_boundary",
+      "name": "Swimming Pool Water Basin",
+      "zone_type": "SWIMMING_POOL_BOUNDARY",
+      "severity": "CRITICAL",
+      "dwell_time_seconds": 0.0
+    },
+    {
+      "roi_id": "pool_deck_enclosure",
+      "name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "severity": "HIGH",
+      "dwell_time_seconds": 3.0
+    }
+  ],
+  "events": [
+    {
+      "event_id": "evt_e79d967f76",
+      "event_type": "ZONE_ENTRY",
+      "timestamp_ms": 0.0,
+      "frame_id": 0,
+      "community_id": "community_demo",
+      "camera_id": "camera_pool_demo",
+      "track_id": 1,
+      "roi_id": "pool_deck_enclosure",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "severity": "HIGH",
+      "bottom_center": [
+        731.56,
+        330.19
+      ],
+      "bbox_xyxy": [
+        710.96,
+        203.19,
+        752.15,
+        330.19
+      ],
+      "dwell_time_seconds": 0.0,
+      "message": "Track ID 1 entered Pool Deck & Surrounding Pavement (SWIMMING_POOL_GATE; presence observed at clip start)",
+      "is_loss_of_tracking": false,
+      "policy": {
+        "zone_role": "MONITORED",
+        "entry_alert": false,
+        "exit_alert": false,
+        "dwell_alert": true,
+        "severity": "HIGH",
+        "dwell_threshold_seconds": 3.0
+      },
+      "timestamp_seconds": 0.0
+    },
+    {
+      "event_id": "evt_da7f162529",
+      "event_type": "ZONE_ENTRY",
+      "timestamp_ms": 0.0,
+      "frame_id": 0,
+      "community_id": "community_demo",
+      "camera_id": "camera_pool_demo",
+      "track_id": 3,
+      "roi_id": "pool_deck_enclosure",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "severity": "HIGH",
+      "bottom_center": [
+        597.54,
+        214.96
+      ],
+      "bbox_xyxy": [
+        584.24,
+        149.24,
+        610.84,
+        214.96
+      ],
+      "dwell_time_seconds": 0.0,
+      "message": "Track ID 3 entered Pool Deck & Surrounding Pavement (SWIMMING_POOL_GATE; presence observed at clip start)",
+      "is_loss_of_tracking": false,
+      "policy": {
+        "zone_role": "MONITORED",
+        "entry_alert": false,
+        "exit_alert": false,
+        "dwell_alert": true,
+        "severity": "HIGH",
+        "dwell_threshold_seconds": 3.0
+      },
+      "timestamp_seconds": 0.0
+    },
+    {
+      "event_id": "evt_8b306b084d",
+      "event_type": "ZONE_ENTRY",
+      "timestamp_ms": 416.67,
+      "frame_id": 10,
+      "community_id": "community_demo",
+      "camera_id": "camera_pool_demo",
+      "track_id": 4,
+      "roi_id": "pool_water_boundary",
+      "zone_name": "Swimming Pool Water Basin",
+      "zone_type": "SWIMMING_POOL_BOUNDARY",
+      "severity": "CRITICAL",
+      "bottom_center": [
+        473.55,
+        200.81
+      ],
+      "bbox_xyxy": [
+        463.94,
+        143.96,
+        483.17,
+        200.81
+      ],
+      "dwell_time_seconds": 0.0,
+      "message": "Track ID 4 entered Swimming Pool Water Basin (SWIMMING_POOL_BOUNDARY)",
+      "is_loss_of_tracking": false,
+      "policy": {
+        "zone_role": "DANGER",
+        "entry_alert": true,
+        "exit_alert": true,
+        "dwell_alert": false,
+        "severity": "CRITICAL",
+        "dwell_threshold_seconds": 0.0
+      },
+      "timestamp_seconds": 0.417
+    },
+    {
+      "event_id": "evt_577b82f6ae",
+      "event_type": "ZONE_ENTRY",
+      "timestamp_ms": 916.67,
+      "frame_id": 22,
+      "community_id": "community_demo",
+      "camera_id": "camera_pool_demo",
+      "track_id": 6,
+      "roi_id": "pool_water_boundary",
+      "zone_name": "Swimming Pool Water Basin",
+      "zone_type": "SWIMMING_POOL_BOUNDARY",
+      "severity": "CRITICAL",
+      "bottom_center": [
+        465.41,
+        202.75
+      ],
+      "bbox_xyxy": [
+        455.09,
+        160.5,
+        475.72,
+        202.75
+      ],
+      "dwell_time_seconds": 0.0,
+      "message": "Track ID 6 entered Swimming Pool Water Basin (SWIMMING_POOL_BOUNDARY)",
+      "is_loss_of_tracking": false,
+      "policy": {
+        "zone_role": "DANGER",
+        "entry_alert": true,
+        "exit_alert": true,
+        "dwell_alert": false,
+        "severity": "CRITICAL",
+        "dwell_threshold_seconds": 0.0
+      },
+      "timestamp_seconds": 0.917
+    },
+    {
+      "event_id": "evt_49947eb66c",
+      "event_type": "ZONE_ENTRY",
+      "timestamp_ms": 2541.67,
+      "frame_id": 61,
+      "community_id": "community_demo",
+      "camera_id": "camera_pool_demo",
+      "track_id": 2,
+      "roi_id": "pool_deck_enclosure",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "severity": "HIGH",
+      "bottom_center": [
+        111.33,
+        322.48
+      ],
+      "bbox_xyxy": [
+        89.53,
+        255.38,
+        133.14,
+        322.48
+      ],
+      "dwell_time_seconds": 0.0,
+      "message": "Track ID 2 entered Pool Deck & Surrounding Pavement (SWIMMING_POOL_GATE)",
+      "is_loss_of_tracking": false,
+      "policy": {
+        "zone_role": "MONITORED",
+        "entry_alert": false,
+        "exit_alert": false,
+        "dwell_alert": true,
+        "severity": "HIGH",
+        "dwell_threshold_seconds": 3.0
+      },
+      "timestamp_seconds": 2.542
+    },
+    {
+      "event_id": "evt_152718aa0d",
+      "event_type": "ZONE_ENTRY",
+      "timestamp_ms": 2625.0,
+      "frame_id": 63,
+      "community_id": "community_demo",
+      "camera_id": "camera_pool_demo",
+      "track_id": 4,
+      "roi_id": "pool_deck_enclosure",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "severity": "HIGH",
+      "bottom_center": [
+        525.62,
+        203.87
+      ],
+      "bbox_xyxy": [
+        515.29,
+        148.44,
+        535.96,
+        203.87
+      ],
+      "dwell_time_seconds": 0.0,
+      "message": "Track ID 4 entered Pool Deck & Surrounding Pavement (SWIMMING_POOL_GATE)",
+      "is_loss_of_tracking": false,
+      "policy": {
+        "zone_role": "MONITORED",
+        "entry_alert": false,
+        "exit_alert": false,
+        "dwell_alert": true,
+        "severity": "HIGH",
+        "dwell_threshold_seconds": 3.0
+      },
+      "timestamp_seconds": 2.625
+    },
+    {
+      "event_id": "evt_9adbcdbfe4",
+      "event_type": "ZONE_EXIT",
+      "timestamp_ms": 2625.0,
+      "frame_id": 63,
+      "community_id": "community_demo",
+      "camera_id": "camera_pool_demo",
+      "track_id": 4,
+      "roi_id": "pool_water_boundary",
+      "zone_name": "Swimming Pool Water Basin",
+      "zone_type": "SWIMMING_POOL_BOUNDARY",
+      "severity": "CRITICAL",
+      "bottom_center": [
+        525.62,
+        203.87
+      ],
+      "bbox_xyxy": [
+        515.29,
+        148.44,
+        535.96,
+        203.87
+      ],
+      "dwell_time_seconds": 2.21,
+      "message": "Track ID 4 exited Swimming Pool Water Basin after 2.2s",
+      "is_loss_of_tracking": false,
+      "policy": {
+        "zone_role": "DANGER",
+        "entry_alert": true,
+        "exit_alert": true,
+        "dwell_alert": false,
+        "severity": "CRITICAL",
+        "dwell_threshold_seconds": 0.0
+      },
+      "timestamp_seconds": 2.625
+    },
+    {
+      "event_id": "evt_60ffd86c74",
+      "event_type": "ZONE_EXIT",
+      "timestamp_ms": 2666.67,
+      "frame_id": 64,
+      "community_id": "community_demo",
+      "camera_id": "camera_pool_demo",
+      "track_id": 2,
+      "roi_id": "pool_deck_enclosure",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "severity": "HIGH",
+      "bottom_center": [
+        111.44,
+        327.93
+      ],
+      "bbox_xyxy": [
+        87.25,
+        255.35,
+        135.63,
+        327.93
+      ],
+      "dwell_time_seconds": 0.12,
+      "message": "Track ID 2 exited Pool Deck & Surrounding Pavement after 0.1s",
+      "is_loss_of_tracking": false,
+      "policy": {
+        "zone_role": "MONITORED",
+        "entry_alert": false,
+        "exit_alert": false,
+        "dwell_alert": true,
+        "severity": "HIGH",
+        "dwell_threshold_seconds": 3.0
+      },
+      "timestamp_seconds": 2.667
+    },
+    {
+      "event_id": "evt_8461b598a5",
+      "event_type": "DWELL_TIME_EXCEEDED",
+      "timestamp_ms": 3000.0,
+      "frame_id": 72,
+      "community_id": "community_demo",
+      "camera_id": "camera_pool_demo",
+      "track_id": 1,
+      "roi_id": "pool_deck_enclosure",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "severity": "HIGH",
+      "bottom_center": [
+        772.07,
+        292.62
+      ],
+      "bbox_xyxy": [
+        754.85,
+        191.28,
+        789.28,
+        292.62
+      ],
+      "dwell_time_seconds": 3.0,
+      "message": "Track ID 1 dwell time (3.0s) exceeded threshold (3.0s) in Pool Deck & Surrounding Pavement",
+      "is_loss_of_tracking": false,
+      "policy": {
+        "zone_role": "MONITORED",
+        "entry_alert": false,
+        "exit_alert": false,
+        "dwell_alert": true,
+        "severity": "HIGH",
+        "dwell_threshold_seconds": 3.0
+      },
+      "timestamp_seconds": 3.0
+    },
+    {
+      "event_id": "evt_2f52937e7e",
+      "event_type": "DWELL_TIME_EXCEEDED",
+      "timestamp_ms": 3000.0,
+      "frame_id": 72,
+      "community_id": "community_demo",
+      "camera_id": "camera_pool_demo",
+      "track_id": 3,
+      "roi_id": "pool_deck_enclosure",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "severity": "HIGH",
+      "bottom_center": [
+        709.28,
+        232.04
+      ],
+      "bbox_xyxy": [
+        695.35,
+        159.95,
+        723.22,
+        232.04
+      ],
+      "dwell_time_seconds": 3.0,
+      "message": "Track ID 3 dwell time (3.0s) exceeded threshold (3.0s) in Pool Deck & Surrounding Pavement",
+      "is_loss_of_tracking": false,
+      "policy": {
+        "zone_role": "MONITORED",
+        "entry_alert": false,
+        "exit_alert": false,
+        "dwell_alert": true,
+        "severity": "HIGH",
+        "dwell_threshold_seconds": 3.0
+      },
+      "timestamp_seconds": 3.0
+    },
+    {
+      "event_id": "evt_544fa7bf09",
+      "event_type": "ZONE_ENTRY",
+      "timestamp_ms": 3625.0,
+      "frame_id": 87,
+      "community_id": "community_demo",
+      "camera_id": "camera_pool_demo",
+      "track_id": 5,
+      "roi_id": "pool_deck_enclosure",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "severity": "HIGH",
+      "bottom_center": [
+        219.34,
+        351.59
+      ],
+      "bbox_xyxy": [
+        196.28,
+        247.27,
+        242.39,
+        351.59
+      ],
+      "dwell_time_seconds": 0.0,
+      "message": "Track ID 5 entered Pool Deck & Surrounding Pavement (SWIMMING_POOL_GATE)",
+      "is_loss_of_tracking": false,
+      "policy": {
+        "zone_role": "MONITORED",
+        "entry_alert": false,
+        "exit_alert": false,
+        "dwell_alert": true,
+        "severity": "HIGH",
+        "dwell_threshold_seconds": 3.0
+      },
+      "timestamp_seconds": 3.625
+    },
+    {
+      "event_id": "evt_2f4e9cf31a",
+      "event_type": "ZONE_EXIT",
+      "timestamp_ms": 3750.0,
+      "frame_id": 90,
+      "community_id": "community_demo",
+      "camera_id": "camera_pool_demo",
+      "track_id": 5,
+      "roi_id": "pool_deck_enclosure",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "severity": "HIGH",
+      "bottom_center": [
+        218.1,
+        352.96
+      ],
+      "bbox_xyxy": [
+        193.19,
+        247.03,
+        243.01,
+        352.96
+      ],
+      "dwell_time_seconds": 0.12,
+      "message": "Track ID 5 exited Pool Deck & Surrounding Pavement after 0.1s",
+      "is_loss_of_tracking": false,
+      "policy": {
+        "zone_role": "MONITORED",
+        "entry_alert": false,
+        "exit_alert": false,
+        "dwell_alert": true,
+        "severity": "HIGH",
+        "dwell_threshold_seconds": 3.0
+      },
+      "timestamp_seconds": 3.75
+    },
+    {
+      "event_id": "evt_b2bf95c376",
+      "event_type": "ZONE_ENTRY",
+      "timestamp_ms": 4833.33,
+      "frame_id": 116,
+      "community_id": "community_demo",
+      "camera_id": "camera_pool_demo",
+      "track_id": 8,
+      "roi_id": "pool_deck_enclosure",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "severity": "HIGH",
+      "bottom_center": [
+        339.93,
+        383.25
+      ],
+      "bbox_xyxy": [
+        318.09,
+        285.47,
+        361.76,
+        383.25
+      ],
+      "dwell_time_seconds": 0.0,
+      "message": "Track ID 8 entered Pool Deck & Surrounding Pavement (SWIMMING_POOL_GATE)",
+      "is_loss_of_tracking": false,
+      "policy": {
+        "zone_role": "MONITORED",
+        "entry_alert": false,
+        "exit_alert": false,
+        "dwell_alert": true,
+        "severity": "HIGH",
+        "dwell_threshold_seconds": 3.0
+      },
+      "timestamp_seconds": 4.833
+    },
+    {
+      "event_id": "evt_31a7c95380",
+      "event_type": "ZONE_ENTRY",
+      "timestamp_ms": 5041.67,
+      "frame_id": 121,
+      "community_id": "community_demo",
+      "camera_id": "camera_pool_demo",
+      "track_id": 2,
+      "roi_id": "pool_deck_enclosure",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "severity": "HIGH",
+      "bottom_center": [
+        110.59,
+        323.35
+      ],
+      "bbox_xyxy": [
+        90.23,
+        254.85,
+        130.95,
+        323.35
+      ],
+      "dwell_time_seconds": 0.0,
+      "message": "Track ID 2 entered Pool Deck & Surrounding Pavement (SWIMMING_POOL_GATE)",
+      "is_loss_of_tracking": false,
+      "policy": {
+        "zone_role": "MONITORED",
+        "entry_alert": false,
+        "exit_alert": false,
+        "dwell_alert": true,
+        "severity": "HIGH",
+        "dwell_threshold_seconds": 3.0
+      },
+      "timestamp_seconds": 5.042
+    },
+    {
+      "event_id": "evt_278667af56",
+      "event_type": "ZONE_ENTRY",
+      "timestamp_ms": 5041.67,
+      "frame_id": 121,
+      "community_id": "community_demo",
+      "camera_id": "camera_pool_demo",
+      "track_id": 6,
+      "roi_id": "pool_deck_enclosure",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "severity": "HIGH",
+      "bottom_center": [
+        558.24,
+        210.2
+      ],
+      "bbox_xyxy": [
+        550.54,
+        172.04,
+        565.95,
+        210.2
+      ],
+      "dwell_time_seconds": 0.0,
+      "message": "Track ID 6 entered Pool Deck & Surrounding Pavement (SWIMMING_POOL_GATE)",
+      "is_loss_of_tracking": false,
+      "policy": {
+        "zone_role": "MONITORED",
+        "entry_alert": false,
+        "exit_alert": false,
+        "dwell_alert": true,
+        "severity": "HIGH",
+        "dwell_threshold_seconds": 3.0
+      },
+      "timestamp_seconds": 5.042
+    },
+    {
+      "event_id": "evt_8ee809206f",
+      "event_type": "ZONE_EXIT",
+      "timestamp_ms": 5041.67,
+      "frame_id": 121,
+      "community_id": "community_demo",
+      "camera_id": "camera_pool_demo",
+      "track_id": 6,
+      "roi_id": "pool_water_boundary",
+      "zone_name": "Swimming Pool Water Basin",
+      "zone_type": "SWIMMING_POOL_BOUNDARY",
+      "severity": "CRITICAL",
+      "bottom_center": [
+        558.24,
+        210.2
+      ],
+      "bbox_xyxy": [
+        550.54,
+        172.04,
+        565.95,
+        210.2
+      ],
+      "dwell_time_seconds": 4.12,
+      "message": "Track ID 6 exited Swimming Pool Water Basin after 4.1s",
+      "is_loss_of_tracking": false,
+      "policy": {
+        "zone_role": "DANGER",
+        "entry_alert": true,
+        "exit_alert": true,
+        "dwell_alert": false,
+        "severity": "CRITICAL",
+        "dwell_threshold_seconds": 0.0
+      },
+      "timestamp_seconds": 5.042
+    },
+    {
+      "event_id": "evt_6c22f21e73",
+      "event_type": "ZONE_EXIT",
+      "timestamp_ms": 5208.33,
+      "frame_id": 125,
+      "community_id": "community_demo",
+      "camera_id": "camera_pool_demo",
+      "track_id": 3,
+      "roi_id": "pool_deck_enclosure",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "severity": "HIGH",
+      "bottom_center": [
+        767.06,
+        238.63
+      ],
+      "bbox_xyxy": [
+        754.55,
+        167.64,
+        779.57,
+        238.63
+      ],
+      "dwell_time_seconds": 4.58,
+      "message": "Track ID 3 left camera view (exited Pool Deck & Surrounding Pavement)",
+      "is_loss_of_tracking": true,
+      "policy": {
+        "zone_role": "MONITORED",
+        "entry_alert": false,
+        "exit_alert": false,
+        "dwell_alert": true,
+        "severity": "HIGH",
+        "dwell_threshold_seconds": 3.0
+      },
+      "timestamp_seconds": 5.208
+    },
+    {
+      "event_id": "evt_3a4985f716",
+      "event_type": "ZONE_EXIT",
+      "timestamp_ms": 5166.67,
+      "frame_id": 124,
+      "community_id": "community_demo",
+      "camera_id": "camera_pool_demo",
+      "track_id": 2,
+      "roi_id": "pool_deck_enclosure",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "severity": "HIGH",
+      "bottom_center": [
+        110.62,
+        323.66
+      ],
+      "bbox_xyxy": [
+        89.24,
+        254.79,
+        132.0,
+        323.66
+      ],
+      "dwell_time_seconds": 0.12,
+      "message": "Track ID 2 exited Pool Deck & Surrounding Pavement after 0.1s",
+      "is_loss_of_tracking": false,
+      "policy": {
+        "zone_role": "MONITORED",
+        "entry_alert": false,
+        "exit_alert": false,
+        "dwell_alert": true,
+        "severity": "HIGH",
+        "dwell_threshold_seconds": 3.0
+      },
+      "timestamp_seconds": 5.167
+    },
+    {
+      "event_id": "evt_b0365e0419",
+      "event_type": "DWELL_TIME_EXCEEDED",
+      "timestamp_ms": 5625.0,
+      "frame_id": 135,
+      "community_id": "community_demo",
+      "camera_id": "camera_pool_demo",
+      "track_id": 4,
+      "roi_id": "pool_deck_enclosure",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "severity": "HIGH",
+      "bottom_center": [
+        594.57,
+        211.85
+      ],
+      "bbox_xyxy": [
+        583.23,
+        153.06,
+        605.91,
+        211.85
+      ],
+      "dwell_time_seconds": 3.0,
+      "message": "Track ID 4 dwell time (3.0s) exceeded threshold (3.0s) in Pool Deck & Surrounding Pavement",
+      "is_loss_of_tracking": false,
+      "policy": {
+        "zone_role": "MONITORED",
+        "entry_alert": false,
+        "exit_alert": false,
+        "dwell_alert": true,
+        "severity": "HIGH",
+        "dwell_threshold_seconds": 3.0
+      },
+      "timestamp_seconds": 5.625
+    },
+    {
+      "event_id": "evt_07d88ae766",
+      "event_type": "ZONE_ENTRY",
+      "timestamp_ms": 6458.33,
+      "frame_id": 155,
+      "community_id": "community_demo",
+      "camera_id": "camera_pool_demo",
+      "track_id": 2,
+      "roi_id": "pool_deck_enclosure",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "severity": "HIGH",
+      "bottom_center": [
+        111.13,
+        322.85
+      ],
+      "bbox_xyxy": [
+        88.93,
+        254.97,
+        133.32,
+        322.85
+      ],
+      "dwell_time_seconds": 0.0,
+      "message": "Track ID 2 entered Pool Deck & Surrounding Pavement (SWIMMING_POOL_GATE)",
+      "is_loss_of_tracking": false,
+      "policy": {
+        "zone_role": "MONITORED",
+        "entry_alert": false,
+        "exit_alert": false,
+        "dwell_alert": true,
+        "severity": "HIGH",
+        "dwell_threshold_seconds": 3.0
+      },
+      "timestamp_seconds": 6.458
+    },
+    {
+      "event_id": "evt_2081781c72",
+      "event_type": "ZONE_EXIT",
+      "timestamp_ms": 6625.0,
+      "frame_id": 159,
+      "community_id": "community_demo",
+      "camera_id": "camera_pool_demo",
+      "track_id": 2,
+      "roi_id": "pool_deck_enclosure",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "severity": "HIGH",
+      "bottom_center": [
+        111.26,
+        327.39
+      ],
+      "bbox_xyxy": [
+        86.93,
+        255.0,
+        135.59,
+        327.39
+      ],
+      "dwell_time_seconds": 0.17,
+      "message": "Track ID 2 exited Pool Deck & Surrounding Pavement after 0.2s",
+      "is_loss_of_tracking": false,
+      "policy": {
+        "zone_role": "MONITORED",
+        "entry_alert": false,
+        "exit_alert": false,
+        "dwell_alert": true,
+        "severity": "HIGH",
+        "dwell_threshold_seconds": 3.0
+      },
+      "timestamp_seconds": 6.625
+    },
+    {
+      "event_id": "evt_8e2c4a0fe8",
+      "event_type": "ZONE_EXIT",
+      "timestamp_ms": 7333.33,
+      "frame_id": 176,
+      "community_id": "community_demo",
+      "camera_id": "camera_pool_demo",
+      "track_id": 1,
+      "roi_id": "pool_deck_enclosure",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "severity": "HIGH",
+      "bottom_center": [
+        801.04,
+        258.78
+      ],
+      "bbox_xyxy": [
+        787.41,
+        178.79,
+        814.67,
+        258.78
+      ],
+      "dwell_time_seconds": 7.33,
+      "message": "Track ID 1 exited Pool Deck & Surrounding Pavement after 7.3s",
+      "is_loss_of_tracking": false,
+      "policy": {
+        "zone_role": "MONITORED",
+        "entry_alert": false,
+        "exit_alert": false,
+        "dwell_alert": true,
+        "severity": "HIGH",
+        "dwell_threshold_seconds": 3.0
+      },
+      "timestamp_seconds": 7.333
+    },
+    {
+      "event_id": "evt_200489d13d",
+      "event_type": "DWELL_TIME_EXCEEDED",
+      "timestamp_ms": 7833.33,
+      "frame_id": 188,
+      "community_id": "community_demo",
+      "camera_id": "camera_pool_demo",
+      "track_id": 8,
+      "roi_id": "pool_deck_enclosure",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "severity": "HIGH",
+      "bottom_center": [
+        384.27,
+        350.24
+      ],
+      "bbox_xyxy": [
+        369.43,
+        265.27,
+        399.12,
+        350.24
+      ],
+      "dwell_time_seconds": 3.0,
+      "message": "Track ID 8 dwell time (3.0s) exceeded threshold (3.0s) in Pool Deck & Surrounding Pavement",
+      "is_loss_of_tracking": false,
+      "policy": {
+        "zone_role": "MONITORED",
+        "entry_alert": false,
+        "exit_alert": false,
+        "dwell_alert": true,
+        "severity": "HIGH",
+        "dwell_threshold_seconds": 3.0
+      },
+      "timestamp_seconds": 7.833
+    },
+    {
+      "event_id": "evt_853d61e1a3",
+      "event_type": "DWELL_TIME_EXCEEDED",
+      "timestamp_ms": 8041.67,
+      "frame_id": 193,
+      "community_id": "community_demo",
+      "camera_id": "camera_pool_demo",
+      "track_id": 6,
+      "roi_id": "pool_deck_enclosure",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "severity": "HIGH",
+      "bottom_center": [
+        614.76,
+        216.85
+      ],
+      "bbox_xyxy": [
+        605.55,
+        170.57,
+        623.97,
+        216.85
+      ],
+      "dwell_time_seconds": 3.0,
+      "message": "Track ID 6 dwell time (3.0s) exceeded threshold (3.0s) in Pool Deck & Surrounding Pavement",
+      "is_loss_of_tracking": false,
+      "policy": {
+        "zone_role": "MONITORED",
+        "entry_alert": false,
+        "exit_alert": false,
+        "dwell_alert": true,
+        "severity": "HIGH",
+        "dwell_threshold_seconds": 3.0
+      },
+      "timestamp_seconds": 8.042
+    },
+    {
+      "event_id": "evt_10164f280c",
+      "event_type": "ZONE_ENTRY",
+      "timestamp_ms": 9375.0,
+      "frame_id": 225,
+      "community_id": "community_demo",
+      "camera_id": "camera_pool_demo",
+      "track_id": 1,
+      "roi_id": "pool_deck_enclosure",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "severity": "HIGH",
+      "bottom_center": [
+        808.62,
+        246.4
+      ],
+      "bbox_xyxy": [
+        794.43,
+        171.81,
+        822.82,
+        246.4
+      ],
+      "dwell_time_seconds": 0.0,
+      "message": "Track ID 1 entered Pool Deck & Surrounding Pavement (SWIMMING_POOL_GATE)",
+      "is_loss_of_tracking": false,
+      "policy": {
+        "zone_role": "MONITORED",
+        "entry_alert": false,
+        "exit_alert": false,
+        "dwell_alert": true,
+        "severity": "HIGH",
+        "dwell_threshold_seconds": 3.0
+      },
+      "timestamp_seconds": 9.375
+    },
+    {
+      "event_id": "evt_a7992b2e4c",
+      "event_type": "ZONE_EXIT",
+      "timestamp_ms": 9416.67,
+      "frame_id": 226,
+      "community_id": "community_demo",
+      "camera_id": "camera_pool_demo",
+      "track_id": 8,
+      "roi_id": "pool_deck_enclosure",
+      "zone_name": "Pool Deck & Surrounding Pavement",
+      "zone_type": "SWIMMING_POOL_GATE",
+      "severity": "HIGH",
+      "bottom_center": [
+        288.33,
+        371.2
+      ],
+      "bbox_xyxy": [
+        266.89,
+        283.37,
+        309.77,
+        371.2
+      ],
+      "dwell_time_seconds": 4.58,
+      "message": "Track ID 8 exited Pool Deck & Surrounding Pavement after 4.6s",
+      "is_loss_of_tracking": false,
+      "policy": {
+        "zone_role": "MONITORED",
+        "entry_alert": false,
+        "exit_alert": false,
+        "dwell_alert": true,
+        "severity": "HIGH",
+        "dwell_threshold_seconds": 3.0
+      },
+      "timestamp_seconds": 9.417
+    }
+  ]
+}

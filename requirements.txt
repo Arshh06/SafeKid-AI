@@ -1,0 +1,32 @@
+# SafeKid AI Dependencies
+# Python 3.11 Compatible
+
+# Core CV & Deep Learning
+numpy>=1.24.0,<2.0.0
+opencv-python>=4.8.0.76
+torch>=2.1.0
+torchvision>=0.16.0
+
+# Detection, Tracking & Transformers
+ultralytics>=8.1.0
+lapx>=0.5.5
+pyyaml>=6.0
+loguru>=0.7.0
+faster-coco-eval>=1.6.6
+calflops>=0.1.2
+
+# Research Age Estimation (MiVOLO)
+transformers>=4.40.0
+accelerate>=0.28.0
+timm>=0.9.12
+huggingface-hub>=0.20.0
+
+# Data Analysis & Benchmarking
+pandas>=2.0.0
+scikit-learn>=1.3.0
+scipy>=1.11.0
+matplotlib>=3.8.0
+seaborn>=0.13.0
+
+# Testing & Quality
+pytest>=7.4.0

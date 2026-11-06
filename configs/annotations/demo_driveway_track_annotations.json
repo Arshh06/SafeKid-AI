@@ -1,0 +1,25 @@
+{
+  "community_id": "community_001",
+  "camera_id": "camera_gate_north",
+  "source_video": "data/demo/driveway_demo.mp4",
+  "description": "Manual ground-truth track classifications for controlled demonstration and validation of the child safety policy in a residential driveway environment (Scenario B). These labels are for testing and evaluation only, NOT for operational surveillance or autonomous demographic profiling.",
+  "provisional_ground_truth_notice": "Track 2 is manually designated as PROVISIONAL ground-truth child annotation specifically for this synthetic evaluation experiment. Actual ground truth cannot be independently verified from demo video metadata, and visual appearance age inference is strictly NOT performed.",
+  "annotations": {
+    "1": {
+      "classification": "ADULT",
+      "notes": "Adult pedestrian walking/standing on dedicated sidewalk. Strictly excluded from child alerts.",
+      "confidence": 1.0,
+      "status": "PROVISIONAL"
+    },
+    "2": {
+      "classification": "CHILD",
+      "notes": "Provisional ground truth: child walking on sidewalk, stepping into vehicular driveway lane, and dwelling > 2 seconds before returning to sidewalk. Manually assigned for synthetic experiment validation; cannot be independently established from demo metadata.",
+      "confidence": 1.0,
+      "status": "PROVISIONAL"
+    }
+  },
+  "discontinuity_policy": {
+    "handling": "Track IDs are ephemeral ByteTrack assignments and not permanent identities. Unannotated or reassigned IDs strictly default to UNCLASSIFIED with no automatic annotation inheritance.",
+    "known_discontinuities": []
+  }
+}

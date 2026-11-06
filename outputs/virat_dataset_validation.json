@@ -1,0 +1,50 @@
+{
+  "validation_timestamp": "2026-11-04T18:54:21",
+  "total_sequences_evaluated": 1,
+  "all_sequences_valid": true,
+  "results": {
+    "VIRAT_S_000001_sample": {
+      "sequence_id": "VIRAT_S_000001_sample",
+      "is_valid": true,
+      "is_genuine": false,
+      "tier": "fixture",
+      "video_path": "C:\\projs\\SafeKid AI\\data\\virat\\videos\\VIRAT_S_000001_sample.mp4",
+      "objects_path": "C:\\projs\\SafeKid AI\\data\\virat\\annotations\\VIRAT_S_000001_sample.viratdata.objects.txt",
+      "error_count": 0,
+      "warning_count": 0,
+      "errors": [],
+      "warnings": [],
+      "video_properties": {
+        "width": 1920,
+        "height": 1080,
+        "fps": 24.0,
+        "total_frames": 72,
+        "codec": "FMP4",
+        "file_size_bytes": 347236,
+        "corrupted_sample_frames": []
+      },
+      "annotation_summary": {
+        "total_data_lines": 216,
+        "comment_lines": 2,
+        "malformed_lines": 0,
+        "unique_tracks": 3,
+        "annotated_frames": 72,
+        "min_frame": 0,
+        "max_frame": 71,
+        "object_distribution": {
+          "CAR": 72,
+          "PERSON": 144
+        },
+        "duplicate_records": 0,
+        "invalid_bbox_count": 0,
+        "out_of_bounds_count": 0
+      },
+      "synchronization_summary": {
+        "video_frames": 72,
+        "annotation_max_frame": 71,
+        "is_synchronized": true,
+        "frame_coverage_ratio": 1.0
+      }
+    }
+  }
+}

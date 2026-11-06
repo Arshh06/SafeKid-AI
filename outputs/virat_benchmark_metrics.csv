@@ -1,0 +1,24 @@
+Metric_Category,Metric_Name,Value,Unit_or_Format
+Metadata,Sequence_ID,VIRAT_S_000001_sample,string
+Metadata,Resolution,1920x1080,pixels
+Metadata,Evaluated_Frames,72,count
+Detection,Ground_Truth_Persons,144,count
+Detection,Predicted_Persons,38,count
+Detection,True_Positives,38,count
+Detection,False_Positives,0,count
+Detection,False_Negatives,106,count
+Detection,Precision,1.0000,ratio
+Detection,Recall,0.2639,ratio
+Detection,F1_Score,0.4176,ratio
+Detection,mAP_50,0.2639,ratio
+Detection,mAP_50_95,0.1921,ratio
+Detection,Mean_IoU,0.8533,ratio
+Detection,Inference_Latency_ms,133.27,ms
+Detection,Throughput_FPS,7.50,FPS
+Tracking,MOTA,0.1042,ratio
+Tracking,IDF1,0.1875,ratio
+Tracking,ID_Switches,1,count
+Tracking,Fragmentations,5,count
+Tracking,Mean_Track_Continuity,0.1111,ratio
+Safety_Policy,Child_Alerts_Triggered,0,count (expected 0)
+Safety_Policy,Raw_Zone_Events,24,count

@@ -1,0 +1,26 @@
+# SafeKid AI Dedicated ChildDetector Configuration
+# Model & classification confidence parameters
+confidence_threshold: 0.65       # Minimum softmax confidence to classify as CHILD or ADULT
+margin_threshold: 0.20           # Minimum separation between top class and second class
+
+# Scale, distance & occlusion gating
+min_crop_height: 36              # Distant figures below 36px abstain to UNKNOWN (LOW_RESOLUTION)
+min_crop_width: 16               # Figures below 16px width abstain to UNKNOWN
+min_aspect_ratio: 1.0            # Aspect ratio lower bound
+max_aspect_ratio: 4.8            # Aspect ratio upper bound
+
+# Network model settings
+model_weights_path: "models/child_classifier_v1.pt"
+device: "cpu"
+input_size: [128, 64]            # (height, width) for pedestrian crop normalization
+
+# Temporal ByteTrack aggregation & smoothing
+temporal_window_size: 15         # Sliding history window
+temporal_confirmation_frames: 3  # Consecutive frames required to confirm CHILD state (flickering prevention)
+temporal_decay_frames: 10        # Grace window during occlusion before decay to UNKNOWN
+smoothing_alpha: 0.35            # Exponential smoothing factor for class probabilities
+
+# Residential safety & consent governance
+require_parental_consent: true    # Strictly enforce consent policy
+provisional_review_required: true # Require human confirmation for automated candidate alerts
+

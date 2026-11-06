@@ -1,0 +1,120 @@
+{
+  "metadata": {
+    "scenario_id": "scenario_b_driveway",
+    "scenario_name": "Residential Driveway",
+    "community_id": "community_001",
+    "camera_id": "camera_gate_north",
+    "video_source": "driveway_demo.mp4",
+    "frame_width": 1920,
+    "frame_height": 1080,
+    "video_fps": 24.0,
+    "total_frames_processed": 192,
+    "execution_duration_seconds": 36.89,
+    "unique_persons_tracked": 2
+  },
+  "summary": {
+    "total_child_events": 2,
+    "child_zone_entries": 1,
+    "child_dwell_alerts": 1,
+    "child_zone_exits": 0,
+    "active_child_track_ids": [
+      2
+    ],
+    "total_excluded_events": 1,
+    "excluded_adult_events": 1,
+    "excluded_unclassified_events": 0,
+    "excluded_adult_track_ids": [
+      1
+    ],
+    "excluded_unclassified_track_ids": [],
+    "total_discontinuities_recorded": 0
+  },
+  "child_events": [
+    {
+      "event_id": "cevt_d3c5ca2646",
+      "event_type": "CHILD_ZONE_ENTRY",
+      "timestamp_ms": 1375.0,
+      "timestamp_seconds": 1.375,
+      "frame_id": 33,
+      "community_id": "community_001",
+      "camera_id": "camera_gate_north",
+      "track_id": 2,
+      "classification": "CHILD",
+      "roi_id": "vehicle_driveway_lane",
+      "zone_name": "Main Vehicular Driveway",
+      "zone_type": "VEHICULAR_GATEWAY",
+      "severity": "HIGH",
+      "bottom_center": [
+        423.76,
+        847.94
+      ],
+      "bbox_xyxy": [
+        401.85,
+        726.29,
+        445.66,
+        847.94
+      ],
+      "dwell_time_seconds": 0.0,
+      "message": "CHILD SAFETY ALERT: Child (Track ID 2) entered configured danger zone 'Main Vehicular Driveway' (VEHICULAR_GATEWAY) [Severity: HIGH]",
+      "underlying_event_id": "evt_5df78fc154",
+      "is_loss_of_tracking": false
+    },
+    {
+      "event_id": "cevt_693f6003f0",
+      "event_type": "CHILD_DWELL_TIME_EXCEEDED",
+      "timestamp_ms": 3375.0,
+      "timestamp_seconds": 3.375,
+      "frame_id": 81,
+      "community_id": "community_001",
+      "camera_id": "camera_gate_north",
+      "track_id": 2,
+      "classification": "CHILD",
+      "roi_id": "vehicle_driveway_lane",
+      "zone_name": "Main Vehicular Driveway",
+      "zone_type": "VEHICULAR_GATEWAY",
+      "severity": "HIGH",
+      "bottom_center": [
+        600.03,
+        846.79
+      ],
+      "bbox_xyxy": [
+        577.84,
+        723.19,
+        622.22,
+        846.79
+      ],
+      "dwell_time_seconds": 2.0,
+      "message": "CHILD DWELL ALERT: Child (Track ID 2) remained in danger zone 'Main Vehicular Driveway' beyond configured threshold (2.0s) [Severity: HIGH]",
+      "underlying_event_id": "evt_5fbdfd24c3",
+      "is_loss_of_tracking": false
+    }
+  ],
+  "excluded_events": [
+    {
+      "event_id": "evt_cd478b672c",
+      "track_id": 1,
+      "classification": "ADULT",
+      "event_type": "ZONE_ENTRY",
+      "zone_name": "Dedicated Pedestrian Sidewalk",
+      "zone_type": "GENERAL_COMMON_AREA",
+      "timestamp_ms": 0.0,
+      "frame_id": 0,
+      "reason": "Track ID 1 is verified as ADULT: excluded from child-specific safety alerts."
+    }
+  ],
+  "discontinuities": [],
+  "annotations_used": {
+    "1": {
+      "track_id": 1,
+      "classification": "ADULT",
+      "notes": "Adult pedestrian walking/standing on dedicated sidewalk. Strictly excluded from child alerts.",
+      "confidence": 1.0
+    },
+    "2": {
+      "track_id": 2,
+      "classification": "CHILD",
+      "notes": "Provisional ground truth: child walking on sidewalk, stepping into vehicular driveway lane, and dwelling > 2 seconds before returning to sidewalk. Manually assigned for synthetic experiment validation; cannot be independently established from demo metadata.",
+      "confidence": 1.0
+    }
+  }
+}

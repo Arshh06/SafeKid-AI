@@ -1,0 +1,10 @@
+# SafeKid AI — Optimized ByteTrack Surveillance Configuration
+# Calibrated for high-resolution CCTV footage with distant pedestrians and temporary occlusions
+
+tracker_type: bytetrack
+track_high_thresh: 0.30  # threshold for the first association (lowered from 0.50 for distant surveillance)
+track_low_thresh: 0.10   # threshold for the second association (recovers occluded tracks)
+new_track_thresh: 0.35   # threshold to initialize a new track (lowered from 0.60 to capture distant entries)
+track_buffer: 60         # buffer frames to retain lost tracks (extended from 30 to 60 for temporary occlusions)
+match_thresh: 0.75       # threshold for spatial bounding box matching
+

@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "scenario_id": "scenario_a_playground",
+    "scenario_name": "Playground",
+    "community_id": "community_002",
+    "camera_id": "camera_playground_01",
+    "video_source": "playground_demo.mp4",
+    "frame_width": 1280,
+    "frame_height": 720,
+    "video_fps": 24.0,
+    "total_frames_processed": 240,
+    "execution_duration_seconds": 51.56,
+    "unique_persons_tracked": 2
+  },
+  "total_incidents_count": 1,
+  "open_incidents_count": 0,
+  "incidents": [
+    {
+      "incident_id": "INC-001",
+      "community_id": "community_002",
+      "camera_id": "camera_playground_01",
+      "track_id": 1,
+      "classification": "CHILD",
+      "primary_zone_id": "perimeter_hedge_boundary",
+      "primary_zone_name": "North Perimeter Fence & Dense Hedge",
+      "zone_type": "PERIMETER_FENCE",
+      "current_zone_ids": [],
+      "severity": "HIGH",
+      "state": "RESOLVED",
+      "observation_status": "OBSERVING",
+      "created_at_ms": 6458.33,
+      "created_at_frame": 155,
+      "updated_at_ms": 8958.33,
+      "updated_at_frame": 215,
+      "last_observed_at_ms": 8958.33,
+      "last_observed_at_frame": 215,
+      "missing_frames_count": 0,
+      "resolved_at_ms": 8958.33,
+      "resolved_at_frame": 215,
+      "acknowledged_at_ms": null,
+      "acknowledged_by": null,
+      "expired_at_ms": null,
+      "summary_message": "[HIGH] North Perimeter Fence & Dense Hedge: CHILD_DWELL_TIME_EXCEEDED",
+      "event_ids": [
+        "cevt_c9a5fa231b",
+        "evt_7bb3278cf1"
+      ],
+      "lifecycle_history": [
+        {
+          "transition": "CREATED",
+          "from_state": null,
+          "to_state": "ACTIVE",
+          "frame_id": 155,
+          "timestamp_ms": 6458.33,
+          "severity": "HIGH",
+          "zone_id": "perimeter_hedge_boundary",
+          "zone_name": "North Perimeter Fence & Dense Hedge",
+          "event_id": "cevt_c9a5fa231b",
+          "reason": "CHILD DWELL ALERT: Child (Track ID 1) remained in danger zone 'North Perimeter Fence & Dense Hedge' beyond configured threshold (4.0s) [Severity: HIGH]"
+        },
+        {
+          "transition": "RESOLVED",
+          "from_state": "ACTIVE",
+          "to_state": "RESOLVED",
+          "frame_id": 215,
+          "timestamp_ms": 8958.33,
+          "exited_zone_id": "perimeter_hedge_boundary",
+          "exited_zone_name": "North Perimeter Fence & Dense Hedge",
+          "event_id": "evt_7bb3278cf1",
+          "reason": "Child fully exited hazard zone 'North Perimeter Fence & Dense Hedge'"
+        }
+      ]
+    }
+  ]
+}

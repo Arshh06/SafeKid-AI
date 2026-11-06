@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "scenario_id": "scenario_c_boom_barrier",
+    "scenario_name": "Boom Barrier",
+    "community_id": "community_001",
+    "camera_id": "camera_gate_north",
+    "video_source": "boom_barrier_demo.mp4",
+    "frame_width": 1920,
+    "frame_height": 1080,
+    "video_fps": 24.0,
+    "total_frames_processed": 144,
+    "execution_duration_seconds": 22.76,
+    "unique_persons_tracked": 2
+  },
+  "total_incidents_count": 1,
+  "open_incidents_count": 1,
+  "incidents": [
+    {
+      "incident_id": "INC-001",
+      "community_id": "community_001",
+      "camera_id": "camera_gate_north",
+      "track_id": 2,
+      "classification": "CHILD",
+      "primary_zone_id": "boom_barrier_danger_zone",
+      "primary_zone_name": "Boom Barrier Mechanical Zone",
+      "zone_type": "RESTRICTED_INFRASTRUCTURE",
+      "current_zone_ids": [
+        "vehicle_driveway_lane"
+      ],
+      "severity": "CRITICAL",
+      "state": "ACTIVE",
+      "observation_status": "OBSERVING",
+      "created_at_ms": 875.0,
+      "created_at_frame": 21,
+      "updated_at_ms": 5125.0,
+      "updated_at_frame": 123,
+      "last_observed_at_ms": 5958.33,
+      "last_observed_at_frame": 143,
+      "missing_frames_count": 0,
+      "resolved_at_ms": null,
+      "resolved_at_frame": null,
+      "acknowledged_at_ms": null,
+      "acknowledged_by": null,
+      "expired_at_ms": null,
+      "summary_message": "[CRITICAL] Main Vehicular Driveway: Dwell 2.0s",
+      "event_ids": [
+        "cevt_dc37706d1d",
+        "cevt_b82f8c7dd3",
+        "cevt_d0b158d66b",
+        "evt_759d2464f6"
+      ],
+      "lifecycle_history": [
+        {
+          "transition": "CREATED",
+          "from_state": null,
+          "to_state": "ACTIVE",
+          "frame_id": 21,
+          "timestamp_ms": 875.0,
+          "severity": "HIGH",
+          "zone_id": "vehicle_driveway_lane",
+          "zone_name": "Main Vehicular Driveway",
+          "event_id": "cevt_dc37706d1d",
+          "reason": "CHILD SAFETY ALERT: Child (Track ID 2) entered configured danger zone 'Main Vehicular Driveway' (VEHICULAR_GATEWAY) [Severity: HIGH]"
+        },
+        {
+          "transition": "ESCALATED",
+          "from_state": "ACTIVE",
+          "to_state": "ACTIVE",
+          "frame_id": 30,
+          "timestamp_ms": 1250.0,
+          "severity_before": "HIGH",
+          "severity_after": "CRITICAL",
+          "zone_id": "boom_barrier_danger_zone",
+          "zone_name": "Boom Barrier Mechanical Zone",
+          "event_id": "cevt_b82f8c7dd3",
+          "reason": "Correlated hazard entry into Boom Barrier Mechanical Zone"
+        },
+        {
+          "transition": "DWELL_UPDATE",
+          "from_state": "ACTIVE",
+          "to_state": "ACTIVE",
+          "frame_id": 67,
+          "timestamp_ms": 2791.67,
+          "dwell_seconds": 2.0,
+          "zone_id": "vehicle_driveway_lane",
+          "zone_name": "Main Vehicular Driveway",
+          "event_id": "cevt_d0b158d66b",
+          "reason": "Dwell threshold exceeded in Main Vehicular Driveway"
+        },
+        {
+          "transition": "NESTED_ZONE_EXIT",
+          "from_state": "ACTIVE",
+          "to_state": "ACTIVE",
+          "frame_id": 123,
+          "timestamp_ms": 5125.0,
+          "exited_zone_id": "boom_barrier_danger_zone",
+          "exited_zone_name": "Boom Barrier Mechanical Zone",
+          "remaining_zones": [
+            "vehicle_driveway_lane"
+          ],
+          "event_id": "evt_759d2464f6",
+          "reason": "Exited nested zone 'Boom Barrier Mechanical Zone', still present in wider hazard zones"
+        }
+      ]
+    }
+  ]
+}

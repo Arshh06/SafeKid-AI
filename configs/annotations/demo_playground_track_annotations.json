@@ -1,0 +1,26 @@
+{
+  "community_id": "community_002",
+  "camera_id": "camera_playground_01",
+  "source_video": "data/demo/playground_demo.mp4",
+  "description": "Manual ground-truth track classifications for controlled demonstration and validation of the child safety policy in a residential playground environment (Scenario A). These labels are for testing and evaluation only, NOT for operational surveillance or autonomous demographic profiling.",
+  "provisional_ground_truth_notice": "Track 1 is manually designated as PROVISIONAL ground-truth child annotation specifically for this synthetic evaluation experiment. Actual ground truth cannot be independently verified from demo video metadata, and visual appearance age inference is strictly NOT performed.",
+  "annotations": {
+    "1": {
+      "classification": "CHILD",
+      "notes": "Provisional ground truth: child playing in sandbox, moving to perimeter boundary, and dwelling in fence/hedge hazard zone beyond dwell threshold. Manually assigned for synthetic experiment validation; cannot be independently established from demo metadata.",
+      "confidence": 1.0,
+      "status": "PROVISIONAL"
+    },
+    "2": {
+      "classification": "ADULT",
+      "notes": "Adult supervisor seated near toddler sandbox bench. Strictly excluded from child alerts.",
+      "confidence": 1.0,
+      "status": "PROVISIONAL"
+    }
+  },
+  "discontinuity_policy": {
+    "handling": "Track IDs are ephemeral ByteTrack assignments and not permanent identities. Unannotated or reassigned IDs strictly default to UNCLASSIFIED with no automatic annotation inheritance.",
+    "known_discontinuities": []
+  }
+}
+
