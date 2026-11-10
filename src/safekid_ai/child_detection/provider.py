@@ -88,10 +88,43 @@ class AutomatedChildClassificationProvider(TrackClassificationProvider):
         self.tracker_aggregator.purge_lost_tracks(active_track_ids)
 
         frame_results: Dict[int, ChildClassificationResult] = {}
+        cls_interval = getattr(self.config, "classification_interval", 1) or 1
+        max_staleness = getattr(self.config, "max_track_staleness", 5)
+
         for det in detections:
             tid = det.track_id
             if tid is None:
                 continue
+
+            # Skip stale tracks exceeding max staleness
+            if getattr(det, "stale_frames", 0) > max_staleness:
+                continue
+
+            # If detection is predicted/extrapolated on a skipped frame, reuse latest result without model pass
+            if getattr(det, "is_predicted", False):
+                if tid in self._latest_results:
+                    frame_results[tid] = self._latest_results[tid]
+                continue
+
+            # Classification interval throttling for established tracks
+            if cls_interval > 1 and (frame_id % cls_interval) != 0:
+                if tid in self._latest_results and self._latest_results[tid].label != ChildDetectionLabel.UNKNOWN:
+                    frame_results[tid] = self._latest_results[tid]
+                    continue
+
+            # Stationary crop optimization for established tracks
+            if getattr(self.config, "skip_stationary_crops", True):
+                if tid in self.tracker_aggregator.tracks:
+                    track_state = self.tracker_aggregator.tracks[tid]
+                    if track_state.total_frames_observed >= 3 and tid in self._latest_results:
+                        if len(track_state.history) >= 1:
+                            prev_res = track_state.history[-1][2]
+                            if prev_res.features and "bbox_center" in prev_res.features:
+                                cur_c = det.center
+                                prev_c = prev_res.features["bbox_center"]
+                                if abs(cur_c[0] - prev_c[0]) < 2.0 and abs(cur_c[1] - prev_c[1]) < 2.0:
+                                    frame_results[tid] = self._latest_results[tid]
+                                    continue
 
             # Step 1: Single-frame supervised child classification
             crop = det.extract_crop(frame)
@@ -103,6 +136,9 @@ class AutomatedChildClassificationProvider(TrackClassificationProvider):
                 track_id=tid,
                 frame_id=frame_id,
             )
+            if inst_result.features is None:
+                inst_result.features = {}
+            inst_result.features["bbox_center"] = det.center
 
             # Step 2: Temporal aggregation and flickering suppression
             track_result = self.tracker_aggregator.update_track(

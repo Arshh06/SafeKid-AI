@@ -33,3 +33,8 @@ class ChildDetectorConfig:
     require_parental_consent: bool = True    # Strictly enforce consent policy for residential child alert streams
     provisional_review_required: bool = True # Flag candidate child alerts as provisional until reviewed
 
+    # CPU Optimization & Keyframe/Throttling
+    classification_interval: int = 1         # Evaluate established tracks every N frames (1 = all frames)
+    skip_stationary_crops: bool = True       # Avoid redundant model inference on motionless tracks
+    max_track_staleness: int = 5             # Max extrapolated frames before suppressing child alerts
+

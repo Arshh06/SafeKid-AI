@@ -1,0 +1,200 @@
+[
+  {
+    "Module_Component": "Video Input & RTSP Ingestion",
+    "Source_Path": "src/safekid_ai/video_input.py",
+    "Status": "IMPLEMENTED",
+    "Test_Coverage": "tests/test_video_input.py (4 tests passing)",
+    "Experimental_Evaluation": "Evaluated on 9 JAAD dashcam sequences & 1 VIRAT CCTV video",
+    "Technology_Stack": "Python, OpenCV (VideoCapture, cv2.CAP_PROP_*)",
+    "Description": "Decodes local MP4/AVI video files and simulated RTSP camera feeds frame by frame."
+  },
+  {
+    "Module_Component": "Object Detector Adapter Interface",
+    "Source_Path": "src/safekid_ai/detector.py",
+    "Status": "IMPLEMENTED",
+    "Test_Coverage": "tests/test_detector.py (4 tests passing)",
+    "Experimental_Evaluation": "Benchmarked across 3 detector backends",
+    "Technology_Stack": "Python, Abstract Base Classes, Factory Pattern",
+    "Description": "Unified detector abstraction decoupling pipeline from specific neural network architectures."
+  },
+  {
+    "Module_Component": "YOLOv8n Detector Adapter (Provisional Baseline)",
+    "Source_Path": "src/safekid_ai/detectors/yolov8_detector.py",
+    "Status": "IMPLEMENTED & EVALUATED",
+    "Test_Coverage": "tests/test_detector.py, tests/test_child_detection_real_world.py",
+    "Experimental_Evaluation": "2,010 JAAD frames (87.80% Prec, 46.64% Rec, 106.43 ms CPU latency)",
+    "Technology_Stack": "PyTorch, Ultralytics YOLOv8 (yolov8n.pt, 3.16M params)",
+    "Description": "Fast edge CPU baseline providing high precision (853 FP) and 9.40 FPS throughput."
+  },
+  {
+    "Module_Component": "D-FINE-N Detector Adapter (Research Candidate)",
+    "Source_Path": "src/safekid_ai/detectors/dfine_detector.py",
+    "Status": "IMPLEMENTED & EVALUATED",
+    "Test_Coverage": "tests/test_dfine_detector.py (8 tests passing)",
+    "Experimental_Evaluation": "2,010 JAAD frames (41.71% Prec, 56.60% Rec, 289.42 ms CPU latency)",
+    "Technology_Stack": "PyTorch, D-FINE (dfine_n_coco.pth, 4.45M params)",
+    "Description": "Transformer-based candidate with high small-pedestrian sensitivity (23.09%), pending domain adaptation."
+  },
+  {
+    "Module_Component": "RT-DETR-L Reference Adapter",
+    "Source_Path": "src/safekid_ai/detectors/rtdetrv2_detector.py",
+    "Status": "IMPLEMENTED & EVALUATED",
+    "Test_Coverage": "tests/test_rtdetrv2_detector.py (9 tests passing)",
+    "Experimental_Evaluation": "Prompt 31 CPU benchmark (evaluated as reference architecture)",
+    "Technology_Stack": "PyTorch, Ultralytics RT-DETR (rtdetr-l.pt, 32M params)",
+    "Description": "Large real-time detection transformer evaluated as an accuracy upper-bound reference."
+  },
+  {
+    "Module_Component": "ByteTrack Multi-Object Tracking",
+    "Source_Path": "src/safekid_ai/tracker.py",
+    "Status": "IMPLEMENTED",
+    "Test_Coverage": "tests/test_tracker.py, tests/test_tracking_optimization.py (12 tests passing)",
+    "Experimental_Evaluation": "Evaluated on simulated multi-camera community sequences",
+    "Technology_Stack": "Python, ByteTrack, Kalman Filter, LAP (lapx)",
+    "Description": "Associates detections across consecutive frames into persistent tracklets with unique IDs."
+  },
+  {
+    "Module_Component": "ChildAdultClassifierNet Architecture",
+    "Source_Path": "src/safekid_ai/child_detection/classifier_net.py",
+    "Status": "IMPLEMENTED & TRAINED",
+    "Test_Coverage": "tests/test_child_classifier_real_world.py (11 tests passing)",
+    "Experimental_Evaluation": "JAAD crops: 80.95% child precision, 22.67% recall on held-out test split",
+    "Technology_Stack": "PyTorch CNN (225k parameters, custom lightweight architecture)",
+    "Description": "Lightweight CNN operating on extracted pedestrian crops to classify Child vs Adult vs Unknown."
+  },
+  {
+    "Module_Component": "Child Classifier Deployment Wrapper",
+    "Source_Path": "src/safekid_ai/child_detection/detector.py",
+    "Status": "IMPLEMENTED & EVALUATED",
+    "Test_Coverage": "tests/test_child_detector.py (14 tests passing)",
+    "Experimental_Evaluation": "Verified checkpoint models/child_classifier_jaad_v1.pt (SHA-256 confirmed)",
+    "Technology_Stack": "PyTorch, TorchScript, PIL, Torchvision Transforms",
+    "Description": "Crop preprocessing, batch inference, temperature scaling, and confidence thresholding."
+  },
+  {
+    "Module_Component": "Temporal Track Demographic Voting",
+    "Source_Path": "src/safekid_ai/child_detection/tracker_integration.py",
+    "Status": "IMPLEMENTED & VERIFIED",
+    "Test_Coverage": "tests/test_child_detection_real_world.py (12 tests passing)",
+    "Experimental_Evaluation": "Suppressed 100% of single-frame false child classifications over 15-frame window",
+    "Technology_Stack": "Python, Sliding Window Buffer, Confidence Weighting",
+    "Description": "Aggregates crop classifications over time to filter spurious single-frame misclassifications."
+  },
+  {
+    "Module_Component": "ROI Geo-Fencing Geometry Models",
+    "Source_Path": "src/safekid_ai/roi/models.py",
+    "Status": "IMPLEMENTED",
+    "Test_Coverage": "tests/test_roi_engine.py (14 tests passing)",
+    "Experimental_Evaluation": "Validated across 4 residential environments (Pool, Gate, Driveway, Playground)",
+    "Technology_Stack": "Pydantic / Dataclasses, Shapely Polygon Geometries",
+    "Description": "Defines community zones, camera calibrations, polygon boundaries, and hazard severity levels."
+  },
+  {
+    "Module_Component": "Spatial Point-in-Polygon Engine",
+    "Source_Path": "src/safekid_ai/roi/engine.py",
+    "Status": "IMPLEMENTED",
+    "Test_Coverage": "tests/test_roi_engine.py (14 tests passing)",
+    "Experimental_Evaluation": "Tested on bottom-center foot coordinate projection",
+    "Technology_Stack": "Python, Ray-Casting Algorithm, Vectorized Numpy",
+    "Description": "Calculates whether person ground-contact coordinates fall inside active hazard polygons."
+  },
+  {
+    "Module_Component": "Safety Event Definition Schema",
+    "Source_Path": "src/safekid_ai/events.py",
+    "Status": "IMPLEMENTED",
+    "Test_Coverage": "tests/test_safety_events.py (23 tests passing)",
+    "Experimental_Evaluation": "Verified event generation on simulated hazard videos",
+    "Technology_Stack": "Python Dataclasses, UUID, ISO Timestamps",
+    "Description": "Structured safety event payload (PoolPerimeterBreach, DrivewayLoitering, GateZoneIncursion)."
+  },
+  {
+    "Module_Component": "Incident Lifecycle State Machine",
+    "Source_Path": "src/safekid_ai/incidents.py",
+    "Status": "IMPLEMENTED",
+    "Test_Coverage": "tests/test_alert_lifecycle.py (12 tests passing)",
+    "Experimental_Evaluation": "Tested state transitions: NEW -> PENDING_VERIFICATION -> CONFIRMED -> RESOLVED",
+    "Technology_Stack": "Python, Finite State Machine, Audit Event Log",
+    "Description": "Tracks alert status, deduplicates recurring alarms, and enforces human operator verification."
+  },
+  {
+    "Module_Component": "ChildSafetyEventEngine Coordinator",
+    "Source_Path": "src/safekid_ai/child_safety.py",
+    "Status": "IMPLEMENTED & TESTED",
+    "Test_Coverage": "tests/test_child_safety.py (20 tests passing)",
+    "Experimental_Evaluation": "End-to-end integration with ByteTrack and ROI zones",
+    "Technology_Stack": "Python, Core Orchestrator",
+    "Description": "Integrates detections, tracklets, child classifications, and ROI dwell times into actionable alerts."
+  },
+  {
+    "Module_Component": "SafeKid Unified Video Pipeline",
+    "Source_Path": "src/safekid_ai/pipeline.py",
+    "Status": "IMPLEMENTED & BENCHMARKED",
+    "Test_Coverage": "tests/test_pipeline.py, tests/test_multi_environment_pipeline.py (6 tests passing)",
+    "Experimental_Evaluation": "Benchmarked on multi-environment synthetic and real-world fixtures",
+    "Technology_Stack": "Python, End-to-End Processing Loop",
+    "Description": "Synchronous and asynchronous video pipeline executing frame decode -> infer -> track -> alert."
+  },
+  {
+    "Module_Component": "Visual HUD & Overlay Renderer",
+    "Source_Path": "src/safekid_ai/visualization.py",
+    "Status": "IMPLEMENTED",
+    "Test_Coverage": "Verified via demo video generation in outputs/",
+    "Experimental_Evaluation": "Rendered annotated videos (pool_safety_annotated.mp4, etc.)",
+    "Technology_Stack": "Python, OpenCV Drawing Routines (cv2.polylines, cv2.rectangle, cv2.putText)",
+    "Description": "Draws color-coded bounding boxes, ground footpoints, ROI hazard zones, and alert banners."
+  },
+  {
+    "Module_Component": "JAAD Dataset Ingestion & Harmonization",
+    "Source_Path": "src/safekid_ai/datasets/jaad_parser.py",
+    "Status": "IMPLEMENTED & AUDITED",
+    "Test_Coverage": "tests/test_child_dataset_prep.py (22 tests passing)",
+    "Experimental_Evaluation": "Parsed 9 video sequences, 2,010 frames, 13,161 GT boxes, 16 child tracks",
+    "Technology_Stack": "Python, xml.etree.ElementTree, ChildDetectionLabel enum",
+    "Description": "Parses JAAD XML annotations, enforces 80px resolution gate, and standardizes demographic labels."
+  },
+  {
+    "Module_Component": "VIRAT Surveillance Loader & Evaluator",
+    "Source_Path": "src/safekid_ai/datasets/virat_loader.py",
+    "Status": "IMPLEMENTED & TESTED",
+    "Test_Coverage": "tests/test_virat_dataset.py, tests/test_virat_validation.py (20 tests passing)",
+    "Experimental_Evaluation": "Evaluated 67 frames, 134 GT annotations (2 adult tracks)",
+    "Technology_Stack": "Python, JSON annotations, IoU matching",
+    "Description": "Loads elevated CCTV surveillance clips and validates detector precision under top-down angles."
+  },
+  {
+    "Module_Component": "Automated Benchmarking & Profiling",
+    "Source_Path": "src/safekid_ai/benchmarking/benchmark.py",
+    "Status": "IMPLEMENTED",
+    "Test_Coverage": "tests/test_benchmarking.py (4 tests passing)",
+    "Experimental_Evaluation": "Prompt 31/32/36 latency and accuracy profiling",
+    "Technology_Stack": "Python, time.perf_counter, psutil, JSON/CSV exporters",
+    "Description": "Profiles component-level and end-to-end latency, CPU memory usage, and throughput."
+  },
+  {
+    "Module_Component": "Live Multi-Camera Residential Surveillance",
+    "Source_Path": "N/A (Planned Deployment)",
+    "Status": "PLANNED (Future Work)",
+    "Test_Coverage": "Pending site authorization & hardware deployment",
+    "Experimental_Evaluation": "Not yet evaluated (requires consented residential community pilot)",
+    "Technology_Stack": "Multi-RTSP Stream Manager, Edge IPC, WebRTC",
+    "Description": "Real-time multi-camera streaming from physical community security cameras at 3-6m elevations."
+  },
+  {
+    "Module_Component": "Domain-Adapted Surveillance D-FINE-N",
+    "Source_Path": "N/A (Planned Research)",
+    "Status": "PLANNED (Future Work)",
+    "Test_Coverage": "Pending training dataset collection",
+    "Experimental_Evaluation": "Off-the-shelf COCO weights evaluated in Prompt 36-38",
+    "Technology_Stack": "PyTorch, Transfer Learning, Background Negative Mining",
+    "Description": "Fine-tuning D-FINE-N on overhead CCTV frames to suppress 5.18 FP/frame while retaining high sensitivity."
+  },
+  {
+    "Module_Component": "Automated Gate & Siren Integration",
+    "Source_Path": "N/A (Planned Safety Interface)",
+    "Status": "PLANNED (Future Work)",
+    "Test_Coverage": "Requires human-in-the-loop validation & hardware relays",
+    "Experimental_Evaluation": "Safety events generated in software only",
+    "Technology_Stack": "MQTT / Webhooks / Dry-Contact Relays",
+    "Description": "Physical actuator triggers for boom barriers, pool gate magnetic latches, and warning sirens."
+  }
+]

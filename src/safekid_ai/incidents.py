@@ -166,6 +166,13 @@ class IncidentManager:
         # Key: (community_id, camera_id, track_id) -> Incident
         self._open_incidents: Dict[Tuple[str, str, int], Incident] = {}
 
+    def reset(self) -> None:
+        """Resets all open incidents and counters for a fresh video session."""
+        self._incident_counter = 0
+        self.all_incidents.clear()
+        self._open_incidents.clear()
+        logger.info("IncidentManager state reset.")
+
     def _generate_incident_id(self) -> str:
         self._incident_counter += 1
         return f"INC-{self._incident_counter:03d}"

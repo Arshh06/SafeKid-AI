@@ -162,7 +162,7 @@ class ChildDetector:
                 target_size=self.config.input_size,
                 device=self.config.device,
             )
-            with torch.no_grad():
+            with torch.inference_mode():
                 logits = self.model(tensor)
                 probs = F.softmax(logits, dim=1).squeeze(0)
                 p_child = float(probs[0].item())

@@ -85,6 +85,11 @@ class SafeKidPipeline:
             f"Camera: {self.config.camera_id}, Mode: {self.config.mode.value}"
         )
 
+        # Propagate unified frame_interval override if specified
+        if getattr(self.config, "frame_interval", None) is not None:
+            self.config.detector.frame_interval = self.config.frame_interval
+            self.config.tracker.frame_interval = self.config.frame_interval
+
         # 1. Initialize Person Detector & Tracker
         backend = getattr(self.config.detector, "backend", "yolov8").lower()
         if backend in ("dfine", "dfine_n", "dfine_s", "dfine-n", "dfine-s"):
@@ -221,6 +226,19 @@ class SafeKidPipeline:
                 frame_id=frame_id,
             )
         return []
+
+    def reset(self) -> None:
+        """Resets all internal pipeline states for a clean video session."""
+        self._last_timestamp_ms = 0.0
+        self.tracker.reset()
+        if self.child_annotation_provider and hasattr(self.child_annotation_provider, "reset"):
+            self.child_annotation_provider.reset()
+        self.zone_manager.reset()
+        if self.child_safety_engine:
+            self.child_safety_engine.reset()
+        if self.incident_manager:
+            self.incident_manager.reset()
+        logger.info("SafeKidPipeline internal session state reset.")
 
     def process_frame(
         self,

@@ -27,3 +27,23 @@ runs/
 data/sample_community_test.mp4
 data/sample_benchmark/
 
+# Scratch & Temporary
+scratch/
+
+# Prompt-generated benchmark and audit reports
+outputs/prompt_*
+
+# Operational runtime storage & temporary state
+data/uploads/
+data/outputs/
+data/jobs/
+data/incidents/
+data/hardware/
+data/notifications/
+data/config/
+
+# Real-world and external downloaded datasets
+data/child_dataset/real_world/
+data/external/
+
+

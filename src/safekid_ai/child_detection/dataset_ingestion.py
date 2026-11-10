@@ -18,6 +18,8 @@ logger = get_logger("safekid_ai.dataset_ingestion")
 
 class DatasetSource(str, Enum):
     """Source provenance of child detection datasets."""
+    JAAD = "JAAD"
+    PIE = "PIE"
     RAP_V2 = "RAP_V2"
     PETA = "PETA"
     AUTHORIZED_RESIDENTIAL = "AUTHORIZED_RESIDENTIAL"
@@ -80,7 +82,37 @@ class ChildDatasetIngestionEngine:
         Returns:
             Tuple of (operational_label, confidence, semantic_rationale).
         """
-        if source == DatasetSource.RAP_V2:
+        if source == DatasetSource.JAAD:
+            raw_age = str(raw_attributes.get("age", "")).strip().lower()
+            if raw_age == "child":
+                return (ChildDetectionLabel.CHILD, 0.95, "Verified child pedestrian in JAAD.")
+            elif raw_age in ("adult", "senior"):
+                return (ChildDetectionLabel.ADULT, 0.95, f"Verified mature adult/senior ({raw_age}) in JAAD.")
+            elif raw_age == "young":
+                return (
+                    ChildDetectionLabel.UNKNOWN,
+                    0.40,
+                    "JAAD 'young' bundles adolescents and young adults; mapped conservatively to UNKNOWN.",
+                )
+            else:
+                return (ChildDetectionLabel.UNKNOWN, 0.0, "Missing or unspecified age attribute in JAAD.")
+
+        elif source == DatasetSource.PIE:
+            raw_age = str(raw_attributes.get("age", "")).strip().lower()
+            if raw_age == "child":
+                return (ChildDetectionLabel.CHILD, 0.95, "Verified child pedestrian in PIE.")
+            elif raw_age == "adult":
+                return (ChildDetectionLabel.ADULT, 0.95, "Verified mature adult in PIE.")
+            elif raw_age == "young":
+                return (
+                    ChildDetectionLabel.UNKNOWN,
+                    0.40,
+                    "PIE 'young' bundles adolescents and young adults; mapped conservatively to UNKNOWN.",
+                )
+            else:
+                return (ChildDetectionLabel.UNKNOWN, 0.0, "Missing or unspecified age attribute in PIE.")
+
+        elif source == DatasetSource.RAP_V2:
             # RAP v2 attribute #1: AgeLess16
             is_less_16 = raw_attributes.get("AgeLess16", 0) == 1
             is_adult_31_45 = raw_attributes.get("Age31_45", 0) == 1

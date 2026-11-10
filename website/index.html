@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SafeKid AI — Child Safety Monitoring & Pedestrian Detection Research</title>
+  <meta name="description" content="Research-backed child safety monitoring and pedestrian detection evaluation for gated residential communities.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header">
+    <a href="#home" class="brand-container">
+      <div class="brand-logo-icon">SK</div>
+      <div class="brand-text">
+        <h1>SafeKid AI</h1>
+        <span>Research & Engineering Dashboard</span>
+      </div>
+    </a>
+
+    <button class="mobile-menu-btn" aria-label="Toggle navigation menu">☰</button>
+
+    <nav class="main-nav">
+      <a href="#home" class="nav-link active">Control Room</a>
+      <a href="#architecture" class="nav-link">Architecture</a>
+      <a href="#model-comparison" class="nav-link">Model Comparison</a>
+      <a href="#small-pedestrian" class="nav-link">Small Pedestrians</a>
+      <a href="#child-evaluation" class="nav-link">Child Annotations</a>
+      <a href="#datasets" class="nav-link">Methodology</a>
+      <a href="#hardware" class="nav-link">Hardware</a>
+      <a href="#implementation" class="nav-link">Implementation</a>
+      <a href="#ethics" class="nav-link">Ethics & Privacy</a>
+      <a href="#demo" class="nav-link">Visual Gallery</a>
+      <a href="#future" class="nav-link">Roadmap</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="#model-comparison" class="btn btn-primary">Benchmark Data</a>
+    </div>
+  </header>
+
+  <!-- Main Application Content -->
+  <main class="site-content">
+
+    <!-- ========================================== -->
+    <!-- TAB 1: HOME / OVERVIEW                     -->
+    <!-- ========================================== -->
+    <section id="home" class="tab-pane active">
+      <!-- ======================================================== -->
+      <!-- SAFEKID AI: OPERATIONAL CONTROL ROOM MONITORING WORKSPACE  -->
+      <!-- ======================================================== -->
+
+      <!-- Top Operational Header & Status Strip -->
+      <div class="control-room-header" style="margin-bottom: 1.5rem;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+          <div>
+            <div class="hero-badge" style="margin-bottom:0.4rem;">Gated Residential Security Control Room</div>
+            <h2 style="font-size:1.6rem; font-weight:700; color:#fff;">CCTV Surveillance & Child-Safety Incident Monitor</h2>
+            <p style="font-size:0.88rem; color:var(--text-secondary);">
+              Upload residential CCTV video recordings, execute automated computer-vision child detection, monitor configured hazard zones, dispatch central messaging alerts, and control the ESP32 physical buzzer.
+            </p>
+          </div>
+          <div style="display:flex; gap:0.5rem; align-items:center; flex-wrap:wrap;">
+            <button id="btn-refresh-dashboard" class="btn btn-secondary" style="font-size:0.8rem; padding:0.4rem 0.8rem;">🔄 Refresh Status</button>
+            <a href="#model-comparison" class="btn btn-primary" style="font-size:0.8rem; padding:0.4rem 0.8rem;">📊 Research Dashboard</a>
+          </div>
+        </div>
+
+        <!-- Real-Time Hardware & Service Status Strip -->
+        <div class="op-status-strip" style="margin-top: 1rem;">
+          <div class="op-status-group">
+            <span style="font-size:0.82rem; font-weight:600; color:var(--text-muted);">SYSTEM STATUS:</span>
+            <div id="status-pipeline" class="status-pill online">
+              <span class="status-pill-dot"></span>
+              <span>Vision Pipeline: ACTIVE</span>
+            </div>
+            <div id="status-esp32" class="status-pill disconnected">
+              <span class="status-pill-dot"></span>
+              <span id="label-esp32-status">ESP32 Buzzer: NOT CONNECTED</span>
+            </div>
+            <div id="status-notif" class="status-pill unconfigured">
+              <span class="status-pill-dot"></span>
+              <span id="label-notif-status">Community Alerts: NOT CONFIGURED</span>
+            </div>
+          </div>
+          <div style="font-size:0.82rem; color:var(--text-secondary);">
+            Active Incidents: <strong id="stat-active-incidents" style="color:var(--rose-primary);">0</strong> | 
+            Completed Jobs: <strong id="stat-completed-jobs" style="color:var(--emerald-primary);">0</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 1: CCTV VIDEO INGESTION & PROCESSING HUB -->
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <div class="card-header">
+          <div>
+            <h3 class="card-title">1. CCTV Recording Ingestion Hub</h3>
+            <p class="card-subtitle">Upload CCTV video files (MP4, AVI, MOV) for automated pipeline processing.</p>
+          </div>
+          <span class="card-badge badge-baseline">Max 250 MB / Video</span>
+        </div>
+
+        <!-- Drag and drop zone -->
+        <div id="upload-dropzone" class="upload-dropzone">
+          <input type="file" id="video-file-input" multiple accept=".mp4,.avi,.mov,.mkv" style="display:none;">
+          <span class="dropzone-icon">📹</span>
+          <div class="dropzone-title">Drag & Drop CCTV Recordings Here, or Click to Browse</div>
+          <div class="dropzone-subtitle">Supports single or multi-video batch uploads (.mp4, .avi, .mov)</div>
+          <button type="button" class="btn btn-primary" onclick="document.getElementById('video-file-input').click();">Browse Files</button>
+        </div>
+
+        <!-- Quick Demo Loader Buttons -->
+        <div style="margin-top:1.25rem; text-align:center;">
+          <div style="font-size:0.8rem; color:var(--text-muted); font-weight:600; text-transform:uppercase; margin-bottom:0.5rem;">
+            Or Load Pre-Installed Residential CCTV Fixtures:
+          </div>
+          <div class="demo-pills-row">
+            <button class="btn-demo-pill" data-demo="pool">🏊 Pool Safety Demo (848x480)</button>
+            <button class="btn-demo-pill" data-demo="driveway">🚗 Vehicular Driveway Demo (848x480)</button>
+            <button class="btn-demo-pill" data-demo="playground">🛝 Playground Perimeter Demo (848x480)</button>
+            <button class="btn-demo-pill" data-demo="gate">🚧 Boom Barrier Access Demo (848x480)</button>
+          </div>
+        </div>
+
+        <!-- Video Job Queue Table -->
+        <div id="job-queue-wrapper" style="margin-top: 1.25rem; display:none;">
+          <h4 style="font-size:0.9rem; font-weight:600; margin-bottom:0.5rem; color:var(--text-primary);">Video Ingestion & Processing Queue</h4>
+          <div class="table-container">
+            <table class="data-table" id="table-job-queue">
+              <thead>
+                <tr>
+                  <th>Video Name</th>
+                  <th>Size</th>
+                  <th>Frames / FPS</th>
+                  <th>Status</th>
+                  <th>Pipeline Progress</th>
+                  <th>Incidents</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-job-queue">
+                <!-- Populated dynamically via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 2: VIDEO WORKSPACE & ANNOTATED DETECTION HUD -->
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <div class="card-header">
+          <div>
+            <h3 class="card-title">2. Video Playback & HUD Detection Stream</h3>
+            <p class="card-subtitle">Inspect original CCTV footage and annotated detection/tracking overlays.</p>
+          </div>
+          <div style="display:flex; align-items:center; gap:0.5rem;">
+            <label for="select-active-job" style="font-size:0.8rem; color:var(--text-secondary);">Active Video:</label>
+            <select id="select-active-job" class="form-control-select" style="font-size:0.8rem; padding:0.3rem 0.6rem;">
+              <option value="">No video selected</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="video-workspace-grid">
+          <!-- Video player box -->
+          <div class="video-player-box">
+            <div class="video-player-wrap">
+              <video id="main-video-player" controls preload="metadata">
+                <p style="color:var(--text-muted); font-size:0.85rem;">Select an uploaded video or demo recording above to view.</p>
+              </video>
+            </div>
+
+            <div class="hud-controls-row">
+              <div class="hud-toggles">
+                <span style="font-weight:600; color:var(--text-muted);">OVERLAYS:</span>
+                <button class="hud-toggle-btn active" data-overlay="geofence">Hazard Geofences</button>
+                <button class="hud-toggle-btn active" data-overlay="boxes">Pedestrian Boxes</button>
+                <button class="hud-toggle-btn active" data-overlay="tracks">ByteTrack IDs</button>
+                <button class="hud-toggle-btn active" data-overlay="classification">Child/Adult Class</button>
+                <button class="hud-toggle-btn active" data-overlay="feet">Foot Ground-Points</button>
+              </div>
+              <div style="font-size:0.78rem; color:var(--text-muted);">
+                Mode: <span id="player-feed-mode" style="color:var(--cyan-primary); font-weight:600;">Processed Annotated Stream</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video Metadata & Live Stats Box -->
+          <div style="display:flex; flex-direction:column; gap:1rem;">
+            <div class="card" style="background:var(--bg-secondary); border:1px solid var(--border-color); padding:1rem; height:100%;">
+              <h4 style="font-size:0.88rem; font-weight:700; color:var(--cyan-primary); margin-bottom:0.75rem; text-transform:uppercase; letter-spacing:0.04em;">Processing Diagnostics</h4>
+              <table class="incident-meta-table">
+                <tr><td>Video Source</td><td id="diag-video-name">None</td></tr>
+                <tr><td>Resolution</td><td id="diag-resolution">N/A</td></tr>
+                <tr><td>Recorded FPS</td><td id="diag-fps">N/A</td></tr>
+                <tr><td>Total Frames</td><td id="diag-total-frames">0</td></tr>
+                <tr><td>Processed Frames</td><td id="diag-processed-frames">0</td></tr>
+                <tr><td>Inference Speed</td><td id="diag-proc-fps">0.0 fps</td></tr>
+                <tr><td>Active Detections</td><td id="diag-active-tracks">0</td></tr>
+                <tr><td>Safety Incidents Found</td><td id="diag-incidents-found" style="color:var(--rose-primary); font-weight:700;">0</td></tr>
+              </table>
+
+              <div id="active-processing-indicator" style="display:none; margin-top:1rem; padding:0.75rem; background:rgba(6,182,212,0.1); border:1px solid rgba(6,182,212,0.3); border-radius:var(--radius-sm); text-align:center;">
+                <span style="font-size:0.82rem; color:var(--cyan-primary); font-weight:600;">⚡ Vision Pipeline Running...</span>
+                <div class="job-progress-bar-wrap" style="margin-top:0.4rem;">
+                  <div id="live-progress-bar" class="job-progress-bar-fill" style="width:0%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 3: INTERACTIVE HAZARD ZONE CONFIGURATOR (ROI EDITOR) -->
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <div class="card-header">
+          <div>
+            <h3 class="card-title">3. Interactive Hazard-Zone Geofence Configurator</h3>
+            <p class="card-subtitle">Define polygonal danger zones directly on CCTV camera viewpoints.</p>
+          </div>
+          <button id="btn-reload-roi-frame" class="btn btn-secondary" style="font-size:0.78rem; padding:0.3rem 0.6rem;">Capture Frame Snapshot</button>
+        </div>
+
+        <div class="video-workspace-grid">
+          <!-- Canvas drawing area -->
+          <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <div class="roi-canvas-wrap" id="roi-canvas-container">
+              <div class="roi-canvas-instructions">Click video frame to add boundary points (3+ points required)</div>
+              <canvas id="roi-editor-canvas" width="848" height="480"></canvas>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.78rem; color:var(--text-secondary);">
+              <div>Points placed: <strong id="lbl-polygon-points" style="color:var(--cyan-primary);">0</strong></div>
+              <div style="display:flex; gap:0.5rem;">
+                <button type="button" id="btn-roi-undo-point" class="btn btn-secondary" style="font-size:0.75rem; padding:0.25rem 0.6rem;">Undo Last Point</button>
+                <button type="button" id="btn-roi-clear-points" class="btn btn-secondary" style="font-size:0.75rem; padding:0.25rem 0.6rem;">Clear Current Polygon</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Zone configuration form -->
+          <div style="display:flex; flex-direction:column; gap:0.75rem;">
+            <div class="card" style="background:var(--bg-secondary); border:1px solid var(--border-color); padding:1rem;">
+              <h4 style="font-size:0.88rem; font-weight:700; color:#fff; margin-bottom:0.75rem;">Zone Parameters</h4>
+              
+              <div class="form-group-field">
+                <label for="input-zone-name">Zone Label</label>
+                <input type="text" id="input-zone-name" class="form-control-input" placeholder="e.g. Swimming Pool Apron" value="Swimming Pool Basin">
+              </div>
+
+              <div class="form-group-field">
+                <label for="select-zone-type">Safety Zone Type</label>
+                <select id="select-zone-type" class="form-control-select">
+                  <option value="SWIMMING_POOL_BOUNDARY">Swimming Pool Boundary / Basin</option>
+                  <option value="SWIMMING_POOL_GATE">Swimming Pool Access Gate</option>
+                  <option value="VEHICULAR_GATEWAY">Vehicular Gateway / Driveway</option>
+                  <option value="PERIMETER_FENCE">Perimeter Fence / Boundary</option>
+                  <option value="PLAYGROUND">Playground Area</option>
+                  <option value="RESTRICTED_INFRASTRUCTURE">Restricted Infrastructure</option>
+                  <option value="WATER_BODY_EDGE">Water Body Edge</option>
+                </select>
+              </div>
+
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.5rem;">
+                <div class="form-group-field">
+                  <label for="select-zone-role">Safety Role</label>
+                  <select id="select-zone-role" class="form-control-select">
+                    <option value="DANGER">DANGER (Immediate Alert)</option>
+                    <option value="MONITORED">MONITORED (Dwell Alert)</option>
+                    <option value="SAFE">SAFE (No Danger Alerts)</option>
+                  </select>
+                </div>
+                <div class="form-group-field">
+                  <label for="select-zone-severity">Alert Severity</label>
+                  <select id="select-zone-severity" class="form-control-select">
+                    <option value="CRITICAL">CRITICAL</option>
+                    <option value="HIGH">HIGH</option>
+                    <option value="MEDIUM">MEDIUM</option>
+                    <option value="LOW">LOW</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group-field">
+                <label for="input-zone-dwell">Dwell Threshold (Seconds)</label>
+                <input type="number" id="input-zone-dwell" class="form-control-input" value="2.0" step="0.5" min="0">
+              </div>
+
+              <button type="button" id="btn-save-new-zone" class="btn btn-primary" style="width:100%; margin-top:0.5rem;">
+                + Add / Save Zone Geofence
+              </button>
+            </div>
+
+            <!-- Active configured zones list -->
+            <div style="margin-top:0.5rem;">
+              <h5 style="font-size:0.8rem; font-weight:700; color:var(--text-secondary); text-transform:uppercase; margin-bottom:0.5rem;">Configured Camera Zones (<span id="lbl-zone-count">0</span>)</h5>
+              <div id="list-active-zones" style="max-height:160px; overflow-y:auto;">
+                <!-- Filled dynamically via JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 4: REAL-TIME INCIDENT ACTION QUEUE & VERIFICATION FEED -->
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <div class="card-header">
+          <div>
+            <h3 class="card-title">4. Real-Time Incident Action Queue & Human Verification Feed</h3>
+            <p class="card-subtitle">Safety incidents generated by tracked child/unknown pedestrian zone entries.</p>
+          </div>
+          <span class="card-badge badge-warning" id="badge-incident-feed-count">0 Open Incident(s)</span>
+        </div>
+
+        <div id="incident-cards-container" class="incident-feed-grid">
+          <!-- Populated dynamically via JS -->
+          <div style="grid-column: 1 / -1; text-align:center; padding:2.5rem; color:var(--text-muted); background:var(--bg-secondary); border-radius:var(--radius-md);">
+            <div style="font-size:1.8rem; margin-bottom:0.5rem;">🛡️</div>
+            <strong>No active safety incidents detected yet.</strong>
+            <div style="font-size:0.82rem; margin-top:0.25rem;">Upload and process a video recording above to evaluate hazard geofences.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 5: HARDWARE & NOTIFICATION PANELS -->
+      <div class="grid-2" style="margin-bottom: 1.5rem;">
+        <!-- Left Panel: Community Central Messaging Gateway -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">5. Central Messaging Gateway</h3>
+              <p class="card-subtitle">Automated dispatch of high/critical alerts to community security group.</p>
+            </div>
+            <span id="badge-messaging-status" class="card-badge badge-planned">NOT CONFIGURED</span>
+          </div>
+
+          <form id="form-notification-config" onsubmit="return false;">
+            <div class="form-group-field">
+              <label for="select-notif-provider">Provider Adapter</label>
+              <select id="select-notif-provider" class="form-control-select">
+                <option value="NONE">NONE (Disabled)</option>
+                <option value="MOCK">MOCK (In-Memory Diagnostic Simulation)</option>
+                <option value="WEBHOOK">HTTP WEBHOOK (Slack / Discord / Custom)</option>
+                <option value="TELEGRAM">TELEGRAM BOT (Community Group Chat)</option>
+              </select>
+            </div>
+
+            <div id="field-webhook-url" class="form-group-field" style="display:none;">
+              <label for="input-webhook-url">Webhook URL</label>
+              <input type="url" id="input-webhook-url" class="form-control-input" placeholder="https://hooks.slack.com/services/...">
+            </div>
+
+            <div id="fields-telegram" style="display:none;">
+              <div class="form-group-field">
+                <label for="input-telegram-token">Telegram Bot Token</label>
+                <input type="password" id="input-telegram-token" class="form-control-input" placeholder="123456789:ABCdefGHI...">
+              </div>
+              <div class="form-group-field">
+                <label for="input-telegram-chat">Chat ID / Group Channel ID</label>
+                <input type="text" id="input-telegram-chat" class="form-control-input" placeholder="-1001234567890">
+              </div>
+            </div>
+
+            <div style="display:flex; gap:0.5rem; margin-top:1rem;">
+              <button type="button" id="btn-save-notif-config" class="btn btn-secondary" style="flex:1;">Save Settings</button>
+              <button type="button" id="btn-test-notif-dispatch" class="btn btn-primary" style="flex:1;">Send Diagnostic Test Alert</button>
+            </div>
+          </form>
+
+          <div style="margin-top:1rem; border-top:1px solid var(--border-color); padding-top:0.75rem;">
+            <div style="font-size:0.75rem; color:var(--text-muted); font-weight:600; text-transform:uppercase;">Recent Dispatch Log:</div>
+            <div id="notif-dispatch-log" style="font-size:0.78rem; color:var(--text-secondary); margin-top:0.25rem; max-height:80px; overflow-y:auto; font-family:var(--font-mono);">
+              No messages dispatched yet.
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Panel: ESP32 Physical Buzzer Device Control -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">6. ESP32 Physical Buzzer Control</h3>
+              <p class="card-subtitle">Microcontroller device adapter driving GPIO buzzer hardware.</p>
+            </div>
+            <span id="badge-esp32-status" class="card-badge badge-warning">NOT CONNECTED</span>
+          </div>
+
+          <form id="form-esp32-config" onsubmit="return false;">
+            <div style="display:grid; grid-template-columns:2fr 1fr; gap:0.5rem;">
+              <div class="form-group-field">
+                <label for="input-esp32-host">ESP32 Device IP / Hostname</label>
+                <input type="text" id="input-esp32-host" class="form-control-input" placeholder="192.168.1.120" value="192.168.1.120">
+              </div>
+              <div class="form-group-field">
+                <label for="input-esp32-port">Port</label>
+                <input type="number" id="input-esp32-port" class="form-control-input" value="80">
+              </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.5rem;">
+              <div class="form-group-field">
+                <label for="input-esp32-cooldown">Cooldown (Seconds)</label>
+                <input type="number" id="input-esp32-cooldown" class="form-control-input" value="10" min="1">
+              </div>
+              <div class="form-group-field">
+                <label for="input-esp32-duration">Pulse Duration (ms)</label>
+                <input type="number" id="input-esp32-duration" class="form-control-input" value="1500" step="100">
+              </div>
+            </div>
+
+            <div class="form-group-field">
+              <label for="input-esp32-token">Device Auth Token (Optional)</label>
+              <input type="password" id="input-esp32-token" class="form-control-input" placeholder="Bearer Token">
+            </div>
+
+            <!-- Manual Operator Controls -->
+            <div style="display:flex; gap:0.5rem; margin-top:0.75rem;">
+              <button type="button" id="btn-save-esp32-config" class="btn btn-secondary" style="flex:1;">Save Config</button>
+              <button type="button" id="btn-esp32-test-pulse" class="btn-buzzer-pulse" style="flex:1;">⚡ Manual Buzzer Pulse</button>
+              <button type="button" id="btn-esp32-silence" class="btn-buzzer-silence" style="flex:1;">🔕 Silence</button>
+            </div>
+          </form>
+
+          <div style="margin-top:1rem; border-top:1px solid var(--border-color); padding-top:0.75rem;">
+            <div style="font-size:0.75rem; color:var(--text-muted); font-weight:600; text-transform:uppercase;">Recent Buzzer Actuation Log:</div>
+            <div id="esp32-actuation-log" style="font-size:0.78rem; color:var(--text-secondary); margin-top:0.25rem; max-height:80px; overflow-y:auto; font-family:var(--font-mono);">
+              No hardware trigger attempts yet.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 6: FILTERABLE INCIDENT HISTORY LOG -->
+      <div class="card" style="margin-bottom: 2rem;">
+        <div class="card-header">
+          <div>
+            <h3 class="card-title">7. Incident History & Verification Audit Log</h3>
+            <p class="card-subtitle">Complete historical record of safety events across all processed video recordings.</p>
+          </div>
+          <div style="display:flex; gap:0.5rem;">
+            <button id="btn-export-incidents-csv" class="btn btn-secondary" style="font-size:0.78rem; padding:0.3rem 0.6rem;">Export CSV</button>
+            <button id="btn-export-incidents-json" class="btn btn-secondary" style="font-size:0.78rem; padding:0.3rem 0.6rem;">Export JSON</button>
+          </div>
+        </div>
+
+        <!-- Filter bar -->
+        <div style="display:flex; flex-wrap:wrap; gap:0.75rem; margin-bottom:1rem; align-items:center;">
+          <input type="text" id="filter-incident-search" class="form-control-input" placeholder="Search by Zone or ID..." style="flex:1; min-width:180px;">
+          <select id="filter-incident-severity" class="form-control-select" style="min-width:130px;">
+            <option value="">All Severities</option>
+            <option value="CRITICAL">CRITICAL</option>
+            <option value="HIGH">HIGH</option>
+            <option value="MEDIUM">MEDIUM</option>
+            <option value="LOW">LOW</option>
+          </select>
+          <select id="filter-incident-status" class="form-control-select" style="min-width:130px;">
+            <option value="">All Statuses</option>
+            <option value="ACTIVE">ACTIVE</option>
+            <option value="ACKNOWLEDGED">ACKNOWLEDGED</option>
+            <option value="RESOLVED">RESOLVED</option>
+          </select>
+        </div>
+
+        <div class="table-container">
+          <table class="data-table" id="table-incident-history">
+            <thead>
+              <tr>
+                <th>Incident ID</th>
+                <th>Source Video</th>
+                <th>Time / Frame</th>
+                <th>Hazard Zone</th>
+                <th>Class / Track</th>
+                <th>Severity</th>
+                <th>Notification</th>
+                <th>Buzzer</th>
+                <th>Status</th>
+                <th>Operator Action</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-incident-history">
+              <tr>
+                <td colspan="10" style="text-align:center; color:var(--text-muted); padding:2rem;">No incidents logged yet. Process a video recording above to populate.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SECTION DIVIDER: RESEARCH & METHODOLOGY TRANSITION -->
+      <div class="section-header" style="margin-top: 3rem; margin-bottom: 1.5rem; text-align: center;">
+        <span class="section-tag">Engineering Context & Background</span>
+        <h3 class="section-title">Research Foundations & Experimental Evaluation</h3>
+        <p class="section-description" style="max-width: 750px; margin: 0 auto;">
+          SafeKid AI couples operational residential monitoring with rigorous offline scientific evaluation. Below are the quantitative takeaways, architectural specifications, and empirical benchmarks grounding the pipeline.
+        </p>
+      </div>
+
+      <div class="hero-banner">
+        <div class="hero-badge">Computer Vision Research & Pipeline Prototype</div>
+        <h2 class="hero-title">AI-Assisted Child Safety Monitoring for Gated Residential Communities</h2>
+        <p class="hero-subtitle">
+          An open, reproducible engineering initiative investigating real-time computer vision, multi-object tracking, and region-of-interest geofencing to assist in detecting unauthorized child presence in hazardous residential zones.
+        </p>
+
+        <div class="hero-disclaimer-box">
+          <span style="font-size: 1.25rem;">⚠️</span>
+          <div>
+            <strong>Operational Assistance Disclaimer:</strong> SafeKid AI is designed strictly as a computer-vision assistance tool to aid human monitoring operators. It does <em>not</em> replace adult supervision, physical perimeter fencing, lifeguards, or emergency response personnel. The models and pipelines presented here reflect controlled experimental evaluations on automotive dashcam and exploratory surveillance samples and have not yet been certified for autonomous life-safety deployment.
+          </div>
+        </div>
+      </div>
+
+      <!-- Problem vs Solution Cards -->
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">The Community Safety Problem</h3>
+            <span class="card-badge badge-warning">Current Limitations</span>
+          </div>
+          <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">
+            In gated residential communities, children can unintentionally wander into high-risk areas including swimming pool perimeters, vehicular driveways, and automated boom barrier access gates.
+          </p>
+          <ul class="pro-con-list">
+            <li><span class="icon-con">✕</span> <span><strong>Human Monitoring Fatigue:</strong> Conventional CCTV requires continuous human attention; security guards monitoring multi-camera walls experience visual fatigue within 20 minutes.</span></li>
+            <li><span class="icon-con">✕</span> <span><strong>Delayed Incident Awareness:</strong> Existing security setups record passive footage for post-incident review rather than surfacing timely visual notifications.</span></li>
+            <li><span class="icon-con">✕</span> <span><strong>Complex Environmental Occlusion:</strong> Outdoor residential zones feature moving vehicles, gates, and trees that obscure pedestrian silhouettes.</span></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">The SafeKid AI Approach</h3>
+            <span class="card-badge badge-baseline">Implemented Pipeline</span>
+          </div>
+          <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.9rem;">
+            SafeKid AI explores a multi-stage software pipeline combining generic pedestrian detection, temporal tracking, spatial polygon intersection, and human-in-the-loop review.
+          </p>
+          <ul class="pro-con-list">
+            <li><span class="icon-pro">✓</span> <span><strong>Person Detection & Tracking:</strong> Leverages neural object detectors (YOLOv8n / D-FINE-N) and ByteTrack to track pedestrian movements over time.</span></li>
+            <li><span class="icon-pro">✓</span> <span><strong>Spatial ROI Geofencing:</strong> Uses foot-contact point-in-polygon math to monitor calibrated hazard zones (Pool deck, Driveway perimeter, Gate swings).</span></li>
+            <li><span class="icon-pro">✓</span> <span><strong>Demographic Tracklet Estimation:</strong> Aggregates crop classifications over temporal tracks, maintaining an explicit <code>UNKNOWN</code> state to avoid ungrounded assumptions.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Key Quantitative Takeaways Grid -->
+      <div class="section-header">
+        <span class="section-tag">Key Experimental Takeaways</span>
+        <h3 class="section-title">Controlled Benchmark Measurements</h3>
+        <p class="section-description">
+          Results independently reconciled from 2,010 evaluated JAAD dashcam frames (13,161 ground-truth annotations) and supplementary VIRAT elevated surveillance fixtures on an Intel Core i3 edge CPU.
+        </p>
+      </div>
+
+      <div class="grid-4">
+        <div class="metric-stat-box">
+          <div class="metric-label">YOLOv8n Precision</div>
+          <div class="metric-value highlight-emerald">87.80%</div>
+          <div class="metric-sub">853 FP across 2,010 frames (0.42 FP/f)</div>
+        </div>
+        <div class="metric-stat-box">
+          <div class="metric-label">D-FINE-N Recall</div>
+          <div class="metric-value highlight-cyan">56.60%</div>
+          <div class="metric-sub">7,449 / 13,161 pedestrian instances (+9.96%)</div>
+        </div>
+        <div class="metric-stat-box">
+          <div class="metric-label">Small-Pedestrian Recall</div>
+          <div class="metric-value highlight-cyan">23.09%</div>
+          <div class="metric-sub">D-FINE-N (<32px height) vs YOLOv8n (3.27%)</div>
+        </div>
+        <div class="metric-stat-box">
+          <div class="metric-label">Edge CPU Latency</div>
+          <div class="metric-value highlight-emerald">106.43 ms</div>
+          <div class="metric-sub">YOLOv8n on Intel i3 (2.72x faster than D-FINE)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 2: SYSTEM ARCHITECTURE                -->
+    <!-- ========================================== -->
+    <section id="architecture" class="tab-pane">
+      <div class="section-header">
+        <span class="section-tag">End-to-End Pipeline</span>
+        <h2 class="section-title">System Architecture & Processing Flow</h2>
+        <p class="section-description">
+          Detailed architectural breakdown of SafeKid AI's implemented modules. Each component corresponds directly to existing source code inside <code>src/safekid_ai/</code>.
+        </p>
+      </div>
+
+      <div class="callout callout-info">
+        <span>ℹ️</span>
+        <div>
+          <strong>Architecture Transparency Notice:</strong> While individual components (detection, ByteTrack tracking, ROI point-in-polygon math, and crop classification) are implemented and unit-tested in the repository, this diagram represents an engineering prototype architecture. It does <em>not</em> imply that all modules have been tested or validated together in a live residential community deployment.
+        </div>
+      </div>
+
+      <div class="architecture-container">
+        <div class="pipeline-flow">
+
+          <div class="pipeline-stage">
+            <div class="stage-num-title">
+              <span class="stage-num">01</span>
+              <span class="stage-title">Video Input</span>
+            </div>
+            <div class="stage-desc">
+              <code>safekid_ai.video_input</code>: Ingests video streams from local test recordings or simulated RTSP IP camera connections.
+            </div>
+            <div class="stage-status">
+              <span class="card-badge badge-implemented">IMPLEMENTED</span>
+            </div>
+          </div>
+
+          <div class="pipeline-stage">
+            <div class="stage-num-title">
+              <span class="stage-num">02</span>
+              <span class="stage-title">Frame Decoder</span>
+            </div>
+            <div class="stage-desc">
+              OpenCV frame decoding, resolution scaling (640x640 letterbox), and optional frame decimation / keyframe extraction.
+            </div>
+            <div class="stage-status">
+              <span class="card-badge badge-implemented">IMPLEMENTED</span>
+            </div>
+          </div>
+
+          <div class="pipeline-stage">
+            <div class="stage-num-title">
+              <span class="stage-num">03</span>
+              <span class="stage-title">Detector Adapter</span>
+            </div>
+            <div class="stage-desc">
+              <code>safekid_ai.detector</code>: Factory interface decoupling the pipeline from specific neural architectures (YOLOv8n vs D-FINE-N).
+            </div>
+            <div class="stage-status">
+              <span class="card-badge badge-implemented">IMPLEMENTED</span>
+            </div>
+          </div>
+
+          <div class="pipeline-stage">
+            <div class="stage-num-title">
+              <span class="stage-num">04</span>
+              <span class="stage-title">Neural Inference</span>
+            </div>
+            <div class="stage-desc">
+              Executes person detection bounding box regression and confidence filtering at operational threshold ($\text{conf} \ge 0.25$).
+            </div>
+            <div class="stage-status">
+              <span class="card-badge badge-evaluated">EVALUATED</span>
+            </div>
+          </div>
+
+          <div class="pipeline-stage">
+            <div class="stage-num-title">
+              <span class="stage-num">05</span>
+              <span class="stage-title">ByteTrack Multi-Object Tracking</span>
+            </div>
+            <div class="stage-desc">
+              <code>safekid_ai.tracker</code>: Associates person detections across consecutive frames using Kalman filtering and bipartite matching.
+            </div>
+            <div class="stage-status">
+              <span class="card-badge badge-implemented">IMPLEMENTED</span>
+            </div>
+          </div>
+
+          <div class="pipeline-stage">
+            <div class="stage-num-title">
+              <span class="stage-num">06</span>
+              <span class="stage-title">Pedestrian Crop Extraction</span>
+            </div>
+            <div class="stage-desc">
+              <code>safekid_ai.child_detection.crop_extractor</code>: Crops detected pedestrian bounding boxes, enforcing a 80px height quality gate.
+            </div>
+            <div class="stage-status">
+              <span class="card-badge badge-implemented">IMPLEMENTED</span>
+            </div>
+          </div>
+
+          <div class="pipeline-stage">
+            <div class="stage-num-title">
+              <span class="stage-num">07</span>
+              <span class="stage-title">Demographic Estimation</span>
+            </div>
+            <div class="stage-desc">
+              <code>ChildAdultClassifierNet</code>: Lightweight CNN classifying crops into CHILD, ADULT, or UNKNOWN; aggregates temporal track votes.
+            </div>
+            <div class="stage-status">
+              <span class="card-badge badge-baseline">TRAINED & VERIFIED</span>
+            </div>
+          </div>
+
+          <div class="pipeline-stage">
+            <div class="stage-num-title">
+              <span class="stage-num">08</span>
+              <span class="stage-title">Spatial Point-in-Polygon Engine</span>
+            </div>
+            <div class="stage-desc">
+              <code>safekid_ai.roi.engine</code>: Calculates bottom-center foot contact points and computes ray-casting intersections with hazard zones.
+            </div>
+            <div class="stage-status">
+              <span class="card-badge badge-implemented">IMPLEMENTED</span>
+            </div>
+          </div>
+
+          <div class="pipeline-stage">
+            <div class="stage-num-title">
+              <span class="stage-num">09</span>
+              <span class="stage-title">ChildSafetyEventEngine</span>
+            </div>
+            <div class="stage-desc">
+              <code>safekid_ai.child_safety</code> & <code>incidents</code>: State machine tracking dwell times, deduplicating alerts, and managing event lifecycle.
+            </div>
+            <div class="stage-status">
+              <span class="card-badge badge-implemented">IMPLEMENTED</span>
+            </div>
+          </div>
+
+          <div class="pipeline-stage">
+            <div class="stage-num-title">
+              <span class="stage-num">10</span>
+              <span class="stage-title">Alert & HUD Interface</span>
+            </div>
+            <div class="stage-desc">
+              <code>safekid_ai.visualization</code>: Renders HUD alert overlays, zone polygons, and dispatches structured event payloads for human verification.
+            </div>
+            <div class="stage-status">
+              <span class="card-badge badge-implemented">IMPLEMENTED</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 3: MODEL COMPARISON DASHBOARD          -->
+    <!-- ========================================== -->
+    <section id="model-comparison" class="tab-pane">
+      <div class="section-header">
+        <span class="section-tag">Empirical Detector Evaluation</span>
+        <h2 class="section-title">Model Comparison: YOLOv8n vs D-FINE-N</h2>
+        <p class="section-description">
+          Direct experimental comparison across 2,010 evaluated JAAD dashcam frames. Both models were evaluated using identical operating confidence thresholds ($\text{conf} \ge 0.25$) and standard global COCO evaluation protocol.
+        </p>
+      </div>
+
+      <!-- Trade-off Dual Column Summary -->
+      <div class="model-comparison-grid">
+        <div class="model-column column-yolo">
+          <div class="model-header">
+            <div class="model-name">
+              <span>YOLOv8n</span>
+              <span class="card-badge badge-baseline">Engineering Baseline</span>
+            </div>
+            <div class="model-tagline">Anchor-Free CNN Detector (Ultralytics, 3.16M params)</div>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">
+            Selected as the provisional engineering baseline for prototype pipeline integration due to its superior precision, minimal false alarm footprint, and real-time edge CPU performance.
+          </p>
+          <ul class="pro-con-list">
+            <li><span class="icon-pro">✓</span> <span><strong>High Operational Precision (87.80%):</strong> Produces only 853 false alarms across 2,010 frames (0.42 FP/frame), preventing operator alert fatigue.</span></li>
+            <li><span class="icon-pro">✓</span> <span><strong>Real-Time Edge CPU Throughput:</strong> Averages 106.43 ms per frame (9.40 FPS) on an Intel Core i3 CPU (2.72x faster than D-FINE-N).</span></li>
+            <li><span class="icon-pro">✓</span> <span><strong>Tighter Boundary Localization:</strong> Scores 0.7408 sequence-macro Mean IoU, minimizing bounding box jitter for foot-contact estimation.</span></li>
+            <li><span class="icon-con">✕</span> <span><strong>Lower Recall on Small Pedestrians:</strong> Detects only 3.27% of distant pedestrians (<32px height) and 46.64% of pedestrian instances overall.</span></li>
+          </ul>
+        </div>
+
+        <div class="model-column column-dfine">
+          <div class="model-header">
+            <div class="model-name">
+              <span>D-FINE-N</span>
+              <span class="card-badge badge-candidate">Research Candidate</span>
+            </div>
+            <div class="model-tagline">DETR-style Real-Time Transformer (4.45M params)</div>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">
+            Identified as a high-sensitivity research candidate demonstrating superior recall on distant and partially occluded pedestrians, currently blocked from deployment by background false alarms.
+          </p>
+          <ul class="pro-con-list">
+            <li><span class="icon-pro">✓</span> <span><strong>Superior Overall Recall (56.60%):</strong> Successfully captured +1,311 more pedestrian instances (+9.96% recall advantage, p = 0.0039).</span></li>
+            <li><span class="icon-pro">✓</span> <span><strong>High Small-Pedestrian Sensitivity:</strong> Captures 23.09% of pedestrians under 32px height (7.07x higher sensitivity than YOLOv8n).</span></li>
+            <li><span class="icon-con">✕</span> <span><strong>Severe False Positive Rate:</strong> Emits 10,410 false alarms (5.18 FP/frame, 41.71% precision), triggering massive alert fatigue in unadapted form.</span></li>
+            <li><span class="icon-con">✕</span> <span><strong>Heavy CPU Compute Burden:</strong> Averages 289.42 ms per frame (3.46 FPS), requiring aggressive keyframe skipping to run on edge hardware.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Authoritative Data Table -->
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Evaluated Metric</th>
+              <th>YOLOv8n (Baseline)</th>
+              <th>D-FINE-N (Candidate)</th>
+              <th>Difference / Advantage</th>
+              <th>Statistical Significance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Operational Precision</strong> ($\text{conf} \ge 0.25$)</td>
+              <td class="font-mono" style="color:var(--emerald-primary);">87.80% (6,138 / 6,991)</td>
+              <td class="font-mono">41.71% (7,449 / 17,859)</td>
+              <td style="color:var(--emerald-primary);">YOLOv8n +46.09% precision</td>
+              <td>Significant ($p = 0.0039$, $W=0.0$)</td>
+            </tr>
+            <tr>
+              <td><strong>Operational Recall</strong> ($\text{conf} \ge 0.25$)</td>
+              <td class="font-mono">46.64% (6,138 / 13,161)</td>
+              <td class="font-mono" style="color:var(--cyan-primary);">56.60% (7,449 / 13,161)</td>
+              <td style="color:var(--cyan-primary);">D-FINE-N +9.96% recall</td>
+              <td>Significant ($p = 0.0039$, $W=0.0$)</td>
+            </tr>
+            <tr>
+              <td><strong>Harmonic F1-Score</strong></td>
+              <td class="font-mono" style="color:var(--emerald-primary);">60.92%</td>
+              <td class="font-mono">48.03%</td>
+              <td style="color:var(--emerald-primary);">YOLOv8n +12.89% F1</td>
+              <td>Significant ($p = 0.0039$, $W=0.0$)</td>
+            </tr>
+            <tr>
+              <td><strong>AP@0.50</strong> (COCO 101-point ranking)</td>
+              <td class="font-mono">54.47%</td>
+              <td class="font-mono">53.02%</td>
+              <td>YOLOv8n +1.45% AP</td>
+              <td style="color:var(--text-muted);">Not Significant ($p = 0.1641$)</td>
+            </tr>
+            <tr>
+              <td><strong>AP@0.75</strong> (Strict Localization)</td>
+              <td class="font-mono" style="color:var(--emerald-primary);">17.81%</td>
+              <td class="font-mono">15.72%</td>
+              <td style="color:var(--emerald-primary);">YOLOv8n +2.09% AP75</td>
+              <td>Significant ($p = 0.0156$)</td>
+            </tr>
+            <tr>
+              <td><strong>mAP@[0.50:0.95]</strong> (Overall COCO mAP)</td>
+              <td class="font-mono" style="color:var(--emerald-primary);">24.97%</td>
+              <td class="font-mono">23.18%</td>
+              <td style="color:var(--emerald-primary);">YOLOv8n +1.79% mAP</td>
+              <td>Significant ($p = 0.0078$)</td>
+            </tr>
+            <tr>
+              <td><strong>Sequence-Macro Mean IoU</strong></td>
+              <td class="font-mono" style="color:var(--emerald-primary);">0.7408</td>
+              <td class="font-mono">0.7107</td>
+              <td style="color:var(--emerald-primary);">YOLOv8n +0.0301 higher IoU</td>
+              <td>Significant ($p = 0.0039$, $W=0.0$)</td>
+            </tr>
+            <tr>
+              <td><strong>False Positive Rate</strong> (Total False Alarms)</td>
+              <td class="font-mono" style="color:var(--emerald-primary);">0.42 FP/f (853 total)</td>
+              <td class="font-mono">5.18 FP/f (10,410 total)</td>
+              <td style="color:var(--emerald-primary);">YOLOv8n has 12.2x fewer FPs</td>
+              <td>Significant ($p = 0.0039$)</td>
+            </tr>
+            <tr>
+              <td><strong>Mean CPU Inference Latency</strong> (Intel i3)</td>
+              <td class="font-mono" style="color:var(--emerald-primary);">106.43 ms (9.40 FPS)</td>
+              <td class="font-mono">289.42 ms (3.46 FPS)</td>
+              <td style="color:var(--emerald-primary);">YOLOv8n is 2.72x faster</td>
+              <td>Significant ($p = 0.0039$, $W=0.0$)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Charts Row -->
+      <div class="grid-2">
+        <div class="chart-card">
+          <div class="chart-header">
+            <h4 class="card-title">Detection Accuracy & Ranking Metrics</h4>
+            <span class="card-badge badge-baseline">Global COCO AP</span>
+          </div>
+          <div class="chart-container-inner">
+            <canvas id="chart-accuracy-comparison" class="dashboard-chart"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-header">
+            <h4 class="card-title">Subgroup Sensitivity Comparison</h4>
+            <span class="card-badge badge-candidate">Recall Breakdown</span>
+          </div>
+          <div class="chart-container-inner">
+            <canvas id="chart-subgroup-bars" class="dashboard-chart"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 4: SMALL-PEDESTRIAN EVALUATION         -->
+    <!-- ========================================== -->
+    <section id="small-pedestrian" class="tab-pane">
+      <div class="section-header">
+        <span class="section-tag">Scale Robustness</span>
+        <h2 class="section-title">Small-Pedestrian Evaluation (&lt; 32px Height)</h2>
+        <p class="section-description">
+          Evaluation of detector sensitivity on small, distant pedestrian silhouettes in the JAAD dataset.
+        </p>
+      </div>
+
+      <div class="callout callout-warning">
+        <span>⚠️</span>
+        <div>
+          <strong>Evaluation Scope & Definition:</strong> Small pedestrians are defined using standard COCO area criteria as instances with bounding box area $&lt; 32^2$ pixels (or vertical height $&lt; 32\text{px}$ in 1080p video). These measurements were collected strictly on the evaluated JAAD automotive dashcam dataset and do <em>not</em> represent elevated residential CCTV performance.
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-bottom: 2rem;">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Small Pedestrian Recall Comparison</h3>
+            <span class="card-badge badge-candidate">Scale: &lt; 32px</span>
+          </div>
+          <div style="margin-bottom: 1.5rem;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+              <span><strong>D-FINE-N:</strong> 23.09% (106 / 459 detected)</span>
+              <span style="color:var(--cyan-primary); font-weight:700;">7.07x higher sensitivity</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span><strong>YOLOv8n:</strong> 3.27% (15 / 459 detected)</span>
+              <span style="color:var(--amber-primary);">Severe sensitivity drop</span>
+            </div>
+          </div>
+          <div class="chart-container-inner" style="height: 180px;">
+            <canvas id="chart-small-pedestrian" class="dashboard-chart"></canvas>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Technical Root Cause Analysis</h3>
+            <span class="card-badge badge-baseline">Architectural Trade-Off</span>
+          </div>
+          <p style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 0.75rem;">
+            Why does YOLOv8n miss 96.7% of small pedestrians while D-FINE-N captures nearly a quarter?
+          </p>
+          <ul class="pro-con-list">
+            <li><span class="icon-pro">✓</span> <span><strong>Fine-grained Distribution Focal Loss (D-FINE):</strong> D-FINE-N's weighting decoders maintain spatial coordinate probability distributions across sub-pixel bins, preserving small object signals that standard anchor-free CNN downsampling attenuates.</span></li>
+            <li><span class="icon-con">✕</span> <span><strong>CNN Stride Limitations (YOLOv8):</strong> With $P_3/P_4/P_5$ feature pyramids (downsampling strides of 8, 16, 32), an object under 24 pixels projects to fewer than $3 \times 3$ feature cells, leading to feature collapse.</span></li>
+            <li><span class="icon-con">✕</span> <span><strong>Trade-Off with Background Sensitivity:</strong> D-FINE-N's high sensitivity to small structures directly causes its high false alarm rate (10,410 FPs), as background foliage and textures trigger query decoders.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 5: CHILD-LABELLED EVALUATION           -->
+    <!-- ========================================== -->
+    <section id="child-evaluation" class="tab-pane">
+      <div class="section-header">
+        <span class="section-tag">Demographic Ground-Truth Recall</span>
+        <h2 class="section-title">Person Detection Recall on Child-Labelled JAAD Annotations</h2>
+        <p class="section-description">
+          Empirical recall measurements of generic person detectors on ground-truth bounding boxes carrying the <code>CHILD</code> attribute in JAAD video annotations.
+        </p>
+      </div>
+
+      <div class="callout callout-info">
+        <span>ℹ️</span>
+        <div>
+          <strong>Scientific Terminology & Scope Mandate:</strong>
+          These figures measure <em>generic person detector bounding-box recall</em> when evaluated against child-labelled ground-truth boxes in the JAAD dashcam dataset.
+          They do <strong>not</strong> represent child-classification accuracy, demographic identification accuracy, community child protection rates, or safety-event detection success in a residential community.
+        </div>
+      </div>
+
+      <div class="grid-3" style="margin-bottom: 2rem;">
+        <div class="metric-stat-box">
+          <div class="metric-label">Evaluated Child Boxes</div>
+          <div class="metric-value">1,936</div>
+          <div class="metric-sub">Across 15 active tracks in 9 JAAD sequences</div>
+        </div>
+        <div class="metric-stat-box">
+          <div class="metric-label">YOLOv8n Child Recall</div>
+          <div class="metric-value highlight-emerald">49.02%</div>
+          <div class="metric-sub">949 / 1,936 True Positives (All-GT matching)</div>
+        </div>
+        <div class="metric-stat-box">
+          <div class="metric-label">D-FINE-N Child Recall</div>
+          <div class="metric-value highlight-cyan">54.39%</div>
+          <div class="metric-sub">1,053 / 1,936 True Positives (+104 more children)</div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Child vs Adult Recall Comparison</h3>
+            <span class="card-badge badge-baseline">All-GT Greedy Matching</span>
+          </div>
+          <div class="chart-container-inner" style="height: 220px;">
+            <canvas id="chart-child-evaluation" class="dashboard-chart"></canvas>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Track Harmonization & Resolution Gate</h3>
+            <span class="card-badge badge-implemented">Audited Protocol</span>
+          </div>
+          <p style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 0.75rem;">
+            Provenance reconciliation from Prompt 38 audit:
+          </p>
+          <ul class="pro-con-list">
+            <li><span class="icon-pro">✓</span> <span><strong>16 Raw Child Tracks:</strong> Exactly 16 pedestrian tracks carry the <code>age="child"</code> XML attribute in JAAD demographic metadata.</span></li>
+            <li><span class="icon-pro">✓</span> <span><strong>15 Active Evaluated Tracks:</strong> Exactly 15 tracks meet SafeKid AI's $\ge 80\text{px}$ resolution quality gate, contributing 1,936 evaluated boxes.</span></li>
+            <li><span class="icon-pro">✓</span> <span><strong>1 Legitimate Resolution Abstention:</strong> Track <code>0_327_2583b</code> in <code>video_0327</code> had an average height of only $40.0\text{px}$ and was conservatively abstained to <code>UNKNOWN</code> per policy.</span></li>
+            <li><span class="icon-con">✕</span> <span><strong>Retraction of Isolated Matching:</strong> Earlier draft metrics of 1,008 and 1,185 child TPs were artifacts of matching against child boxes only; authoritative multi-instance matching yields 949 and 1,053 TPs.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 6: DATASETS & METHODOLOGY              -->
+    <!-- ========================================== -->
+    <section id="datasets" class="tab-pane">
+      <div class="section-header">
+        <span class="section-tag">Scientific Methodology</span>
+        <h2 class="section-title">Datasets & Evaluation Methodology</h2>
+        <p class="section-description">
+          Experimental benchmarks were conducted across two public pedestrian video datasets, each representing distinct viewing angles, frame rates, and lighting conditions.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">JAAD (Primary Pedestrian Benchmark)</h3>
+            <span class="card-badge badge-baseline">2,010 Evaluated Frames</span>
+          </div>
+          <ul class="pro-con-list" style="margin-bottom: 1rem;">
+            <li><span class="icon-pro">✓</span> <span><strong>Dataset Identity:</strong> Joint Attention in Autonomous Driving (JAAD) benchmark dataset.</span></li>
+            <li><span class="icon-pro">✓</span> <span><strong>Evaluated Volume:</strong> 9 sequences, 2,010 evaluated frames, 13,161 ground-truth annotations.</span></li>
+            <li><span class="icon-pro">✓</span> <span><strong>Demographic Diversity:</strong> 15 active child tracks (1,936 boxes), 31 adult tracks (4,735 boxes), and 6,490 unclassified pedestrian boxes.</span></li>
+            <li><span class="icon-con">✕</span> <span><strong>Domain Limitation:</strong> Forward-facing automotive dashcam video recorded at street level; does <em>not</em> represent elevated residential CCTV angles.</span></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">VIRAT (Supplementary Surveillance Sample)</h3>
+            <span class="card-badge badge-candidate">67 Evaluated Frames</span>
+          </div>
+          <ul class="pro-con-list" style="margin-bottom: 1rem;">
+            <li><span class="icon-pro">✓</span> <span><strong>Dataset Identity:</strong> Video Image Retrieval and Analysis Tool (VIRAT) surveillance fixture.</span></li>
+            <li><span class="icon-pro">✓</span> <span><strong>Evaluated Volume:</strong> 67 frames, 134 ground-truth annotations across 2 adult pedestrian tracks.</span></li>
+            <li><span class="icon-pro">✓</span> <span><strong>Viewing Perspective:</strong> Elevated CCTV camera mounted at ~30° downward angle overlooking parking area.</span></li>
+            <li><span class="icon-con">✕</span> <span><strong>Domain Limitation:</strong> Very small supplementary exploratory sample (0 child pedestrians); not sufficient for broad residential CCTV validation.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Metric Definitions Reference -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Evaluation Metric Definitions & Interpretations</h3>
+          <span class="card-badge badge-implemented">Reference Standards</span>
+        </div>
+        <div class="table-container" style="border:none; margin-bottom:0;">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>Mathematical Formula</th>
+                <th>Operational Interpretation in Residential Child Safety</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>True Positive (TP)</strong></td>
+                <td>$\text{Predicted box matching GT with IoU} \ge 0.50$</td>
+                <td>A person is correctly detected in the camera frame.</td>
+              </tr>
+              <tr>
+                <td><strong>False Positive (FP)</strong></td>
+                <td>$\text{Predicted box with no matching GT}$</td>
+                <td>False alarm (phantom box). Drives operator alert fatigue.</td>
+              </tr>
+              <tr>
+                <td><strong>False Negative (FN)</strong></td>
+                <td>$\text{Ground-truth person missed by detector}$</td>
+                <td>Missed detection. In a hazardous zone, a child is undetected.</td>
+              </tr>
+              <tr>
+                <td><strong>Precision</strong></td>
+                <td>$\frac{\text{TP}}{\text{TP} + \text{FP}}$</td>
+                <td>Fraction of alarms that correspond to real people. (YOLO: 87.80%, D-FINE: 41.71%).</td>
+              </tr>
+              <tr>
+                <td><strong>Recall</strong></td>
+                <td>$\frac{\text{TP}}{\text{TP} + \text{FN}}$</td>
+                <td>Fraction of all actual people detected. (YOLO: 46.64%, D-FINE: 56.60%).</td>
+              </tr>
+              <tr>
+                <td><strong>F1-Score</strong></td>
+                <td>$2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}$</td>
+                <td>Harmonic mean balancing false alarms against missed detections.</td>
+              </tr>
+              <tr>
+                <td><strong>AP@0.50</strong></td>
+                <td>$\int_0^1 P(r) \, dr \text{ at IoU} \ge 0.50$</td>
+                <td>Area under precision-recall curve across all confidence ranks.</td>
+              </tr>
+              <tr>
+                <td><strong>Intersection over Union</strong></td>
+                <td>$\frac{\text{Area}(B_p \cap B_g)}{\text{Area}(B_p \cup B_g)}$</td>
+                <td>Box overlap tightness; critical for foot-contact ground projection.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 7: HARDWARE BENCHMARK                  -->
+    <!-- ========================================== -->
+    <section id="hardware" class="tab-pane">
+      <div class="section-header">
+        <span class="section-tag">Edge Hardware Profiling</span>
+        <h2 class="section-title">Hardware Profile & Measured Latency</h2>
+        <p class="section-description">
+          Execution latency and memory profiling measured on actual edge computing hardware available for the SafeKid AI prototype.
+        </p>
+      </div>
+
+        <div class="hero-disclaimer-box">
+          <span style="font-size: 1.25rem;">⚠️</span>
+          <div>
+            <strong>Timing Boundary Specification:</strong> These are detector inference measurements, not end-to-end system throughput. Measured around the forward-pass execution loop using <code>time.perf_counter()</code>. They do <em>not</em> represent full pipeline throughput (which includes video decoding, tracking, ROI geometric calculations, and visual rendering). Do not interpret 9.40 FPS as certified 30 FPS real-time residential monitoring.
+          </div>
+        </div>
+
+      <div class="grid-4" style="margin-bottom: 2rem;">
+        <div class="metric-stat-box">
+          <div class="metric-label">Processor (CPU)</div>
+          <div class="metric-value" style="font-size:1.25rem;">Intel i3-1215U</div>
+          <div class="metric-sub">6 Cores / 8 Threads, 4 PyTorch Threads</div>
+        </div>
+        <div class="metric-stat-box">
+          <div class="metric-label">System Memory</div>
+          <div class="metric-value" style="font-size:1.25rem;">7.68 GB RAM</div>
+          <div class="metric-sub">Peak Process RSS: ~140 MB (YOLO)</div>
+        </div>
+        <div class="metric-stat-box">
+          <div class="metric-label">YOLOv8n Latency</div>
+          <div class="metric-value highlight-emerald">106.43 ms</div>
+          <div class="metric-sub">9.40 FPS native frame throughput</div>
+        </div>
+        <div class="metric-stat-box">
+          <div class="metric-label">D-FINE-N Latency</div>
+          <div class="metric-value highlight-amber">289.42 ms</div>
+          <div class="metric-sub">3.46 FPS (requires 71.6% keyframe skip)</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Inference Latency Percentiles (2,010 Timing Observations per Model)</h3>
+          <span class="card-badge badge-baseline">Lower is Better</span>
+        </div>
+        <div class="chart-container-inner" style="height: 280px;">
+          <canvas id="chart-latency-percentiles" class="dashboard-chart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 8: IMPLEMENTATION MATRIX               -->
+    <!-- ========================================== -->
+    <section id="implementation" class="tab-pane">
+      <div class="section-header">
+        <span class="section-tag">Codebase Verification</span>
+        <h2 class="section-title">Project Implementation Status Matrix</h2>
+        <p class="section-description">
+          Verified status of all modules, detectors, and tooling in the SafeKid AI repository (256/256 automated tests passing).
+        </p>
+      </div>
+
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Module / Component</th>
+              <th>Status</th>
+              <th>Automated Test Coverage</th>
+              <th>Experimental Evaluation Evidence</th>
+            </tr>
+          </thead>
+          <tbody id="implementation-tbody">
+            <!-- Dynamically populated from data/implementation_matrix.json -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 9: ETHICS, PRIVACY & LIMITATIONS       -->
+    <!-- ========================================== -->
+    <section id="ethics" class="tab-pane">
+      <div class="section-header">
+        <span class="section-tag">Governance & Compliance</span>
+        <h2 class="section-title">Ethics, Privacy & Deployment Limitations</h2>
+        <p class="section-description">
+          Responsible AI principles, privacy safeguards, and architectural constraints governing SafeKid AI.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Privacy by Design Safeguards</h3>
+            <span class="card-badge badge-baseline">Core Principles</span>
+          </div>
+          <ul class="pro-con-list">
+            <li><span class="icon-pro">✓</span> <span><strong>No Facial Recognition:</strong> SafeKid AI does not incorporate facial recognition, biometric face embedding, or identity matching. Silhouettes and pedestrian crops are processed purely for bounding-box tracking and coarse age-bracket estimation.</span></li>
+            <li><span class="icon-pro">✓</span> <span><strong>No Exact Age Prediction:</strong> The system classifies crops into broad categories (CHILD, ADULT, UNKNOWN) and does not attempt continuous age regression (e.g. "7 years old").</span></li>
+            <li><span class="icon-pro">✓</span> <span><strong>Mandatory UNKNOWN State:</strong> Whenever low resolution, heavy occlusion, or ambiguous geometry exists, the classifier defaults to <code>UNKNOWN</code> rather than guessing.</span></li>
+            <li><span class="icon-pro">✓</span> <span><strong>Human-in-the-Loop Verification:</strong> Consequential safety alerts require human security confirmation before triggering physical alarms or community notifications.</span></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Deployment Prerequisites & Limitations</h3>
+            <span class="card-badge badge-warning">Pre-Deployment Requirements</span>
+          </div>
+          <ul class="pro-con-list">
+            <li><span class="icon-con">✕</span> <span><strong>Not Validated in Live Residential CCTV:</strong> Evaluated on automotive dashcam and 67-frame surveillance fixtures. A live residential community pilot has not yet been executed.</span></li>
+            <li><span class="icon-con">✕</span> <span><strong>Community Consent Required:</strong> Prior to any physical pilot installation, explicit residential community authorization, privacy disclosures, and tenant consent must be secured.</span></li>
+            <li><span class="icon-con">✕</span> <span><strong>Strict Data Retention Policies:</strong> Video streams must be processed ephemerally in edge device memory, retaining only anonymized incident event logs.</span></li>
+            <li><span class="icon-con">✕</span> <span><strong>No Life-Safety Certification:</strong> SafeKid AI is not certified as a medical device, life-safety system, or autonomous emergency dispatch system.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 10: INTERACTIVE VISUAL GALLERY         -->
+    <!-- ========================================== -->
+    <section id="demo" class="tab-pane">
+      <div class="section-header">
+        <span class="section-tag">Visual Error Analysis Gallery</span>
+        <h2 class="section-title">Side-by-Side Visual Inspection Gallery</h2>
+        <p class="section-description">
+          Inspect genuine qualitative comparison plates from the Prompt 36 evaluation. Click any plate to open the detailed diagnostic comparison showing Ground Truth annotations, YOLOv8n detections, and D-FINE-N detections.
+        </p>
+      </div>
+
+      <div class="gallery-grid" id="gallery-items">
+        <!-- Dynamically rendered from app.js -->
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAB 11: FUTURE WORK ROADMAP                -->
+    <!-- ========================================== -->
+    <section id="future" class="tab-pane">
+      <div class="section-header">
+        <span class="section-tag">Engineering Roadmap</span>
+        <h2 class="section-title">Planned Future Work & Research Milestones</h2>
+        <p class="section-description">
+          Concrete next steps required before SafeKid AI can advance from an experimental prototype to a pilot-ready community solution.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">1. Consented CCTV Pilot</h3>
+            <span class="card-badge badge-planned">Phase 1</span>
+          </div>
+          <p style="color:var(--text-secondary); font-size:0.875rem;">
+            Partner with a gated residential community under formal ethical oversight to collect and annotate overhead CCTV footage from pool gates, playgrounds, and driveways.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">2. D-FINE-N Domain Adaptation</h3>
+            <span class="card-badge badge-planned">Phase 2</span>
+          </div>
+          <p style="color:var(--text-secondary); font-size:0.875rem;">
+            Fine-tune D-FINE-N on overhead surveillance video with background negative mining to suppress its 5.18 FP/frame while preserving its 23.09% small-pedestrian recall.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">3. End-to-End Latency Profiling</h3>
+            <span class="card-badge badge-planned">Phase 3</span>
+          </div>
+          <p style="color:var(--text-secondary); font-size:0.875rem;">
+            Profile end-to-end wall-clock latency (frame decode + detection + ByteTrack + ROI calculation + alert dispatch) across multi-camera edge nodes (e.g. Intel N100 / Jetson Orin).
+          </p>
+        </div>
+      </div>
+
+      <!-- Live Evidence Registry Card Inspector -->
+      <div class="section-header" style="margin-top: 3rem;">
+        <span class="section-tag">Audit Traceability</span>
+        <h3 class="section-title">Authoritative Evidence Registry Inspector</h3>
+        <p class="section-description">
+          Click any verified metric below to inspect its exact calculation formula, source prediction file, evaluation script, and scientific limitations.
+        </p>
+      </div>
+
+      <div id="registry-metric-list">
+        <!-- Dynamically populated from evidence_registry.json -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Visual Plate Modal Viewer -->
+  <div id="plate-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); backdrop-filter:blur(8px); z-index:200; align-items:center; justify-content:center; padding:1.5rem;" onclick="closePlateModal()">
+    <div style="background:var(--bg-card); border:1px solid var(--border-color); border-radius:var(--radius-lg); max-width:1100px; width:100%; max-height:90vh; overflow-y:auto; padding:2rem; position:relative;" onclick="event.stopPropagation()">
+      <button onclick="closePlateModal()" style="position:absolute; top:1.25rem; right:1.25rem; background:transparent; border:none; color:#fff; font-size:1.5rem; cursor:pointer;">✕</button>
+      <h3 id="modal-title" style="font-size:1.35rem; color:#fff; margin-bottom:0.25rem;">Plate Inspection</h3>
+      <div id="modal-meta" style="font-size:0.8rem; color:var(--text-muted); font-family:var(--font-mono); margin-bottom:1.25rem;">Metadata</div>
+      <div style="width:100%; background:#000; border-radius:var(--radius-sm); overflow:hidden; margin-bottom:1.25rem;">
+        <img id="modal-img" src="" alt="Comparison Plate" style="width:100%; height:auto; display:block;">
+      </div>
+      <p id="modal-desc" style="color:var(--text-secondary); font-size:0.95rem; line-height:1.6;"></p>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div>
+        <strong style="color: #fff;">SafeKid AI</strong> — Pedestrian Monitoring & Child Safety Research for Gated Communities
+        <div style="margin-top: 0.25rem;">Built with modern standards. Fully grounded in verified experimental artifacts.</div>
+      </div>
+      <div class="footer-links">
+        <a href="#home">Overview</a>
+        <a href="#model-comparison">Model Benchmarks</a>
+        <a href="#datasets">Methodology</a>
+        <a href="#implementation">Implementation</a>
+        <a href="#ethics">Ethics & Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/charts.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/control_room.js"></script>
+</body>
+</html>

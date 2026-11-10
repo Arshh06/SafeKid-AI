@@ -173,6 +173,32 @@ class RTDETRv2DetectorAdapter(BasePersonDetector):
             raise ValueError("Input frame is empty or None.")
 
         h, w = frame.shape[:2]
+        interval = getattr(self.config, "frame_interval", 1) or getattr(self.tracker_config, "frame_interval", 1) or 1
+        max_staleness = getattr(self.tracker_config, "max_track_staleness", 5)
+
+        # Keyframe sampling: skip detection forward pass on intermediate frames
+        if interval > 1 and (frame_id % interval) != 0:
+            extrapolated_boxes: List[DetectionBox] = []
+            to_delete: List[int] = []
+            for tid, tracked in list(self.tracker.active_tracks.items()):
+                if tracked.stale_frames + 1 > max_staleness:
+                    to_delete.append(tid)
+                    continue
+                pred_box = tracked.extrapolate(
+                    frame_id=frame_id,
+                    frame_size=(w, h),
+                    max_history=getattr(self.tracker_config, "track_history_length", 60),
+                )
+                extrapolated_boxes.append(pred_box)
+            for tid in to_delete:
+                del self.tracker.active_tracks[tid]
+            return FrameDetections(
+                frame_id=frame_id,
+                timestamp_ms=timestamp_ms,
+                detections=extrapolated_boxes,
+                raw_results=None,
+            )
+
         conf = confidence_thresh if confidence_thresh is not None else getattr(self.tracker_config, "confidence_threshold", 0.35)
         iou = iou_thresh if iou_thresh is not None else 0.45
         imgsz = getattr(self.tracker_config, "imgsz", 640)

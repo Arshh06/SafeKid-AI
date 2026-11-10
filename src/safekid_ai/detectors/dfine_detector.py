@@ -89,6 +89,14 @@ class DFINEDetectorAdapter(BasePersonDetector):
         self._size_mb = 0.0
         self.byte_tracker = None
 
+        # Threading optimization for CPU
+        num_threads = getattr(self.config, "num_threads", None) or 4
+        try:
+            torch.set_num_threads(num_threads)
+            cv2.setNumThreads(num_threads)
+        except Exception:
+            pass
+
         self._load_model()
         self._init_tracker()
 
@@ -219,7 +227,7 @@ class DFINEDetectorAdapter(BasePersonDetector):
         ).to(self.device)
         orig_size = torch.tensor([[w, h]], dtype=torch.float32).to(self.device)
 
-        with torch.no_grad():
+        with torch.inference_mode():
             labels, boxes, scores = self.model(im_tensor, orig_size)
 
         l_np = labels[0].cpu().numpy().astype(int)
@@ -284,6 +292,32 @@ class DFINEDetectorAdapter(BasePersonDetector):
         if frame is None or frame.size == 0:
             raise ValueError("Input frame is empty or None.")
 
+        h, w = frame.shape[:2]
+        interval = getattr(self.config, "frame_interval", 1) or getattr(self.tracker_config, "frame_interval", 1) or 1
+        max_staleness = getattr(self.tracker_config, "max_track_staleness", 5)
+
+        # Keyframe sampling: skip detection forward pass on intermediate frames
+        if interval > 1 and (frame_id % interval) != 0:
+            extrapolated_boxes: List[DetectionBox] = []
+            to_delete: List[int] = []
+            for tid, tracked in list(self.active_tracks.items()):
+                if tracked.stale_frames + 1 > max_staleness:
+                    to_delete.append(tid)
+                    continue
+                pred_box = tracked.extrapolate(
+                    frame_id=frame_id,
+                    frame_size=(w, h),
+                    max_history=getattr(self.tracker_config, "track_history_length", 60),
+                )
+                extrapolated_boxes.append(pred_box)
+            for tid in to_delete:
+                del self.active_tracks[tid]
+            return FrameDetections(
+                frame_id=frame_id,
+                timestamp_ms=timestamp_ms,
+                detections=extrapolated_boxes,
+            )
+
         # 1. Run detection forward pass with low association threshold to feed ByteTrack's 2-stage association
         raw_det = self.detect(
             frame=frame,
@@ -294,10 +328,20 @@ class DFINEDetectorAdapter(BasePersonDetector):
         )
 
         if not raw_det.detections:
+            # Handle existing tracks on keyframes with 0 detections
+            to_delete = []
+            stale_boxes = []
+            for tid, tracked in list(self.active_tracks.items()):
+                if tracked.stale_frames + 1 > max_staleness:
+                    to_delete.append(tid)
+                else:
+                    stale_boxes.append(tracked.extrapolate(frame_id=frame_id, frame_size=(w, h)))
+            for tid in to_delete:
+                del self.active_tracks[tid]
             return FrameDetections(
                 frame_id=frame_id,
                 timestamp_ms=timestamp_ms,
-                detections=[],
+                detections=stale_boxes,
             )
 
         # 2. Package detections for BYTETracker

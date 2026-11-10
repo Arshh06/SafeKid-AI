@@ -1,5 +1,10 @@
 """VIRAT dataset integration and benchmarking package for SafeKid AI."""
 
+from safekid_ai.datasets.jaad_parser import (
+    JAADAnnotationParser,
+    JAADBoundingBox,
+    JAADValidationReport,
+)
 from safekid_ai.datasets.virat_annotations import (
     VIRATAnnotationParser,
     VIRATEvent,
@@ -25,6 +30,9 @@ from safekid_ai.datasets.virat_validator import (
 )
 
 __all__ = [
+    "JAADAnnotationParser",
+    "JAADBoundingBox",
+    "JAADValidationReport",
     "VIRATObjectType",
     "VIRATObjectDetection",
     "VIRATEvent",

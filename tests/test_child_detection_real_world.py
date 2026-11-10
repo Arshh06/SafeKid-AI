@@ -67,6 +67,48 @@ class TestDatasetProvenanceAndIngestion:
         fix_entry = data["reference_benchmark_fixtures"][0]
         assert fix_entry["status"] == "LOCAL_FIXTURE_GENERATED"
 
+    def test_prompt_26_dataset_acquisition_manifest(self):
+        """Verifies Prompt 26 acquisition manifest schema, dataset entries, and explicit status enums."""
+        manifest_p = Path("outputs/prompt_26_dataset_acquisition_manifest.json")
+        assert manifest_p.exists(), "Prompt 26 acquisition manifest missing"
+        with open(manifest_p, "r", encoding="utf-8") as f:
+            manifest = json.load(f)
+
+        assert "metadata" in manifest
+        assert "datasets" in manifest
+        valid_statuses = {
+            "AVAILABLE",
+            "REQUIRES_REGISTRATION",
+            "REQUIRES_AGREEMENT",
+            "ACCESS_BLOCKED",
+            "NOT_FOUND",
+            "NOT_COMPATIBLE",
+            "ACQUIRED_AND_VERIFIED",
+        }
+        dataset_names = [d["dataset_name"] for d in manifest["datasets"]]
+        assert any("JAAD" in n for n in dataset_names)
+        assert any("RAP" in n for n in dataset_names)
+        assert any("PETA" in n for n in dataset_names)
+        assert any("CrowdHuman" in n for n in dataset_names)
+
+        for d in manifest["datasets"]:
+            assert d["access_status"] in valid_statuses
+            assert "official_source_url" in d
+            assert "license_status" in d
+            assert "restrictions" in d
+
+    def test_prompt_26_compatibility_matrix(self):
+        """Verifies Prompt 26 compatibility matrix CSV exists and contains valid columns."""
+        matrix_p = Path("outputs/prompt_26_dataset_compatibility_matrix.csv")
+        assert matrix_p.exists(), "Prompt 26 compatibility matrix CSV missing"
+        with open(matrix_p, "r", encoding="utf-8") as f:
+            lines = f.readlines()
+        assert len(lines) >= 8, "Expected at least 8 evaluated dataset rows"
+        header = lines[0]
+        assert "Dataset" in header
+        assert "Real_World_Relevance" in header
+        assert "Project_Classification" in header
+
     def test_perceptual_hash_and_duplicate_detection(self, tmp_path):
         """Tests perceptual hashing (dHash) and deduplication logic."""
         img1 = np.full((100, 40, 3), 120, dtype=np.uint8)

@@ -22,6 +22,8 @@ class DetectionBox:
     class_id: int = 0
     class_name: str = "person"
     track_id: Optional[int] = None
+    is_predicted: bool = False
+    stale_frames: int = 0
 
     @property
     def x1(self) -> float:
@@ -92,6 +94,13 @@ class PersonDetector:
     def _load_model(self) -> None:
         """Initializes and loads the YOLO model from checkpoint."""
         model_path = self.config.model_name_or_path
+        if not Path(model_path).exists():
+            alt_name = Path(model_path).name
+            if Path(alt_name).exists():
+                model_path = alt_name
+            elif (Path("models") / alt_name).exists():
+                model_path = str(Path("models") / alt_name)
+
         logger.info(f"Loading pretrained YOLO person detector from '{model_path}' on device '{self.config.device}'...")
         
         # Configure optimal CPU thread allocation for hybrid P/E-core CPUs (Intel i3)

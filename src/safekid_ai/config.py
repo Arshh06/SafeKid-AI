@@ -45,6 +45,7 @@ class DetectorConfig:
     imgsz: int = 640
     fuse_model: bool = True
     num_threads: Optional[int] = 4
+    frame_interval: int = 1  # 1 = detect every frame; 2, 3, 5 = skip intermediate frames
     min_box_area: float = 0.0
     max_box_area: Optional[float] = None
     enable_tiling: bool = False
@@ -66,6 +67,9 @@ class TrackerConfig:
     new_track_thresh: float = 0.35
     track_buffer: int = 60
     match_thresh: float = 0.75
+    frame_interval: int = 1  # Keyframe sampling interval
+    max_track_staleness: int = 5  # Max consecutive frames a track may be extrapolated
+    enable_velocity_extrapolation: bool = True  # Extrapolate track boxes on skipped frames
 
 
 @dataclass
@@ -98,6 +102,7 @@ class SafeKidPipelineConfig:
     video: VideoInputConfig = field(default_factory=VideoInputConfig)
     detector: DetectorConfig = field(default_factory=DetectorConfig)
     tracker: TrackerConfig = field(default_factory=TrackerConfig)
+    frame_interval: Optional[int] = None  # Unified keyframe sampling interval override
     age_estimator: AgeEstimatorConfig = field(default_factory=AgeEstimatorConfig)
     roi_config_path: Optional[str] = None
     output_dir: Path = field(default_factory=lambda: Path("runs/safekid"))

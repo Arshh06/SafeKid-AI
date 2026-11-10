@@ -23,14 +23,53 @@ class TrackedPerson:
     first_seen_frame: int = 0
     last_seen_frame: int = 0
     time_in_zone_seconds: float = 0.0
+    stale_frames: int = 0
+    is_predicted: bool = False
 
     def update(self, box: DetectionBox, frame_id: int, max_history: int = 60) -> None:
         """Updates the track with a new detection box."""
         self.current_box = box
         self.last_seen_frame = frame_id
+        self.stale_frames = 0
+        self.is_predicted = False
         self.history_centroids.append(box.center)
         while len(self.history_centroids) > max_history:
             self.history_centroids.popleft()
+
+    def extrapolate(
+        self,
+        frame_id: int,
+        frame_size: Tuple[int, int] = (640, 640),
+        max_history: int = 60,
+    ) -> DetectionBox:
+        """Extrapolates current bounding box along estimated velocity on skipped detector frames."""
+        dx, dy = self.velocity_vector
+        w_frame, h_frame = frame_size
+        x1, y1, x2, y2 = self.current_box.bbox_xyxy
+
+        nx1 = float(max(0.0, min(float(w_frame - 1), x1 + dx)))
+        ny1 = float(max(0.0, min(float(h_frame - 1), y1 + dy)))
+        nx2 = float(max(nx1 + 1.0, min(float(w_frame), x2 + dx)))
+        ny2 = float(max(ny1 + 1.0, min(float(h_frame), y2 + dy)))
+
+        self.stale_frames += 1
+        self.is_predicted = True
+        self.last_seen_frame = frame_id
+
+        pred_box = DetectionBox(
+            bbox_xyxy=(nx1, ny1, nx2, ny2),
+            confidence=self.current_box.confidence,
+            class_id=self.current_box.class_id,
+            class_name=self.current_box.class_name,
+            track_id=self.track_id,
+            is_predicted=True,
+            stale_frames=self.stale_frames,
+        )
+        self.current_box = pred_box
+        self.history_centroids.append(pred_box.center)
+        while len(self.history_centroids) > max_history:
+            self.history_centroids.popleft()
+        return pred_box
 
     @property
     def velocity_vector(self) -> Tuple[float, float]:
@@ -89,8 +128,40 @@ class PersonTracker:
         if frame is None or frame.size == 0:
             raise ValueError("Input frame is empty or None.")
 
+        h, w = frame.shape[:2]
+        interval = getattr(self.config, "frame_interval", 1) or 1
+        max_staleness = getattr(self.config, "max_track_staleness", 5)
+
+        # Keyframe sampling: skip detection forward pass on intermediate frames
+        if interval > 1 and (frame_id % interval) != 0:
+            extrapolated_boxes: List[DetectionBox] = []
+            to_delete: List[int] = []
+            for tid, tracked in list(self.active_tracks.items()):
+                if tracked.stale_frames + 1 > max_staleness:
+                    to_delete.append(tid)
+                    continue
+                pred_box = tracked.extrapolate(
+                    frame_id=frame_id,
+                    frame_size=(w, h),
+                    max_history=self.config.track_history_length,
+                )
+                extrapolated_boxes.append(pred_box)
+            for tid in to_delete:
+                del self.active_tracks[tid]
+            return FrameDetections(
+                frame_id=frame_id,
+                timestamp_ms=timestamp_ms,
+                detections=extrapolated_boxes,
+                raw_results=None,
+            )
+
         conf = confidence_thresh if confidence_thresh is not None else getattr(self.config, "confidence_threshold", 0.35)
         iou = iou_thresh if iou_thresh is not None else 0.45
+
+        # If predictor.trackers was set to None by reset(), remove attribute so Ultralytics re-inits cleanly
+        if hasattr(self.yolo, "predictor") and self.yolo.predictor is not None:
+            if hasattr(self.yolo.predictor, "trackers") and self.yolo.predictor.trackers is None:
+                delattr(self.yolo.predictor, "trackers")
 
         # COCO class 0 is 'person'
         imgsz = getattr(self.config, "imgsz", 640)
